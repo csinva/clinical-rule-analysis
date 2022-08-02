@@ -1,0 +1,31 @@
+\usepackage[margin=0.9in, bottom=0.9in, top=0.9in]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+
+% colors
+\usepackage[dvipsnames]{xcolor}
+\usepackage[citecolor=CadetBlue, linkcolor=CadetBlue, colorlinks=true, urlcolor=CadetBlue]{hyperref}
+\definecolor{mygray}{gray}{0.5}
+\definecolor{cblue}{RGB}{8, 85, 153}
+\definecolor{darkblue}{RGB}{1, 43, 112}
+\newcommand{\cblue}[1]{{\textcolor{cblue}{#1}}}
+\definecolor{cgreen}{RGB}{8, 153, 83}
+
+\usepackage{titling}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\setlength{\droptitle}{-40pt}
+
+\usepackage[fencedCode,inlineFootnotes,citations,definitionLists,hashEnumerators,smartEllipses,hybrid,underscores=false]{markdown} % for markdown
+\usepackage{placeins} %FloatBarrier
+
+\usepackage[hyperpageref]{backref}
+% \renewcommand*{\backref}[1]{\ifx#1\relax \else Page #1 \fi}
+\renewcommand*{\backrefalt}[4]{%
+    \ifcase #1 \footnotesize{(Not cited.)}%
+    \or        \footnotesize{(Cited on page~#2.)}%
+    \else      \footnotesize{(Cited on pages~#2.)}%
+    \fi}
+    
+\newcommand{\cs}[1]{{\textcolor{cblue}{CS: #1}}}
+\usepackage{changepage}
