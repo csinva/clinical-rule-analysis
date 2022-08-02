@@ -34,7 +34,7 @@ def rename_feature_name(feature_name: str):
     return feature_name
 
 
-def clean_feature_names_list(all_feature_names: list):
+def get_clean_unique_feature_names_from_list(all_feature_names: list):
     """Returns list of unique feature names after cleaning
     """
     ans = []
