@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
+\input{latex/preamble}
 
-\title{MDCalc Analysis}
+\title{MDCalc Analysis Figures}
 \author{}
 \date{August 2022}
 
@@ -9,6 +10,48 @@
 
 \maketitle
 
-\section{Introduction}
+Everything here is still rough and potentially needs cleaning before it is fully accurate...
+
+\section{Metadata on CDIs}
+
+Here is some human-labeled metadata on the categorization of different CDIs and their uses. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../results/disease_en.pdf}
+    \includegraphics[width=0.49\textwidth]{../results/chief_complaint_en.pdf}
+    \caption{Disease and chief complaint.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../results/purpose_en.pdf}
+    \caption{Caption}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../results/system_en.pdf}
+    \includegraphics[width=0.49\textwidth]{../results/specialty_en.pdf}
+    \caption{System and specialty.}
+\end{figure}
+
+\section{Analysis of CDI learned features}
+
+Here is analysis on the resulting CDIs...
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../results/num_rules_hist.pdf}
+    \caption{Number of splits in each CDI.}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{../results/common_features.pdf}
+    \caption{Common features. Age is the most common by far.}
+\end{figure}
+
+
 
 \end{document}
