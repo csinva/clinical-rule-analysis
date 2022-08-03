@@ -7,5 +7,6 @@ path_to_current_file = os.path.dirname(os.path.abspath(__file__))
 
 
 def savefig(fname):
-    plt.savefig(oj(path_to_current_file, '..', 'results', fname + '.png'), dpi=300)
-    plt.savefig(oj(path_to_current_file, '..', 'results', fname + '.pdf'))
+    plt.tight_layout()
+    plt.savefig(oj(path_to_current_file, '..', 'results', fname + '.png'), dpi=300, bbox_inches="tight")
+    plt.savefig(oj(path_to_current_file, '..', 'results', fname + '.pdf'), bbox_inches="tight")
