@@ -44,7 +44,8 @@ Here is analysis on the resulting CDIs...
     \centering
     \includegraphics[width=0.49\textwidth]{../results/num_rules_hist.pdf}
     \includegraphics[width=0.49\textwidth]{../results/num_rules_cdf.pdf}
-    \caption{Number of splits in each CDI.}
+    \caption{Number of splits / unique features in each CDI.
+    The number of unique features is always less than the number of splits (since it is possible to split on the same feature multiple times).}
 \end{figure}
 
 \begin{figure}[H]
@@ -53,6 +54,16 @@ Here is analysis on the resulting CDIs...
     \caption{Common features. Age is the most common by far.}
 \end{figure}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.49\textwidth]{../results/scoring_cdi_boxplot.pdf}
+    \includegraphics[width=0.49\textwidth]{../results/scoring_cdi_counts.pdf}
+    \caption{Estimating the importance of different top features.
+    Only look at a subset of CDIs which assign ``points'' given each feature (288 of the 644 CDIs).
+    Compute what fraction of the maximum possible ``points`` come from a given feature.
+    The closer this fraction is to 1, the more important a feature is for a particular CDI.
+    }
+\end{figure}
 
 
 \end{document}
