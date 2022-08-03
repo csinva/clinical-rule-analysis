@@ -9,6 +9,8 @@ def clean_feature_name(feature_name: str):
 
 def rename_feature_name(feature_name: str):
     # remove units from a feature
+    feature_name = feature_name.replace('"', '')
+    feature_name = feature_name.strip()
     feature_name = feature_name.replace(', mmHg', '')
 
     # if word starts with keyword_prefix, rename it to the prefix
@@ -19,6 +21,12 @@ def rename_feature_name(feature_name: str):
                         'Respiratory rate', 'Scalp hematoma', 'Sex', 'Systolic BP', 'WBC', 'White blood']
     for keyword in keyword_prefixes:
         if feature_name.startswith(keyword):
+            feature_name = keyword
+
+    # if word ends with keyword_suffix, rename it to the suffix
+    keyword_suffixes = ['saline']
+    for keyword in keyword_suffixes:
+        if feature_name.endswith(keyword):
             feature_name = keyword
 
     # if word contains the keyword_contain, rename it to keyword_contain
@@ -39,12 +47,11 @@ def rename_feature_name(feature_name: str):
     return feature_name
 
 
-def get_clean_unique_feature_names_from_list(all_feature_names: list):
+def get_renamed_unique_feature_names_from_list(all_feature_names: list):
     """Returns list of unique feature names after cleaning
     """
     ans = []
     for feature_name in all_feature_names:
-        # feature_name = clean_feature_name(feature_name)
         feature_name = rename_feature_name(feature_name)
         ans.append(feature_name)
     return list(set(ans))
