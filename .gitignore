@@ -6,3 +6,5 @@
 **.pyc
 data/pages
 **.code-workspace
+papers/*.pdf
+papers/*.txt
