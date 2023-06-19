@@ -3,6 +3,13 @@ import numpy as np
 
 CLEANR = re.compile("<.*?>")
 
+def try_or_none(func):
+    def wrapper(*args):
+        try:
+            return func(*args)
+        except:
+            return None
+    return wrapper
 
 def clean_list_valued_strings(df):
     LIST_VALUED_COLS = [
