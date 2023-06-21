@@ -22,10 +22,10 @@ import numpy as np
 import pubmed
 import openai
 from clean import try_or_none
-plt.style.use('default')
+
+plt.style.use("default")
 dvu.set_style()
 
-df = pd.read_csv('../data/main_updated.csv')
 
 @try_or_none
 def parse_name(name: str):
@@ -56,6 +56,7 @@ def parse_name(name: str):
     # return name
     return " ".join(name_arr)
 
+
 def get_metadata(paper_id: str):
     cache_file = f"../data/metadata/{paper_id}.json"
     if os.path.exists(cache_file):
@@ -73,7 +74,7 @@ def get_metadata(paper_id: str):
 def get_authors_with_firstname(paper_link: str, paper_id: str):
     cache_file = f"../data/metadata/{paper_id}_full.joblib"
     if os.path.exists(cache_file):
-        return joblib.load(cache_file)
+        return joblib.load(cache_file)['author_names']
     else:
         resp = requests.get(paper_link).text
         soup = BeautifulSoup(resp)
@@ -87,8 +88,9 @@ def get_authors_with_firstname(paper_link: str, paper_id: str):
             except:
                 pass
         # print('a', author_names)
-        joblib.dump(author_names, cache_file)
+        joblib.dump({"author_names": author_names, "resp": resp}, cache_file)
         return author_names
+
 
 @try_or_none
 def get_free_text_link(paper_id: str):
@@ -102,5 +104,5 @@ def get_free_text_link(paper_id: str):
         free_text_link = resp.json()
         with open(cache_file, "w") as f:
             json.dump(free_text_link, f, indent=2)
-    
-    return free_text_link['linksets'][0]['idurllist'][0]['objurls'][0]['url']['value']
+
+    return free_text_link["linksets"][0]["idurllist"][0]["objurls"][0]["url"]["value"]
