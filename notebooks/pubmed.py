@@ -2,8 +2,8 @@ import pathlib
 import re
 import numpy as np
 
-import clean
-from clean import try_or_none
+import notebooks.mdcalc as mdcalc
+from notebooks.mdcalc import try_or_none
 
 from collections import defaultdict
 import fitz
@@ -22,7 +22,7 @@ import os
 import numpy as np
 import pubmed
 import openai
-from clean import try_or_none
+from notebooks.mdcalc import try_or_none
 
 plt.style.use("default")
 dvu.set_style()

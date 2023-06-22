@@ -3,13 +3,16 @@ import numpy as np
 
 CLEANR = re.compile("<.*?>")
 
+
 def try_or_none(func):
     def wrapper(*args):
         try:
             return func(*args)
         except:
             return None
+
     return wrapper
+
 
 def clean_list_valued_strings(df):
     LIST_VALUED_COLS = [
@@ -50,6 +53,24 @@ def rename_feature_name(feature_name: str):
     feature_name = feature_name.strip()
     feature_name = feature_name.replace(", mmHg", "")
 
+    # if word contains the keyword_contain, rename it to keyword_contain
+    keywords_contain = ["BMI", 'Ethnicity']
+    for keyword in keywords_contain:
+        if keyword.lower() in feature_name.lower():
+            feature_name = keyword
+            # feature_name = feature_name.replace('Age, years', 'Age')
+
+    # remap specific words to other names
+    keywords_map = {
+        "Systolic Blood Pressure": "Systolic BP",
+        "Ethnicity": "Race",
+        "WBC": "White blood cell count",
+        "Sex": "Gender",
+    }
+    for keyword in keywords_map.keys():
+        if feature_name.lower().startswith(keyword.lower()):
+            feature_name = keywords_map[keyword]
+
     # if word starts with keyword_prefix, rename it to the prefix
     keyword_prefixes = [
         "Age",
@@ -71,6 +92,7 @@ def rename_feature_name(feature_name: str):
         "Diastolic BP",
         "Distracting ",
         "ECOG",
+        "Fever",
         "Glucose",
         "Hematocrit",
         "Hemoglobin",
@@ -85,31 +107,21 @@ def rename_feature_name(feature_name: str):
         "White blood",
     ]
     for keyword in keyword_prefixes:
-        if feature_name.startswith(keyword):
+        if feature_name.lower().startswith(keyword.lower()):
             feature_name = keyword
 
     # if word ends with keyword_suffix, rename it to the suffix
-    keyword_suffixes = ["saline"]
+    keyword_suffixes = ["Saline", "Race"]
     for keyword in keyword_suffixes:
-        if feature_name.endswith(keyword):
+        if feature_name.lower().endswith(keyword.lower()):
             feature_name = keyword
 
-    # if word contains the keyword_contain, rename it to keyword_contain
-    keywords_contain = ["BMI"]
-    for keyword in keywords_contain:
-        if keyword in feature_name:
-            feature_name = keyword
-            # feature_name = feature_name.replace('Age, years', 'Age')
-
-    # remap specific words to other names
-    keywords_map = {
-        "Systolic Blood Pressure": "Systolic BP",
-        "Ethnicity": "Race",
-        "WBC": "White blood cell count",
+    # final cleanup
+    RENAME = {
+        'Race': 'Race/Ethnicity',
+        'Gender': 'Gender/Sex',
     }
-    for keyword in keywords_map.keys():
-        if feature_name.lower().startswith(keyword.lower()):
-            feature_name = keywords_map[keyword]
+    feature_name = RENAME.get(feature_name, feature_name)
 
     return feature_name
 
@@ -121,3 +133,32 @@ def get_renamed_unique_feature_names_from_list(all_feature_names: list):
         feature_name = rename_feature_name(feature_name)
         ans.append(feature_name)
     return list(set(ans))
+
+
+def get_feature_names_with_vals_list(schema):
+    if isinstance(schema, list):
+        feature_names_with_vals = []
+        tot_points = 0
+        for s in schema:
+            feature_name = (
+                clean_feature_name(s["label_en"]) if "label_en" in s else "unknown"
+            )
+            if not s == "unknown":
+                feature_name = rename_feature_name(feature_name)
+                if "options" in s:
+                    points = [opt["value"] for opt in s["options"]]
+                    point_range = max(points) - min(points)
+                    tot_points += max(points)
+                else:  # example: age text box
+                    # print('feature_name', feature_name, 'has no options')
+                    # point_range = None
+                    return []  # skip anything that isn't all options for now
+                feature_names_with_vals.append((feature_name, point_range))
+
+        # normalize by tot_points
+        return [
+            (feature_name, point_range / tot_points)
+            for (feature_name, point_range) in feature_names_with_vals
+        ]
+    else:
+        return []
