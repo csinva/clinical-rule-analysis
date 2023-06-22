@@ -119,3 +119,19 @@ def extract_texts_from_pdf(ids, papers_dir='../papers'):
                 pathlib.Path(join(papers_dir, str(id) + ".txt")).write_bytes(
                     text.encode()
                 )
+
+def get_paper_id(paper_link: str):
+    if paper_link.endswith("/"):
+        paper_link = paper_link[:-1]
+    paper_id = paper_link.split("/")[-1]
+
+    # remove leading zeros
+    while paper_id.startswith("0"):
+        paper_id = paper_id[1:]
+    return paper_id
+
+def get_updated_refs(df):
+    refs = df['ref_href'].values
+    idxs_corrected = (df["ref_href_corrected"].notna() & ~(df['ref_href_corrected'] == 'Unk'))
+    refs[idxs_corrected] = df["ref_href_corrected"][idxs_corrected]
+    return refs
