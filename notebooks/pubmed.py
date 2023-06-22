@@ -1,3 +1,4 @@
+import pathlib
 import re
 import numpy as np
 
@@ -5,7 +6,7 @@ import clean
 from clean import try_or_none
 
 from collections import defaultdict
-
+import fitz
 import dvu
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -106,3 +107,15 @@ def get_free_text_link(paper_id: str):
             json.dump(free_text_link, f, indent=2)
 
     return free_text_link["linksets"][0]["idurllist"][0]["objurls"][0]["url"]["value"]
+
+
+def extract_texts_from_pdf(ids, papers_dir='../papers'):
+    for id in tqdm(ids):
+        paper_file = join(papers_dir, str(id) + ".pdf")
+        if pathlib.Path(paper_file).exists():
+            with fitz.open(paper_file) as doc:  # open document
+                text = chr(12).join([page.get_text() for page in doc])
+                text = text.replace('-\n', '')
+                pathlib.Path(join(papers_dir, str(id) + ".txt")).write_bytes(
+                    text.encode()
+                )
