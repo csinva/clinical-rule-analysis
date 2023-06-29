@@ -116,32 +116,21 @@ def get_author_affiliations(paper_id):
         return affils_list_return
 
 
-@try_or_none
-def get_free_text_link(paper_id: str):
-    cache_file = f"../data/metadata/{paper_id}_free_text_link.json"
-    if os.path.exists(cache_file):
-        free_text_link = json.load(open(cache_file))
-    else:
-        resp = requests.get(
-            f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={paper_id}&cmd=prlinks&retmode=json"
-        )
-        free_text_link = resp.json()
-        with open(cache_file, "w") as f:
-            json.dump(free_text_link, f, indent=2)
+# @try_or_none
+# def get_free_text_link(paper_id: str):
+#     cache_file = f"../data/metadata/{paper_id}_free_text_link.json"
+#     if os.path.exists(cache_file):
+#         free_text_link = json.load(open(cache_file))
+#     else:
+#         resp = requests.get(
+#             f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?dbfrom=pubmed&id={paper_id}&cmd=prlinks&retmode=json"
+#         )
+#         free_text_link = resp.json()
+#         with open(cache_file, "w") as f:
+#             json.dump(free_text_link, f, indent=2)
 
-    return free_text_link["linksets"][0]["idurllist"][0]["objurls"][0]["url"]["value"]
+#     return free_text_link["linksets"][0]["idurllist"][0]["objurls"][0]["url"]["value"]
 
-
-def extract_texts_from_pdf(ids, papers_dir="../papers"):
-    for id in tqdm(ids):
-        paper_file = join(papers_dir, str(id) + ".pdf")
-        if pathlib.Path(paper_file).exists():
-            with fitz.open(paper_file) as doc:  # open document
-                text = chr(12).join([page.get_text() for page in doc])
-                text = text.replace("-\n", "")
-                pathlib.Path(join(papers_dir, str(id) + ".txt")).write_bytes(
-                    text.encode()
-                )
 
 
 def get_paper_id(paper_link: str):
@@ -163,23 +152,24 @@ def get_updated_refs(df):
     refs[idxs_corrected] = df["ref_href_corrected"][idxs_corrected]
     return refs
 
+
 @try_or_none
 def clean_llm_country_output(s):
-    if ' is ' in s:
-        s = s.split(' is ')[-1]
+    if " is " in s:
+        s = s.split(" is ")[-1]
     # remove punctuation
-    s = s.replace('.', '')
+    s = s.replace(".", "")
 
     # remove all parenthetical phrases
-    ind0 = s.find('(')
-    ind1 = s.find(')')
+    ind0 = s.find("(")
+    ind1 = s.find(")")
     while ind0 != -1 and ind1 != -1:
-        s = s[:ind0] + s[ind1+1:]
-        ind0 = s.find('(')
-        ind1 = s.find(')')
+        s = s[:ind0] + s[ind1 + 1 :]
+        ind0 = s.find("(")
+        ind1 = s.find(")")
 
-    s = s.replace('the', '')
+    s = s.replace("the", "")
 
-    s = s.split(',')[-1]
+    s = s.split(",")[-1]
 
     return s.strip()
