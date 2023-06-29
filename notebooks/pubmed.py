@@ -162,3 +162,24 @@ def get_updated_refs(df):
     )
     refs[idxs_corrected] = df["ref_href_corrected"][idxs_corrected]
     return refs
+
+@try_or_none
+def clean_llm_country_output(s):
+    if ' is ' in s:
+        s = s.split(' is ')[-1]
+    # remove punctuation
+    s = s.replace('.', '')
+
+    # remove all parenthetical phrases
+    ind0 = s.find('(')
+    ind1 = s.find(')')
+    while ind0 != -1 and ind1 != -1:
+        s = s[:ind0] + s[ind1+1:]
+        ind0 = s.find('(')
+        ind1 = s.find(')')
+
+    s = s.replace('the', '')
+
+    s = s.split(',')[-1]
+
+    return s.strip()
