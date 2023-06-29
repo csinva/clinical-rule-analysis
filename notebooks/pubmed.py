@@ -2,8 +2,8 @@ import pathlib
 import re
 import numpy as np
 
-import notebooks.mdcalc as mdcalc
-from notebooks.mdcalc import try_or_none
+import mdcalc
+from mdcalc import try_or_none
 
 from collections import defaultdict
 import fitz
@@ -22,7 +22,6 @@ import os
 import numpy as np
 import pubmed
 import openai
-from notebooks.mdcalc import try_or_none
 
 plt.style.use("default")
 dvu.set_style()
@@ -75,7 +74,7 @@ def get_metadata(paper_id: str):
 def get_authors_with_firstname(paper_link: str, paper_id: str):
     cache_file = f"../data/metadata/{paper_id}_full.joblib"
     if os.path.exists(cache_file):
-        return joblib.load(cache_file)['author_names']
+        return joblib.load(cache_file)["author_names"]
     else:
         resp = requests.get(paper_link).text
         soup = BeautifulSoup(resp)
@@ -91,6 +90,30 @@ def get_authors_with_firstname(paper_link: str, paper_id: str):
         # print('a', author_names)
         joblib.dump({"author_names": author_names, "resp": resp}, cache_file)
         return author_names
+
+
+def get_author_affiliations(paper_id):
+    cache_file = cache_file = f"../data/metadata/{paper_id}_full.joblib"
+    cache_dict = joblib.load(cache_file)
+    if "author_affils" in cache_dict:
+        return cache_dict["author_affils"]
+    else:
+        resp = cache_dict["resp"]
+        soup = BeautifulSoup(resp)
+        affils = soup.find_all("div", {"class": "affiliations"})
+        if len(affils) == 0:
+            return None
+        affils = affils[0]
+        affils_list_return = []
+        for li in affils.ul.find_all("li"):
+            x = li.text
+            # remove leading numbers
+            while x[0].isdigit():
+                x = x[1:]
+            affils_list_return.append(x.strip())
+        cache_dict["author_affils"] = affils_list_return
+        joblib.dump(cache_dict, cache_file)
+        return affils_list_return
 
 
 @try_or_none
@@ -109,16 +132,17 @@ def get_free_text_link(paper_id: str):
     return free_text_link["linksets"][0]["idurllist"][0]["objurls"][0]["url"]["value"]
 
 
-def extract_texts_from_pdf(ids, papers_dir='../papers'):
+def extract_texts_from_pdf(ids, papers_dir="../papers"):
     for id in tqdm(ids):
         paper_file = join(papers_dir, str(id) + ".pdf")
         if pathlib.Path(paper_file).exists():
             with fitz.open(paper_file) as doc:  # open document
                 text = chr(12).join([page.get_text() for page in doc])
-                text = text.replace('-\n', '')
+                text = text.replace("-\n", "")
                 pathlib.Path(join(papers_dir, str(id) + ".txt")).write_bytes(
                     text.encode()
                 )
+
 
 def get_paper_id(paper_link: str):
     if paper_link.endswith("/"):
@@ -130,8 +154,11 @@ def get_paper_id(paper_link: str):
         paper_id = paper_id[1:]
     return paper_id
 
+
 def get_updated_refs(df):
-    refs = df['ref_href'].values
-    idxs_corrected = (df["ref_href_corrected"].notna() & ~(df['ref_href_corrected'] == 'Unk'))
+    refs = df["ref_href"].values
+    idxs_corrected = df["ref_href_corrected"].notna() & ~(
+        df["ref_href_corrected"] == "Unk"
+    )
     refs[idxs_corrected] = df["ref_href_corrected"][idxs_corrected]
     return refs
