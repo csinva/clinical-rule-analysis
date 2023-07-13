@@ -1,5 +1,6 @@
 import pathlib
 import re
+from typing import Dict, List
 import numpy as np
 
 import mdcalc
@@ -55,7 +56,28 @@ dvu.set_style()
 #     )
 
 
-def check_papers(df, ids_with_paper, ids_found):
+def download_and_check_gsheet():
+    def remove_html_tags(text):
+        clean = re.compile("<.*?>")
+        return re.sub(clean, "", text).strip()
+
+    df = pd.read_csv(
+        "https://docs.google.com/spreadsheets/d/1x-epUl-KidVMI-AhMvT-M6nSULvE5JwNi7uF-vI1rbU/gviz/tq?tqx=out:csv&sheet=main",
+        skiprows=0,
+    )
+    df.columns = list(map(remove_html_tags, df.columns))
+
+    df["ref_href"] = pubmed.get_updated_refs(df)
+
+    # check that found papers are present
+    ids_with_paper = df[df["found_paper (0=no, 1=yes)"] > 0].id.astype(int).values
+    ids_found = sorted(
+        [
+            int(x.replace(".pdf", ""))
+            for x in os.listdir("../papers")
+            if x.endswith(".pdf")
+        ]
+    )
     for paper_id in ids_with_paper:
         if paper_id in ids_found:
             continue
@@ -70,7 +92,17 @@ def check_papers(df, ids_with_paper, ids_found):
             idx = df[df.id == paper_id].index[0]
             print(df.loc[idx, "found_paper (0=no, 1=yes)"])
             df.loc[idx, "found_paper (0=no, 1=yes)"] = 1
-    return df
+
+    # check that values are integers or Unk
+    for col in df.columns:
+        if col.startswith('num_') and col.endswith('_corrected'):
+            vals = df[col][df[col].notna()].values
+            for val in vals:
+                assert val in {"Unk"} or round(val) == int(
+                    val
+                ), f"{col} has {val} which is not an int or Unk"
+
+    return df, ids_with_paper
 
 
 def extract_texts_from_pdf(ids, papers_dir="../papers"):
@@ -84,6 +116,7 @@ def extract_texts_from_pdf(ids, papers_dir="../papers"):
                     text.encode()
                 )
 
+
 def rename_to_none(x: str):
     if x in {"", "unknown", "N/A"}:
         return None
@@ -91,7 +124,55 @@ def rename_to_none(x: str):
         return x
 
 
-def call_on_subsets(x: str, subset_len_tokens=4750, max_calls=3):
+def add_columns_based_on_properties(
+    df, ids_with_paper, properties, functions, content_str, llm
+):
+    # initialize empty columns
+    for k in properties.keys():
+        if not k in df.columns:
+            df.loc[:, k] = None
+
+    # run loop
+    for id in tqdm(ids_with_paper):
+        i = df[df.id == id].index[0]
+        row = df.iloc[i]
+        paper_file = join("../papers", str(int(row.id)) + ".txt")
+
+        try:
+            real_input = pathlib.Path(paper_file).read_text()
+            args = call_on_subsets(
+                real_input, content_str=content_str, functions=functions, llm=llm
+            )
+
+            # print(json.dumps(args, indent=2))
+            if args is not None:
+                for k in properties.keys():
+                    if k in args:
+                        df.loc[i, k] = rename_to_none(args[k])
+
+                        # remove spans if they are not actually contained in the text
+                        if "_span" in k:
+                            if not _check_evidence(args[k], real_input):
+                                df.loc[i, k] = None
+        except Exception as e:
+            print(row.id, e)
+    return df
+
+
+def call_on_subsets(
+    x: str,
+    content_str: str,
+    functions: List[Dict],
+    llm,
+    subset_len_tokens=4750,
+    max_calls=3,
+):
+    messages = [
+        {
+            "role": "user",
+            "content": content_str,
+        }
+    ]
     subset_len_chars = subset_len_tokens * 4
 
     args = None
@@ -102,7 +183,7 @@ def call_on_subsets(x: str, subset_len_tokens=4750, max_calls=3):
 
         # if approx_tokens < 6000:
         messages[0]["content"] = content_str.format(input=subset)
-        msg = llm(messages, functions=functions, return_str=False, temperature=0.0)
+        msg = llm(messages, functions=functions, return_str=False, temperature=0.0, verbose=True)
         if msg is not None and msg.get("function_call") is not None:
             args = json.loads(msg.get("function_call")["arguments"])
             return args
@@ -116,13 +197,14 @@ def call_on_subsets(x: str, subset_len_tokens=4750, max_calls=3):
     return None
 
 
-def check_evidence(ev: str, real_input: str):
+def _check_evidence(ev: str, real_input: str):
     if ev is not None:
         # remove all whitespace
         ev = "".join(ev.split())
         real_input = "".join(real_input.split())
         return ev.lower() in real_input.lower()
     return False
+
 
 def cast_int(x):
     try:
