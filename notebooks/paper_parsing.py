@@ -56,7 +56,7 @@ dvu.set_style()
 #     )
 
 
-def download_and_check_gsheet():
+def download_gsheet():
     def remove_html_tags(text):
         clean = re.compile("<.*?>")
         return re.sub(clean, "", text).strip()
