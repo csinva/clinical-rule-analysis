@@ -87,14 +87,21 @@ def download_gsheet(papers_dir=papers_dir):
             print(df.loc[idx, "found_paper (0=no, 1=yes)"])
             df.loc[idx, "found_paper (0=no, 1=yes)"] = 1
 
+    # check if string is an integer
+    def _is_int(x):
+        try:
+            int(x)
+            return True
+        except:
+            return False
+
     # check that values are integers or Unk
     for col in df.columns:
-        if col.startswith("num_") and col.endswith("_corrected"):
+        # if col.startswith("num_") and col.endswith("_corrected"):
+        if col in ['num_male_corrected', 'num_female_corrected', 'num_total_corrected']:
             vals = df[col][df[col].notna()].values
             for val in vals:
-                assert val in {"Unk"} or round(val) == int(
-                    val
-                ), f"{col} has {val} which is not an int or Unk"
+                assert val in {"Unk"} or _is_int(val), f"{col} has {val} which is not an int or Unk"
 
     return df, ids_with_paper
 

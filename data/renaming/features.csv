@@ -19,8 +19,8 @@ Original feature,Chandan rename
 &ge;2 sites of metastasis,
 &gt;12 years old and &gt;40 kg,
 &gt;3 hrs from symptom onset (or last time seen WITHOUT stroke symptoms) to admission,
-0.45% saline,saline
-0.9% saline,saline
+0.45% saline,Saline
+0.9% saline,Saline
 "1. Anxious mood: Worries, anticipation of the worst, fearful anticipation, irritability.",
 1. Felt low in spirits or sad?,
 1. I have been less alert.,
@@ -463,7 +463,7 @@ Arthritis (monoarthritis or polyarthritis; polyarthralgia),
 Arthritis (polyarthritis only),
 Arthritis/arthralgias,
 Ascites,
-Asian-American sub race,
+Asian-American sub race,Race/Ethnicity
 Ask patient age and current month,
 Ask patient similarity between train and bicycle (e.g. both are modes of transportation),
 Ask patient similarity between watch and ruler (e.g. both are measuring tools),
@@ -588,7 +588,7 @@ Binge eating episodes per week,
 Biopsy suggesting DRESS,
 Biopsy-proven nephritis compatible with SLE,
 Bizarre often multilobed nuclei and/or spindle cells,
-Black race,
+Black race,Race/Ethnicity
 Bladder control,
 Bleeding,
 Bleeding disorder,
@@ -831,7 +831,7 @@ Confusion,
 Confusion (new onset),
 Confusion/orientation,
 Congenital heart disease,
-Congestive Heart Failure,
+Congestive Heart Failure,Congestive heart failure
 Congestive heart failure,
 Congestive heart failure ,Congestive heart failure
 Congestive heart failure history,Congestive heart failure
@@ -1215,7 +1215,7 @@ Estimated severity of trauma to tissue,
 Estrogen Receptor (ER) Status,
 EtOH &gt;80 mg/dL,
 Ethanol (Alcohol) Abuse,
-Ethnicity,Race
+Ethnicity,Race/Ethnicity
 Evidence of &ge;2 organs failing,
 Evidence of abdominal wall trauma or seatbelt sign,
 Evidence of dissemination in space in the spinal cord,
@@ -1308,15 +1308,15 @@ Fetal movement,
 Fetal tone,
 Fetal weight,
 Fever,
-Fever (≥38.5 °C),
-Fever (≥38.5°C or 101.3°F),
-Fever (≥38°C or 100.4°F),
-Fever and/or shaking chills,
-Fever at home or in ED,
-Fever for ≥5 days,
-Fever in past 24 hours,
-Fever ≥100.4°F (38°C),
-Fever/temperature > 100°F/37.8°C,
+Fever (≥38.5 °C),Fever
+Fever (≥38.5°C or 101.3°F),Fever
+Fever (≥38°C or 100.4°F),Fever
+Fever and/or shaking chills,Fever
+Fever at home or in ED,Fever
+Fever for ≥5 days,Fever
+Fever in past 24 hours,Fever
+Fever ≥100.4°F (38°C),Fever
+Fever/temperature > 100°F/37.8°C,Fever
 FiO2 >0.35 (>4 L/min),
 FiO₂,
 Fibersource HN,
@@ -1375,7 +1375,7 @@ Gastrointestinal somatic symptoms,
 Gastrointestinal symptoms present,
 Gastrointestinal-hepatic dysfunction,
 Gegenhalten,
-Gender,
+Gender,Gender/Sex
 General condition (Karnofsky Performance Status),
 General somatic symptoms,
 General well-being,
@@ -2852,8 +2852,8 @@ RIF pain,
 RIF tenderness,
 "RLQ tenderness to cough, percussion, or hopping",
 RV dysfunction,
-Race,
-Race/ethnicity,Race
+Race,Race/Ethnicity
+Race/ethnicity,Race/Ethnicity
 Radial pulse loss (left),
 Radial pulse loss (right),
 Radius (cm),
@@ -2938,8 +2938,8 @@ Resolution in >15 days,
 Respiration pattern,
 Respirations,
 Respiratory,
-Respiratory Rate,
-Respiratory Rate &ge;30,
+Respiratory Rate,Respiratory rate
+Respiratory Rate &ge;30,Respiratory rate
 Respiratory distress,
 Respiratory dysfunction,
 Respiratory failure,
@@ -3113,9 +3113,9 @@ Severity classification,
 Severity of abnormal movements overall,
 Severity of disease,
 Severity of symptoms,
-Sex,
-Sex at birth,Sex
-Sexual practices,Sex
+Sex,Gender/Sex
+Sex at birth,Gender/Sex
+Sexual practices,Gender/Sex
 Shampoo hair,
 Shock,
 Shortness of breath,
@@ -3572,19 +3572,19 @@ Volume of inoculum,
 Volume to be calculated,
 Volume to be given,
 Vomiting,
-WBC,White blood cell count
-"WBC &gt;12,000/mm&sup3;, &lt;4,000/mm&sup3;, or &gt;10% bands",White blood cell count
-WBC &gt;16k,White blood cell count
-"WBC 5,000-15,000/mm³ (5-15 × 10⁹/L)",White blood cell count
-WBC 9/L,White blood cell count
-"WBC > 10,000/µL",White blood cell count
-"WBC > 12,000 cells/mm3",White blood cell count
-WBC >12.0 × 10⁹/µL,White blood cell count
-WBC >15 x 10³/µL (10⁹/L),White blood cell count
-WBC count,White blood cell count
-"WBC count, ×10⁹/L",White blood cell count
-"WBC in ED ≥10,000/µL",White blood cell count
-"WBC, x 10³/mm³",White blood cell count
+WBC,White blood
+"WBC &gt;12,000/mm&sup3;, &lt;4,000/mm&sup3;, or &gt;10% bands",White blood
+WBC &gt;16k,White blood
+"WBC 5,000-15,000/mm³ (5-15 × 10⁹/L)",White blood
+WBC 9/L,White blood
+"WBC > 10,000/µL",White blood
+"WBC > 12,000 cells/mm3",White blood
+WBC >12.0 × 10⁹/µL,White blood
+WBC >15 x 10³/µL (10⁹/L),White blood
+WBC count,White blood
+"WBC count, ×10⁹/L",White blood
+"WBC in ED ≥10,000/µL",White blood
+"WBC, x 10³/mm³",White blood
 WHO category,
 WHO group 1 subgroup,
 Waist Circumference,
@@ -3631,7 +3631,7 @@ Wheezing/dyspnea apart from colds,
 When did your last attempt occur?,
 "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
 White,
-White Blood Cell Count,
+White Blood Cell Count,White blood
 White blood cell count,White blood
 "White blood cell count (x10,000/µL)",White blood
 "White blood cell count, x10⁹/dL",White blood
