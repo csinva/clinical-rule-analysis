@@ -3,29 +3,23 @@ import re
 from typing import Dict, List
 import numpy as np
 
-import mdcalc
-from mdcalc import try_or_none
 
 from collections import defaultdict
 import fitz
-import dvu
-import matplotlib.pyplot as plt
 import pandas as pd
 from os.path import join
 import os.path
-from bs4 import BeautifulSoup
 from tqdm import tqdm
-import imodelsx.llm
 import json
-import requests
-import joblib
 import os
 import numpy as np
 import pubmed
 import openai
+from os.path import dirname
 
-plt.style.use("default")
-dvu.set_style()
+path_to_file = dirname(__file__)
+path_to_repo = dirname(path_to_file)
+papers_dir = join(path_to_repo, "papers")
 
 
 # def download_open_source_papers(df: pd.DataFrame):
@@ -56,7 +50,7 @@ dvu.set_style()
 #     )
 
 
-def download_gsheet():
+def download_gsheet(papers_dir=papers_dir):
     def remove_html_tags(text):
         clean = re.compile("<.*?>")
         return re.sub(clean, "", text).strip()
@@ -74,7 +68,7 @@ def download_gsheet():
     ids_found = sorted(
         [
             int(x.replace(".pdf", ""))
-            for x in os.listdir("../papers")
+            for x in os.listdir(papers_dir)
             if x.endswith(".pdf")
         ]
     )
@@ -95,7 +89,7 @@ def download_gsheet():
 
     # check that values are integers or Unk
     for col in df.columns:
-        if col.startswith('num_') and col.endswith('_corrected'):
+        if col.startswith("num_") and col.endswith("_corrected"):
             vals = df[col][df[col].notna()].values
             for val in vals:
                 assert val in {"Unk"} or round(val) == int(
@@ -105,7 +99,7 @@ def download_gsheet():
     return df, ids_with_paper
 
 
-def extract_texts_from_pdf(ids, papers_dir="../papers"):
+def extract_texts_from_pdf(ids, papers_dir=papers_dir):
     for id in tqdm(ids):
         paper_file = join(papers_dir, str(id) + ".pdf")
         if pathlib.Path(paper_file).exists():
@@ -125,7 +119,13 @@ def rename_to_none(x: str):
 
 
 def add_columns_based_on_properties(
-    df, ids_with_paper, properties, functions, content_str, llm
+    df,
+    ids_with_paper,
+    properties,
+    functions,
+    content_str,
+    llm,
+    papers_dir=papers_dir,
 ):
     # initialize empty columns
     for k in properties.keys():
@@ -136,14 +136,14 @@ def add_columns_based_on_properties(
     for id in tqdm(ids_with_paper):
         i = df[df.id == id].index[0]
         row = df.iloc[i]
-        paper_file = join("../papers", str(int(row.id)) + ".txt")
+        paper_file = join(papers_dir, str(int(row.id)) + ".txt")
 
         try:
             real_input = pathlib.Path(paper_file).read_text()
             args = call_on_subsets(
                 real_input, content_str=content_str, functions=functions, llm=llm
             )
-
+            # print('args', args)
             # print(json.dumps(args, indent=2))
             if args is not None:
                 for k in properties.keys():
@@ -183,9 +183,19 @@ def call_on_subsets(
 
         # if approx_tokens < 6000:
         messages[0]["content"] = content_str.format(input=subset)
-        msg = llm(messages, functions=functions, return_str=False, temperature=0.0, verbose=True)
-        if msg is not None and msg.get("function_call") is not None:
-            args = json.loads(msg.get("function_call")["arguments"])
+        msg = llm(
+            messages,
+            functions=functions,
+            return_str=False,
+            temperature=0.0,
+            verbose=True,
+        )
+        if msg is not None and "function_call" in msg["choices"][0]["message"]:
+            args = json.loads(
+                msg["choices"][0]["message"]["function_call"]["arguments"]
+            )
+            # and msg.get("function_call") is not None:
+            # args = json.loads(msg.get("function_call")["arguments"])
             return args
 
         subset_num += 1
@@ -204,10 +214,3 @@ def _check_evidence(ev: str, real_input: str):
         real_input = "".join(real_input.split())
         return ev.lower() in real_input.lower()
     return False
-
-
-def cast_int(x):
-    try:
-        return int(x)
-    except:
-        return -1
