@@ -19,7 +19,6 @@ from os.path import dirname
 from paper_setup import papers_dir
 
 
-
 def rename_to_none(x: str):
     if x in {"", "unknown", "N/A"}:
         return None
@@ -123,3 +122,32 @@ def _check_evidence(ev: str, real_input: str):
         real_input = "".join(real_input.split())
         return ev.lower() in real_input.lower()
     return False
+
+
+def check_race_keywords(
+    df,
+    ids_with_paper,
+    KEYWORDS={
+        "asian",
+        "caucasian",
+        "african",
+        "latino",
+        "hispanic",
+    },
+):
+    def _check_keywords(text):
+        text = text.lower()
+        for k in KEYWORDS:
+            if k in text:
+                return True
+        return False
+
+    df["paper_contains_keywords"] = ""
+    # run loop
+    for id in tqdm(ids_with_paper):
+        i = df[df.id == id].index[0]
+        row = df.iloc[i]
+        paper_file = join(papers_dir, str(int(row.id)) + ".txt")
+        real_input = pathlib.Path(paper_file).read_text()
+        df.loc[i, 'paper_contains_race_keywords'] = int(_check_keywords(real_input))
+    return df
