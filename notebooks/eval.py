@@ -30,6 +30,12 @@ def cast_int(x):
     except:
         return -1
 
+def int_or_empty(x):
+    try:
+        return int(x)
+    except:
+        return ''
+
 
 def str_contains_number(x):
     return x is not None and any(char.isdigit() for char in str(x))
