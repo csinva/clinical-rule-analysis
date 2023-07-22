@@ -111,7 +111,7 @@ def download_gsheet(papers_dir=papers_dir):
         if col in ['num_male_corrected', 'num_female_corrected', 'num_total_corrected']:
             vals = df[col][df[col].notna()].values
             for val in vals:
-                assert val in {"Unk"} or _is_int(val), f"{col} has {val} which is not an int or Unk"
+                assert val in {"Unk", '-'} or _is_int(val), f"{col} has {val} which is not an int or Unk"
 
     return df, ids_with_paper
 

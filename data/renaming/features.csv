@@ -1,10 +1,5 @@
 Original feature,Chandan rename
 ,
- >1 extranodal site,>1 extranodal site
-" Age at diagnosis, years (A)",Age
- HLA match group,HLA match group
- Motor response,Motor response
- Pupil response,Pupil response
 # of controls with expected outcome (C),
 # of controls without expected outcome (D),
 # of experimental patients with expected outcome (A),
@@ -27,14 +22,14 @@ Original feature,Chandan rename
 1. Sleep onset insomnia:,
 "10 . Respiratory symptoms: Pressure or constriction in chest, choking feelings, sighing, dyspnea.",
 10. Concentration/decision making:,
-10. Dysarthria,
+10. Dysarthria,Dysarthria
 10. I have had trouble maintaining physical effort for long periods.,
 100 mEq NaHCO₃ in 1L D5W,
-10: Dysarthria,
-10a. Suffered from reduced appetite?,
-10b. Suffered from increased appetite?,
+10: Dysarthria,Dysarthria
+10a. Suffered from reduced appetite?,Appetite
+10b. Suffered from increased appetite?,Appetite
 11. Extinction and inattention,
-"11. Gastrointestinal symptoms: Difficulty in swallowing, wind abdominal pain, burning sensations, abdominal fullness, nausea, vomiting, borborygmi, looseness of bowels, loss of weight, constipation.",
+"11. Gastrointestinal symptoms: Difficulty in swallowing, wind abdominal pain, burning sensations, abdominal fullness, nausea, vomiting, borborygmi, looseness of bowels, loss of weight, constipation.",Abdominal pain
 11. I have had difficulty making decisions.,
 11. Outlook (self):,
 11: Extinction/inattention,
@@ -42,7 +37,7 @@ Original feature,Chandan rename
 "12. Genitourinary symptoms: Frequency of micturition, urgency of micturition, amenorrhea, menorrhagia, development of frigidity, premature ejaculation,loss of libido, impotence.",
 12. I have been less motivated to do anything that requires thinking.,
 12. Suicidal ideation:,
-"13. Autonomic symptoms: Dry mouth, flushing, pallor, tendency to sweat, giddiness, tension headache, raising of hair.",
+"13. Autonomic symptoms: Dry mouth, flushing, pallor, tendency to sweat, giddiness, tension headache, raising of hair.",Headache
 13. Involvement:,
 13. My muscles have felt weak.,
 "14. Behavior at interview: Fidgeting, restlessness or pacing, tremor of hands, furrowed brow, strained face, sighing or rapid respiration, facial pallor, swallowing, etc.",
@@ -55,14 +50,14 @@ Original feature,Chandan rename
 17. I have been less able to complete tasks that require physical effort.,
 18. My thinking has been slowed down.,
 19. I have had trouble concentrating.,
-1A. Level of consciousness,
-1A: Level of consciousness,
-1B. Ask age and to point out family member,
+1A. Level of consciousness,level of consciousness
+1A: Level of consciousness,level of consciousness
+1B. Ask age and to point out family member, Age 
 1B: Ask month and age,
-1B: Level of consciousness/orientation questions,
+1B: Level of consciousness/orientation questions,level of consciousness
 1C. Command to blink eyes and touch nose,
 1C: 'Blink eyes' & 'squeeze hands',
-1C: Level of consciousness commands,
+1C: Level of consciousness commands,level of consciousness
 1st degree relative with diabetes,
 1st metatarsophalangeal joint involvement,
 2. Horizontal extraocular movements,
@@ -82,12 +77,12 @@ Original feature,Chandan rename
 3. Visual fields,
 3: Test visual fields,
 3: Visual fields,
-4. Facial palsy,
+4. Facial palsy,Facial palsy
 4. Felt less self-confident?,
 4. Hypersomnia:,
 4. I have been clumsy and uncoordinated.,
 "4. Insomnia: Difficulty in falling asleep, broken sleep, unsatisfying sleep and fatigue on waking, dreams, nightmares, night terrors.",
-4: Facial palsy,
+4: Facial palsy,Facial palsy
 "5%, 20%, 25% albumin",
 5. Had a bad conscience or feelings of guilt?,
 5. I have been forgetful.,
@@ -101,7 +96,7 @@ Original feature,Chandan rename
 5B: Test right arm motor drift,
 6 Minute Walk Distance,
 6-minute walk test,
-6. Appetite (decreased):,
+6. Appetite (decreased):,Appetite
 "6. Depressed mood: Loss of interest, lack of pleasure in hobbies, depression, early waking, diurnal swing.",
 6. Felt that life wasn’t worth living?,
 6. I have had to pace myself in my physical activities.,
@@ -111,7 +106,7 @@ Original feature,Chandan rename
 6B. Right leg motor drift,
 6B: Right leg motor drift,
 6B: Test right leg motor drift,
-7. Appetite (increased):,
+7. Appetite (increased):,Appetite
 "7. Had difficulty in concentrating, e.g. when reading the newspaper or watching television?",
 7. I have been less motivated to do anything that requires physical effort.,
 7. Limb ataxia,
@@ -135,11 +130,12 @@ Original feature,Chandan rename
 <1 year from time of diagnosis to systemic therapy,
 <10 bone metastases on bone scan,
 <3 spontaneous bowel movements per week,
+>1 extranodal site,
 >1 focal lesion on MRI,
 >1 tumor,
 >24 hrs on supplemental oxygen required to maintain SaO₂ >90%,
 >4 nodal sites,
->50 units regular insulin required over 12 hr,
+>50 units regular insulin required over 12 hr,Insulin
 "A new T2 and/or gadolinium-enhancing lesion(s) on follow-up MRI, with reference to a baseline scan, irrespective of the timing of baseline scan.",
 A positive rapid group A streptococcal (GAS) carbohydrate antigen test in a child whose clinical presentation suggests a high pretest probability of streptococcal pharyngitis,
 A positive throat culture for group A β-hemolytic streptococci,
@@ -155,12 +151,12 @@ A9: Incomplete workup,
 ACEi/ARB,
 AIDS,
 AJCC pathologic T-stage,
-ALP:AST or ALP:ALT ratio,
+ALP:AST or ALP:ALT ratio,ALT
 ALT,
-"ALT, U/L",
+"ALT, U/L",ALT
 AMA,
 AMT 4,
-ANA above laboratory reference range ,ANA above laboratory reference range
+ANA above laboratory reference range,
 ANA or SMA,
 ANA or anti-dsDNA antibodies,
 "ANA, SMA, or LKM-1 antibody",
@@ -173,9 +169,9 @@ ASA use in past 7 days,ASA
 ASPECTS Score,
 ASPECTS on initial head CT,
 AST,
-AST &gt;250,
-AST upper limit of normal,
-"AST, U/L",
+AST &gt;250,AST
+AST upper limit of normal,AST
+"AST, U/L",AST
 AVPU Score,
 Abdomen,
 Abdomen worst injury?,
@@ -184,21 +180,21 @@ Abdominal distention due to intraluminal air which increases during the day,
 Abdominal guarding,
 Abdominal mass,
 Abdominal pain,
-Abdominal pain ≥4 days per month associated with one or more of the following:,
+Abdominal pain ≥4 days per month associated with one or more of the following:,Abdominal pain
 Abdominal tenderness,
 Ability to prognath (advance lower jaw forward),
 Able to actively rotate neck 45° left and right,
-Abnormal EKG,
-Abnormal EKG and/or heart disease,
+Abnormal EKG,ECG
+Abnormal EKG and/or heart disease,ECG
 Abnormal QRS axis,
-Abnormal WBC count,
+Abnormal WBC count,White blood cell count
 Abnormal behavior,
 Abnormal blood glucose (<50 mg/dL),
 Abnormal cardiac enzymes,
-Abnormal chest X-ray,
+Abnormal chest X-ray,chest x-ray
 Abnormal drowsiness,
-Abnormal initial EKG,
-Abnormal leukocyte count or >10% bands,
+Abnormal initial EKG,ECG
+Abnormal leukocyte count or >10% bands,White blood cell count
 Abnormal level of alertness,
 Abnormal medical history,
 Abnormal mental status,
@@ -210,7 +206,7 @@ Absence of an RS complex in all precordial leads,
 "Absence of associated esophageal symptoms, such as heartburn and dysphagia",
 Absence of atherosclerosis (extra- or intracranial) causing ≥50% luminal stenosis in arteries supplying the ischemic area,
 Absence of bile duct stones or other structural abnormalities,
-Absence of both hypertension AND impaired coagulation,
+Absence of both hypertension AND impaired coagulation,Hypertension
 Absence of cough or coryza,
 "Absence of evidence that esophageal mucosal, or structural abnormality is the cause of the symptom",
 Absence of evidence that gastroesophageal reflux (abnormal acid exposure and symptom reflux association) or EOE is the cause of symptoms,
@@ -218,9 +214,9 @@ Absence of evidence that gastroesophageal reflux or EoE is the cause of the symp
 Absence of evidence that gastroesophageal reflux or eosinophilic esophagitis are the cause of the symptom,
 Absence of gallstones or other structural pathology,
 "Absence of major esophageal motor disorders (achalasia/EGJ outflow obstruction, diffuse esophageal spasm, jackhammer esophagus, absent peristalsis)",
-Absence of self-induced vomiting or criteria for an eating disorder or rumination,
+Absence of self-induced vomiting or criteria for an eating disorder or rumination,Nausea/vomiting
 Absence of systemic disorders or other brain diseases that in and of themselves could account for the progressive deficits in memory and cognition,
-"Absence of vomiting between episodes, but other milder symptoms can be present between cycles",
+"Absence of vomiting between episodes, but other milder symptoms can be present between cycles",Nausea/vomiting
 Absent cremasteric reflex,
 "Absent, decreased, or irregular breathing",
 Absolute increase in serum creatinine ≥0.3 mg/dL (≥26.4 μmol/L),
@@ -228,8 +224,8 @@ Absolute lymphocyte count,
 Absolute or % lymphocyte count,
 Absolute or % neutrophil count,
 Acidemia,
-Acidosis (pH <7.35),
-Acidosis (pH),
+Acidosis (pH <7.35),Acidosis
+Acidosis (pH),Acidosis
 Actions are purposeful,
 Active COPD,
 Active bleeding or high risk for bleeding,
@@ -261,12 +257,12 @@ Acute cutaneous lupus,
 Acute infection and/or rheumatologic disorder,
 Acute infection at ICU admission,
 Acute infectious disease,
-Acute ischemic changes on EKG,
+Acute ischemic changes on EKG,ECG
 Acute pulmonary edema,
 Acute renal failure,
 Acute renal insufficiency,
 Acute respiratory distress syndrome,
-Acute rheumatic disease ,Acute rheumatic disease
+Acute rheumatic disease,
 Acute spinal cord injury causing paralysis,
 Acute stroke,
 Acute systemic reaction after IV heparin bolus,
@@ -281,11 +277,11 @@ Admit from skilled nursing facility,
 Admitted from nursing home,
 Adult or pediatric patient,
 Adverse event:,
-"After appropriate evaluation, the abdominal pain cannot be fully explained by another medical condition",
+"After appropriate evaluation, the abdominal pain cannot be fully explained by another medical condition",Abdominal pain
 "After appropriate evaluation, the nausea cannot be fully explained by another medical condition",
 "After appropriate evaluation, the symptoms cannot be fully explained by another medical condition",
 "After appropriate evaluation, the symptoms cannot be fully explained by another medical condition (an eating disorder must be ruled out)",
-"After appropriate evaluation, the vomiting cannot be fully explained by another medical condition",
+"After appropriate evaluation, the vomiting cannot be fully explained by another medical condition",Nausea/vomiting
 "After appropriate medical evaluation, the fecal incontinence cannot be explained by another medical condition",
 "After appropriate medical evaluation, the symptoms cannot be attributed to another condition",
 Age,
@@ -324,6 +320,7 @@ Age >75 years,Age
 Age >80 years,Age
 Age Range,Age
 Age at diagnosis,Age
+"Age at diagnosis, years (A)",Age
 "Age at phototherapy initiation, hours",Age
 Age in months,Age
 Age in years,Age
@@ -345,7 +342,6 @@ Age ≥80,Age
 "Age, days",Age
 "Age, months or years",Age
 "Age, years",Age
-"Age, years ",Age
 Agitation,
 Agnosia,
 Air entry,
@@ -371,10 +367,10 @@ Already known thrombophilic condition,
 Already on antiplatelet therapy,
 Alteration in mental status,
 Altered level of alertness,
-Altered level of consciousness present,
+Altered level of consciousness present,level of consciousness
 Altered level of responsiveness,
-Altered mental status,
-"Altered mental status (disorientation, lethargy, stupor, or coma)",
+Altered mental status,altered mental status
+"Altered mental status (disorientation, lethargy, stupor, or coma)",altered mental status
 Alternating constipation and diarrhea,
 Alternative diagnoses excluded (by ≥3 biological investigations),
 Alternative diagnosis to DVT as likely or more likely,
@@ -384,7 +380,7 @@ Amnesia >5 min,
 Amniotic fluid volume (AFV),
 Amount ingested,
 Amyloid PET: increased tracer retention,
-An infant who is <5 months of age when the symptoms start and stop,
+An infant who is <5 months of age when the symptoms start and stop, Age 
 "Anal fissure, fistula, or abscess",
 Anal fissures,
 "Anaphylaxis or angioedema
@@ -402,7 +398,7 @@ Anterior MCA cortex (M1),
 Anterior ST Elevation or LBBB,
 Anterior cortex immediately rostral to M1 (M4),
 Anterior/posterior,
-Anti-CCP antibodies ,Anti-CCP antibodies
+Anti-CCP antibodies,
 Anti-Sm,
 Anti-diarrhea drug use,
 "Anti-dsDNA above laboratory reference range, except ELISA (2x above laboratory reference range)",
@@ -411,12 +407,12 @@ Antibiotics given in conventional dosage for proven/suspected streptococcal epis
 Anticoagulation/antiplatelet medications,
 Antiphospholipid antibody,
 Anxiety,
-Anxiety (feeling nervous),
-Anxiety or irritability,
+Anxiety (feeling nervous),Anxiety
+Anxiety or irritability,Anxiety
 Any ICD-9 coded procedure performed during hospital stay,
 Any Prior Hemorrhage Diagnosis,
 Any Supplemental Oxygen,
-Any active anticoagulant use (even with INR <1.7) ,Any active anticoagulant use (even with INR <1.7)
+Any active anticoagulant use (even with INR <1.7),INR
 Any cerebrovascular disease,
 Any high risk condition,
 Any high risk exam feature,
@@ -431,7 +427,7 @@ Any sign of basal skull fracture,
 Any sign of basilar skull fracture?,
 Any signs of aspiration during 3 oz water test,
 Any sweating,
-"Any vomiting, retching, or gagging",
+"Any vomiting, retching, or gagging",Nausea/vomiting
 Aortic incompetence,
 Aortic vascular,
 Aortic vegetation,
@@ -439,7 +435,7 @@ Aphasia,
 Aphthous ulcers,
 Apparent sadness,
 Appearance/color,
-Arcus cornealis at age &lt;45 years,
+Arcus cornealis at age &lt;45 years, Age 
 Are both digits equally clear?,
 Are dentures usually worn?,
 Are there indications for antivenom?,
@@ -458,13 +454,12 @@ Arterial pH < 7.30,
 Arterial pO2 &lt;60 mmHg within 48 hours,
 Arthralgia,
 Arthritis,
-Arthritis ,Arthritis
 Arthritis (monoarthritis or polyarthritis; polyarthralgia),
 Arthritis (polyarthritis only),
 Arthritis/arthralgias,
 Ascites,
 Asian-American sub race,Race/Ethnicity
-Ask patient age and current month,
+Ask patient age and current month, Age 
 Ask patient similarity between train and bicycle (e.g. both are modes of transportation),
 Ask patient similarity between watch and ruler (e.g. both are measuring tools),
 "Ask patient the date, month, year, day, place, and city",
@@ -484,7 +479,7 @@ Ask patient to trace the diagram in order,
 "Ask the patient: considering all the ways arthritis affects you, how well are you doing?",
 "Ask the patient: how difficult have these problems made it to do work, take care of things at home, or get along with other people?",
 Ask to recall address given earlier,
-Aspartate aminotransferase (AST),
+Aspartate aminotransferase (AST),AST
 Aspiration,
 Aspirin use in past 7 days,
 Assessment requiring and independent historian,
@@ -505,8 +500,8 @@ Asymptomatic on presentation,
 "At least two of: edema, infiltration, purpura, scaling",
 Atmospheric pressure,
 Atrial fibrillation,
-Atrial fibrillation on ECG,
-Atrial fibrillation present,
+Atrial fibrillation on ECG,ECG
+Atrial fibrillation present,Atrial fibrillation
 Atrioventricular dissociation,
 Attention,
 Atypical lymphocytes,
@@ -546,13 +541,13 @@ BUN ≥ 43 mg/dL (15.35 mmol/L),BUN
 "BUN, serum",BUN
 B[I]RDs,
 Back pain,
-Back pain ≥3 months and age at onset <45 years,
+Back pain ≥3 months and age at onset <45 years, Age 
 Bacteremia,
 "Band neutrophils ≤1,500/mm³ (≤1.5 × 10⁹/L)",
 Base Excess,
 Base deficit,
 Base deficit (24 - HCO3) &gt;4 mg/dL within 48 hours,
-Baseline NIH Stroke Scale,
+Baseline NIH Stroke Scale,NIH Stroke Scale
 Baseline creatinine,
 Bathing,
 Bazett-corrected QT interval,
@@ -569,7 +564,7 @@ Bend down to pick up clothing from floor,
 Beneprotein,
 Best eye response,
 Best motor response,
-Best verbal response,
+Best verbal response,Verbal response
 Beta blocker,
 Bicarbonate,
 Bicarbonate infusion before ECMO,
@@ -617,7 +612,7 @@ Bone tenderness at D,
 Born at term (≥37 weeks gestation),
 "Bothersome (i.e., severe enough to impact on usual activities) belching from the esophagus more than 3 days a week",
 "Bothersome (i.e., severe enough to impact on usual activities) belching from the stomach  more than 3 days a week",
-"Bothersome (i.e., severe enough to impact on usual activities) nausea, occurring at least 1 day per week and/or ≥1 vomiting episodes per week",
+"Bothersome (i.e., severe enough to impact on usual activities) nausea, occurring at least 1 day per week and/or ≥1 vomiting episodes per week",Nausea/vomiting
 Bothersome (severe enough to interfere with normal activities) pain or burning localized to the epigastrium,
 Bothersome early satiation,
 Bothersome epigastric burning,
@@ -631,9 +626,9 @@ Bowel and bladder,
 Bowel control,
 Bowel movements per day,
 "Bowel symptoms not attributable to an organic etiology that do not meet criteria for IBS or functional constipation, diarrhea, or abdominal bloating/distention disorders",
-Brachial pulse loss (left),
-Brachial pulse loss (right),
-Bradycardia ,Bradycardia
+Brachial pulse loss (left),Heart rate
+Brachial pulse loss (right),Heart rate
+Bradycardia,
 Bradykinesia of hands,
 Brainstem,
 Brainstem reflexes,
@@ -651,10 +646,10 @@ C frequency,
 C(w),
 C(w) frequency,
 C-reactive protein,
-C-reactive protein &gt;190 mg/L,
-C-reactive protein (CRP),
-"C-reactive protein level, mg/L",
-"C-reactive protein, IU/L",
+C-reactive protein &gt;190 mg/L,C-reactive protein
+C-reactive protein (CRP),C-reactive protein
+"C-reactive protein level, mg/L",C-reactive protein
+"C-reactive protein, IU/L",C-reactive protein
 C0: Cardiac pathology not detected or not suspected,
 C1: Potentially causal,
 "C2: Causal link is uncertain (one of the following, regardless of stroke pattern)",
@@ -663,18 +658,18 @@ C9: Incomplete workup,
 CA by iFISH,
 CCS class 4,
 CD3+ infusion dose,
-CD4 count,
-CD4⁺ <200 cells/µL,
+CD4 count,CD4
+CD4⁺ <200 cells/µL,CD4
 CFS Score,
 CHF,
-CHF history,
-CHF or LVEF <30%,
+CHF history,CHF
+CHF or LVEF <30%,CHF
 CNS dysfunction,
 COPD,
 COPD history,
-CRP,
-"CRP >20 mg/L or ANC >10,000/mm3",
-"CRP level, mg/L",
+CRP,C-reactive protein
+"CRP >20 mg/L or ANC >10,000/mm3",C-reactive protein
+"CRP level, mg/L",C-reactive protein
 "CSF ANC ≥1,000 cells/µL",
 CSF Gram stain positive,
 CSF mononuclear cells,
@@ -687,8 +682,8 @@ CTCAE for diarrhea,
 CVA or TIA,
 Ca &lt;8 mg/dL (&lt;2 mmol/L) within 48 hours,
 Calcium,
-Calcium <8 mg/dL (2 mmol/L),
-Calcium >10mg/dL (>2.5 mmol/L),
+Calcium <8 mg/dL (2 mmol/L),Calcium
+Calcium >10mg/dL (>2.5 mmol/L),Calcium
 Calf pain and/or unilateral lower limb edema,
 Calf swelling >3 cm compared to the other leg,
 Cam morphology,
@@ -722,8 +717,8 @@ Cardiovascular: septic shock,
 Carditis (clinical and/or subclinical),
 Carotid bruit (left),
 Carotid bruit (right),
-Carotid pulse loss (left),
-Carotid pulse loss (right),
+Carotid pulse loss (left),Heart rate
+Carotid pulse loss (right),Heart rate
 Carotidodynia,
 Caudate (C),
 Central nervous system,
@@ -757,31 +752,30 @@ Chest tightness,
 Chest wall retractions,
 "Chest wall, sternum, thoracic spine, or scapular tenderness",
 Chest worst injury?,
-Chest x-ray,
+Chest x-ray,chest x-ray
 Child-Pugh grade,
-Children &lt;18 years with known LDL &gt;95th percentile for age and sex,
+Children &lt;18 years with known LDL &gt;95th percentile for age and sex, Age 
 Children with certain underlying conditions,
 Chloride,
 Choose available data,
 Chorea,
-Chronic HF (NYHA IV),
+Chronic HF (NYHA IV),NYHA
 Chronic cutaneous lupus,
 Chronic disease,
 Chronic kidney disease,
 Chronic liver disease,
 Chronic lung disease,
 Chronic neurologic disease,
-Chronic or frequently recurring abdominal pain (occurs most days) that is treated with acute high-dose or chronic narcotics,
+Chronic or frequently recurring abdominal pain (occurs most days) that is treated with acute high-dose or chronic narcotics,Abdominal pain
 Chronic or recurrent rectal pain or aching,
 Chronic pulmonary disease,
-Chronic pulmonary disease ,Chronic pulmonary disease
 "Chronic pulmonary disease (e.g., COPD, emphysema)",
 Chronic pulmonary dysfunction,
 Chronic renal failure,
 Chronic respiratory disease,
-Chronic venous insufficiency ,Chronic venous insufficiency
+Chronic venous insufficiency,
 Cigarette smoking,
-Circulating blasts ,Circulating blasts
+Circulating blasts,
 Circumferential extent of BE above the GE Junction (C value),
 Cirrhosis,
 Classification,
@@ -806,14 +800,14 @@ Cognitive impairment since childhood,
 Collateral (nonvaricose) superficial veins present,
 Collection efficiency,
 Combativeness,
-Combined number of errors to questions and commands >1 ,Combined number of errors to questions and commands >1
+Combined number of errors to questions and commands >1,
 Common bile duct diameter,
 Communicates needs and wants,
 Community affairs (CA),
 Community or non-nosocomial health care associated acquisition,
 Comorbidities,
 Comorbitities (COPD or immunocompromised),
-Complaint of abdominal pain,
+Complaint of abdominal pain,Abdominal pain
 Compliance with mechanical ventilation,
 Compliance with ventilator,
 "Compliance, ml/cm H₂O",
@@ -833,20 +827,19 @@ Confusion/orientation,
 Congenital heart disease,
 Congestive Heart Failure,Congestive heart failure
 Congestive heart failure,
-Congestive heart failure ,Congestive heart failure
 Congestive heart failure history,Congestive heart failure
 Conjugate gaze deviation,
 Connective tissue disease,
 Consciousness,
-Consciousness (GCS),
+Consciousness (GCS),Glasgow Coma Scale
 Consistency,
 Consolability,
 Consolidation on CXR,
-Consolidation on chest x-ray,
-Constitutional symptoms ,Constitutional symptoms
+Consolidation on chest x-ray,chest x-ray
+Constitutional symptoms,
 Constitutional symptoms present,
 Continuous cord compression (signal change within cord on MRI) in setting of neuro deficit,
-Continuous or nearly continuous abdominal pain,
+Continuous or nearly continuous abdominal pain,Abdominal pain
 Contrast media volume,
 Converting From:,
 Converting To:,
@@ -867,7 +860,6 @@ Count backwards from 20 to 1,
 Crackles,
 Cramps,
 Creatinine,
-Creatinine ,Creatinine
 Creatinine <2.0 mg/dL (176.8 μmol/L),Creatinine
 Creatinine > 3.4 mg/dL (300 µmol/L),Creatinine
 Creatinine >1.2 mg/dL (106 µmol/L),Creatinine
@@ -889,7 +881,7 @@ Crohn's disease or ulcerative colitis,
 Crohn‘s disease or ulcerative colitis,
 Cry,
 Culture of tracheal aspirate specimen,
-Current PSA value,
+Current PSA value,PSA
 Current cancer,
 Current central venous access,
 Current dactylitis (swelling of an entire digit) or history of dactylitis recorded by a rheumatologist,
@@ -921,19 +913,19 @@ D-dimer level,D-dimer
 D-dimer level reported by lab,D-dimer
 D-dimer unit type,D-dimer
 D0: No dissection detected or suspected,
-D1: Potentially causal ,D1: Potentially causal
+D1: Potentially causal,
 D2: Causal link uncertain,
 D3: Causal link unlikely but disease is present,
 D5W,
 D9: Incomplete workup,
 DLCO on pulmonary function test,
-"DNA-based evidence of a functional LDLR, PCSK9 and APOB mutation",
+"DNA-based evidence of a functional LDLR, PCSK9 and APOB mutation",LDL
 DNR status,
 DRE findings,
 Dactylitis,
 "Daily consumption of vegetables, fruits, or berries",
 "Daily, painless, recurrent passage of ≥4 large, unformed stools",
-Dangerous mechanism of injury ,Dangerous mechanism of injury
+Dangerous mechanism of injury,
 Date,
 Date of EGA (e.g. date of ultrasound),
 Date of birth,
@@ -951,7 +943,6 @@ Dejour A-D dysplasia,
 Delayed insomnia,
 Delusions,
 Dementia,
-Dementia ,Dementia
 "Dementia (e.g., Alzheimer’s, vascular dementia, Lewy body dementia)",Dementia
 "Dementia established by clinical examination and documented by the Mini-Mental Test, Blessed Dementia Scale, or some similar examination, and confirmed by neuropsychological tests",Dementia
 "Dementia syndrome, in the absence of other neurologic, psychiatric, or systemic disorders sufficient to cause dementia, and presence of variations in onset, in presentation, or in clinical course",Dementia
@@ -980,7 +971,7 @@ Diabetes mellitus,
 Diabetes mellitus (only if sepsis),
 Diabetes mellitus (type I and II),
 Diabetes mellitus history,
-"Diabetes, Hypertension or Angina",
+"Diabetes, Hypertension or Angina",Hypertension
 Diabetisource AC,
 Diagnosis,
 Diagnosis consistent with possible obstruction,
@@ -994,9 +985,9 @@ Diarrhea with mucus > 25% of the time,
 "Diarrhea, nonosmotic",
 Diastolic BP,
 Diastolic BP >90,Diastolic BP
-"Diastolic BP, mmHg ",Diastolic BP
-Diastolic blood pressure before ECMO ≥40 mmHg,
-"Diastolic blood pressure, mmHg",Diastolic blood pressure
+"Diastolic BP, mmHg",Diastolic BP
+Diastolic blood pressure before ECMO ≥40 mmHg,Diastolic BP
+"Diastolic blood pressure, mmHg",Diastolic BP
 Did a household member go to prison?,
 "Did a parent or other adult in the household often or very often... Swear at you, insult&nbsp;you, put you down, or humiliate you? or Act in a way that made you afraid that you&nbsp;might be physically hurt?",
 "Did a parent or other adult in the household&nbsp;often or very often... Push, grab, slap, or&nbsp;throw something at you?&nbsp;or&nbsp;Ever hit you so hard that you had marks or were injured?",
@@ -1008,8 +999,8 @@ Difficulty in abstract thinking,
 "Digestive: acute abdomen, other",
 Digestive: severe pancreatitis,
 Dilation,
-Diminished breath sounds,
-Direct bilirubin,
+Diminished breath sounds,Decreased breath sounds
+Direct bilirubin,Bilirubin
 Directly experiencing the event,
 Discharge or current resources,
 Discharged from oncology service,
@@ -1064,10 +1055,10 @@ Does the patient have more than 12 years of education?,
 Does the patient use ankle foot orthoses/braces?,
 Does their gait look abnormal?,
 Donor CD3+ lymphocytes,
-Donor WBC,
+Donor WBC,White blood cell count
 Donor total lymphocytes,
-Dorsalis pedis pulse loss (left),
-Dorsalis pedis pulse loss (right),
+Dorsalis pedis pulse loss (left),Heart rate
+Dorsalis pedis pulse loss (right),Heart rate
 Dosage,
 "Dosage, mcg/hr",
 Dose per fraction,
@@ -1085,7 +1076,7 @@ Duration from CPR to ROSC,
 Duration from collapse to CPR begun,
 Duration of complaints >72 hours,
 Duration of exercise,
-"Duration of intubation prior to initiation of ECMO, hrs",
+"Duration of intubation prior to initiation of ECMO, hrs",Intubated
 Duration of morning stiffness,
 Duration of pain prior to presentation,
 "Duration of pain, hrs",
@@ -1093,13 +1084,13 @@ Duration of surgery,
 Duration of symptoms,
 Duration of the disturbance is >1 month,
 "During repeated attempts to defecate, there must be features of impaired evacuation, as demonstrated by 2 of the following 3 tests:",
-Dysarthria or aphasia (history or examination),
+Dysarthria or aphasia (history or examination),Dysarthria
 Dyspnea,
 Dyspnea on exertion,
 E,
 E frequency,
 ECG,
-ECG showing Q wave,
+ECG showing Q wave,ECG
 ECOG,
 ECOG Performance Status,ECOG
 ECOG Score,ECOG
@@ -1110,18 +1101,18 @@ ED visits per year,ED visits
 "ED visits, last 12 months",ED visits
 EDH,
 EGA,
-EKG,
-EKG ST changes ≥0.5mm,EKG
-"EKG abnormal (EKG changed, or any non-sinus rhythm on EKG or monitoring)",EKG
-EKG ischemia,EKG
+EKG,ECG
+EKG ST changes ≥0.5mm,ECG
+"EKG abnormal (EKG changed, or any non-sinus rhythm on EKG or monitoring)",ECG
+EKG ischemia,ECG
 ESR,
 ESR > 10 mm/hr,ESR
 ESR > 40mm/hr,ESR
-ESR ≥30 mm/hr and/or CRP ≥3.0 mg/dL,ESR
-ESR ≥60 mm in the first hour and/or CRP ≥3.0 mg/dL,ESR
+ESR ≥30 mm/hr and/or CRP ≥3.0 mg/dL,C-reactive protein
+ESR ≥60 mm in the first hour and/or CRP ≥3.0 mg/dL,C-reactive protein
 "Each episode + qualifying features documented; or, if not fully documented, subsequent observance by clinician of 2 episodes with patterns of frequency/clinical features consistent with initial history",
 Earlier SAH from another aneurysm,
-Early extrapyramidal signs ,Early extrapyramidal signs
+Early extrapyramidal signs,
 Early hallucinations,
 Early infarct signs on initial CT,
 Early mitral inflow velocity/mitral annular early diastolic velocity (E/e') ratio,
@@ -1145,18 +1136,18 @@ Either of the following:,
 Ejected from vehicle,
 Ejection Fraction,
 Ejection fraction,
-Elderly age (≥70 years),
-Elevated BNP or NT-proBNP ,Elevated BNP or NT-proBNP
-Elevated CRP,
-Elevated WBC count,
+Elderly age (≥70 years), Age 
+Elevated BNP or NT-proBNP,
+Elevated CRP,C-reactive protein
+Elevated WBC count,White blood cell count
 Elevated anticardiolipin antibody,
 Elevated cardiac troponin,
-"Elevated levels of a fibrin-related marker (e.g. D-dimer, fibrin degradation products)",
+"Elevated levels of a fibrin-related marker (e.g. D-dimer, fibrin degradation products)",D-dimer
 "Elevated liver enzymes OR dilated bile duct, but not both",
 Elevated serum homocysteine,
 Elevated temperature (37.3°C or 99.1°F),
 Elevated troponin,
-Elevated white blood cell count,
+Elevated white blood cell count,White blood cell count
 Elevated-risk surgery,
 Elixhauser Comorbidity Index,
 Emergency case,
@@ -1167,21 +1158,20 @@ Emotional withdrawal,
 "Emotions, behaviors, thought disturbance",
 Encephalopathy,
 End stage renal disease,
-Endocrine and breast ,Endocrine and breast
+Endocrine and breast,
 Endoscopic findings,
 Endoscopy finding,Endoscopy
 Energy,
 Enlarged liver,
 Enlarged lymph nodes,
-Enlarged lymph nodes ,Enlarged lymph nodes
 Enlarged spleen,
 Ensure,
 Enthesitis,
-Enthesitis (heel),
+Enthesitis (heel),Enthesitis
 Entire leg swollen,
 Eosinopenia,
 Eosinophilia,
-Eosinophilia (≥4% on CBC),
+Eosinophilia (≥4% on CBC),Eosinophilia
 Eosinophils ≥4% (on CBC),
 Epidural hematoma on CT,
 Epigastric pain or burning not associated with defecation,
@@ -1196,19 +1186,19 @@ Episodes are separated by weeks to months with return to baseline health between
 Episodes are stereotypical in each patient,
 "Episodes last from seconds to minutes, with a maximum duration of 30 minutes",
 Episodes last ≥30 minutes,
-"Episodic or continuous abdominal pain that does not occur solely during physiologic events (e.g. eating, menses)",
+"Episodic or continuous abdominal pain that does not occur solely during physiologic events (e.g. eating, menses)",Abdominal pain
 Equation,
 Erosions and ulcers,
 Errands and chores,
 Erythema,
-Erythema marginatum,
-Erythema nodosum,
-"Erythema nodosum, pyoderma gangrenosum, or apthous stomatitis",
-Erythrocyte Sedimentation Rate (ESR),
-"Erythrocyte sedimentation rate, mm/hr",
+Erythema marginatum,Erythema
+Erythema nodosum,Erythema
+"Erythema nodosum, pyoderma gangrenosum, or apthous stomatitis",Erythema
+Erythrocyte Sedimentation Rate (ESR),Erythrocyte sedimentation rate
+"Erythrocyte sedimentation rate, mm/hr",Erythrocyte sedimentation rate
 Essence (stone density in Hounsfield units),
 Estimated blood loss,
-Estimated blood loss (EBL),
+Estimated blood loss (EBL),Estimated blood loss
 Estimated glomerular filtration rate,
 Estimated percentage body burned,
 Estimated severity of trauma to tissue,
@@ -1220,7 +1210,7 @@ Evidence of &ge;2 organs failing,
 Evidence of abdominal wall trauma or seatbelt sign,
 Evidence of dissemination in space in the spinal cord,
 Evidence of endocardial involvement,
-Evidence of hepatic failure (INR &gt;1.5),
+Evidence of hepatic failure (INR &gt;1.5),INR
 "Evidence of increased autonomic activity (i.e., HR >120, tremor, sweating, agitation, nausea)",
 "Evidence of seizure-related helmet use, or head or face injuries",
 Evidence of significant skull fracture,
@@ -1250,7 +1240,7 @@ Extent (E),
 External worst injury?,
 Extra-hepatic involvement,
 Extra-intestinal manifestations,
-Extracardiac arteriopathy ,Extracardiac arteriopathy
+Extracardiac arteriopathy,
 Extracranial metastases,
 Extrathoracic cancer diagnosis ≥5 years prior,
 Extremity (including pelvis) worst injury?,
@@ -1270,7 +1260,7 @@ Facial droop,
 Facial expression,
 Facial palsy,
 Fall from any elevation,
-Fall of >3 m in height,
+Fall of >3 m in height,Height
 False negatives (FN),
 False positives (FP),
 Family history,
@@ -1295,13 +1285,13 @@ Feelings of detachment or estrangement from others,
 Feelings of guilt,
 Felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?,
 "Felt numb or detached from people, activities, or your surroundings?",
-Female,
-Female with diabetes mellitus,
-Female ≥65 years or male ≥55 years,
-Femoral pulse loss (left),
-Femoral pulse loss (right),
+Female,Gender/Sex
+Female with diabetes mellitus,Gender/Sex
+Female ≥65 years or male ≥55 years,Gender/Sex
+Femoral pulse loss (left),Heart rate
+Femoral pulse loss (right),Heart rate
 Ferritin,
-"Ferritin, ng/mL (or &mu;g/L)",
+"Ferritin, ng/mL (or &mu;g/L)",Ferritin
 Fetal breathing,
 Fetal cells in mother,
 Fetal movement,
@@ -1329,7 +1319,7 @@ First TIA in lifetime,
 First live birth,
 First menstrual period,
 First recorded creatinine (Cr1),
-First-degree relative with known LDL &gt;95th percentile for age and sex,
+First-degree relative with known LDL &gt;95th percentile for age and sex, Age 
 First-degree relative with premature coronary and/or vascular disease,
 First-degree relative with tendon xanthomata and/or arcus cornealis,
 First-degree relatives with breast cancer,
@@ -1347,23 +1337,23 @@ Frequency: How often have you had to urinate less than every two hours?,
 Frequent yawning,
 Friction and shear,
 Fuhrman nuclear grade,
-"Functional mutation of LDLR, apoB or PCSK9 gene",
+"Functional mutation of LDLR, apoB or PCSK9 gene",LDL
 Functional status,
 Fy(a),
 Fy(a) frequency,
 Fy(b),
 Fy(b) frequency,
-GCS,
-GCS < 13,
-GCS <14 (or GCS <15 if <1 year old),
-GCS <14 and blunt abdominal trauma,
-GCS <15,
-GCS <15 at 2 hours post-injury,
-GCS <15 at 2 hrs after injury,
-GCS deterioration at 1 hr after presentation,
-GCS score,
-GCS ≤14 or signs of basilar skull fracture or signs of AMS,
-"GCS ≤14, palpable skull fracture or signs of AMS",
+GCS,Glasgow Coma Scale
+GCS < 13,Glasgow Coma Scale
+GCS <14 (or GCS <15 if <1 year old),Glasgow Coma Scale
+GCS <14 and blunt abdominal trauma,Glasgow Coma Scale
+GCS <15,Glasgow Coma Scale
+GCS <15 at 2 hours post-injury,Glasgow Coma Scale
+GCS <15 at 2 hrs after injury,Glasgow Coma Scale
+GCS deterioration at 1 hr after presentation,Glasgow Coma Scale
+GCS score,Glasgow Coma Scale
+GCS ≤14 or signs of basilar skull fracture or signs of AMS,Glasgow Coma Scale
+"GCS ≤14, palpable skull fracture or signs of AMS",Glasgow Coma Scale
 GFR,
 GFR 2,
 GGT,
@@ -1376,26 +1366,26 @@ Gastrointestinal symptoms present,
 Gastrointestinal-hepatic dysfunction,
 Gegenhalten,
 Gender,Gender/Sex
-General condition (Karnofsky Performance Status),
+General condition (Karnofsky Performance Status),Karnofsky
 General somatic symptoms,
 General well-being,
 Generalized convulsions,
 Genetic Factors,
 Genetic conditions,
 "Genetic testing: AD autosomal dominant mutation in PSEN1, PSEN2, or APP genes",
-Genital symptoms ,Genital symptoms
+Genital symptoms,
 Genitourinary,
-Gestational age,
-Gestational age (GA),
-"Gestational age, weeks",
+Gestational age,gestational age
+Gestational age (GA),gestational age
+"Gestational age, weeks",gestational age
 Get in and out of bed,
 Get in and out of car,
 Get on and off the toilet,
 Get on and off toilet,
 Gland texture,
 Glasgow Coma Scale,
-Glasgow Coma Scale/Score,
-Glasgow Coma Score,
+Glasgow Coma Scale/Score,Glasgow Coma Scale
+Glasgow Coma Score,Glasgow Coma Scale
 Gleason Score,
 Gleason Score pattern (primary or secondary),
 Global Health,
@@ -1432,15 +1422,16 @@ H2 blocker or PPI within 14 days,
 HBeAg,
 HCO₃ before ECMO ≤15 mmol/L (91.5 mg/dL),
 HCO₃-,
-HDL Cholesterol,
-HDL cholesterol,
+HDL Cholesterol,HDL
+HDL cholesterol,HDL
 HIV-1 RNA,
+HLA match group,
 HLA-B27,
-HR,
-HR &ge;120 in ED,
-HR in ED ≥90 bpm,
-HR ≥100,
-HR ≥110/min ,HR ≥110/min
+HR,Heart rate
+HR &ge;120 in ED,Heart rate
+HR in ED ≥90 bpm,Heart rate
+HR ≥100,Heart rate
+HR ≥110/min,Heart rate
 Had nightmares about the event(s) or thought about the event(s) when you did not want to?,
 Haematological cancer,
 Hallucinations,
@@ -1448,7 +1439,7 @@ Hallucinatory behavior,
 Handwriting,
 Hard testicle,
 Has anyone observed you stop breathing during sleep?,
-"Has food intake declined over the past 3 months due to loss of appetite, digestive problems, chewing, or&nbsp;swallowing difficulties?",
+"Has food intake declined over the past 3 months due to loss of appetite, digestive problems, chewing, or&nbsp;swallowing difficulties?",Appetite
 Has the physical violence increased in frequency or severity over the past 6 months?,
 Has your partner acted like they would like to kill you?,
 Has your partner beaten you so badly that you had to seek medical care?,
@@ -1472,8 +1463,8 @@ Have you ever been emotionally or physically abused by your partner or someone i
 Have you ever experienced a traumatic event?,
 Have you ever experienced blackouts?,
 Have you ever experienced delirium tremens (DTs)?,
-Have you ever experienced previous episodes of alcohol withdrawal? ,Have you ever experienced previous episodes of alcohol withdrawal?
-Have you ever experienced withdrawal seizures? ,Have you ever experienced withdrawal seizures?
+Have you ever experienced previous episodes of alcohol withdrawal?,
+Have you ever experienced withdrawal seizures?,
 Have you ever felt Guilty about drinking?,
 Have you ever felt you needed a drink first thing in the morning (Eye-opener) to steady your nerves or to get rid of a hangover?,
 Have you ever felt you needed to Cut down on your drinking?,
@@ -1482,45 +1473,45 @@ Hct drop &gt;10% from admission,
 Head and gaze deviation,
 Head and neck worst injury?,
 Headache,
-Headache/fullness in head,
+Headache/fullness in head,Headache
 Hearing,
 Heart,
-Heart Rate,
-Heart Rate (beats/minute),
-Heart Rate/Pulse,
+Heart Rate,Heart rate
+Heart Rate (beats/minute),Heart rate
+Heart Rate/Pulse,Heart rate
 Heart and/or respiratory failure,
-Heart attack ,Heart attack
+Heart attack,
 Heart conditions,
 Heart disease history,
 Heart failure first diagnosed ≥18 months ago,
 Heart rate,
-Heart rate &gt;90,
-Heart rate <80,
-Heart rate > 100,
-Heart rate on ED arrival ≥110,
-Heart rate ≥100,
-Heart rate ≥100 in past 6 hours,
-Heart rate ≥110,
-Heart rate ≥110 during 3-minutes walk test (or too ill to perform walk test),
-"Heart rate, beats per min",
-"Heart rate, beats per minute",
-"Heart rate, beats/min",
-"Heart rate, bpm",
-Heart rate/pulse,
+Heart rate &gt;90,Heart rate
+Heart rate <80,Heart rate
+Heart rate > 100,Heart rate
+Heart rate on ED arrival ≥110,Heart rate
+Heart rate ≥100,Heart rate
+Heart rate ≥100 in past 6 hours,Heart rate
+Heart rate ≥110,Heart rate
+Heart rate ≥110 during 3-minutes walk test (or too ill to perform walk test),Heart rate
+"Heart rate, beats per min",Heart rate
+"Heart rate, beats per minute",Heart rate
+"Heart rate, beats/min",Heart rate
+"Heart rate, bpm",Heart rate
+Heart rate/pulse,Heart rate
 Heaviness,
 Height,
-Height at diagnosis (or at follow-up),
+Height at diagnosis (or at follow-up),Height
 Hematocrit,
 Hematocrit &lt;30%,Hematocrit
 Hematocrit <30%,Hematocrit
 Hematocrit of transfused RBCs,Hematocrit
-Hematocrit ≥ 43% (male) or 39.6% (female),Hematocrit
+Hematocrit ≥ 43% (male) or 39.6% (female),Gender/Sex
 "Hematocrit, goal",Hematocrit
 "Hematocrit, initial",Hematocrit
 Hematological dysfunction,
 Hematopoietic,
 Hematuria,
-Hematuria on urine dipstick,
+Hematuria on urine dipstick,Hematuria
 Heme-granular or RBC urinary casts,
 Hemiparesis,
 Hemiplegia,
@@ -1528,7 +1519,7 @@ Hemodialysis during admission,
 Hemodynamically unstable,
 Hemoglobin,
 Hemoglobin &lt;lower limit of normal,Hemoglobin
-Hemoglobin (female < 12 g/dL; male < 14 g/dL),Hemoglobin
+Hemoglobin (female < 12 g/dL; male < 14 g/dL),Gender/Sex
 Hemoglobin (final),Hemoglobin
 Hemoglobin (g/dL),Hemoglobin
 Hemoglobin (initial),Hemoglobin
@@ -1546,7 +1537,7 @@ Hemoglobin level <10 g/dL or using RBC growth factors,Hemoglobin
 "Hemoglobin, g/dL",Hemoglobin
 "Hemoglobin, g/dL (g/L)",Hemoglobin
 Hemolysis,
-Hemolytic anemia ,Hemolytic anemia
+Hemolytic anemia,
 Hemophagocytosis features on bone marrow aspirate,
 Hemoptysis,
 Hemorrhage Length,
@@ -1568,12 +1559,12 @@ Hepatomegaly,
 Hgb,
 High DNA binding,
 High altitude (>4000 ft),
-High fever,
+High fever,Fever
 High riding testis,
 High risk conditions,
 Highest respiratory rate in past 6 hours,
 High‐speed injury from a projectile or an object,
-"High‐speed road traffic accident as pedestrian, cyclist or occupant ","High‐speed road traffic accident as pedestrian, cyclist or occupant"
+"High‐speed road traffic accident as pedestrian, cyclist or occupant",
 Hilar tumor,
 "Hip, pelvis, or leg fracture",
 Histopathologic evidence obtained from a biopsy or autopsy,
@@ -1588,12 +1579,12 @@ History of DVT/PE,
 History of Diabetes,
 History of ED or hospital admission due to hypoglycemia,
 History of EEG with generalized slow spike-and-wave (SSW) discharges (&lt;2.5 Hz),
-History of LOC or history of vomiting or severe headache or severe mechanism of injury,
+History of LOC or history of vomiting or severe headache or severe mechanism of injury,Headache
 History of VTE,
 History of arrhythmia,
 History of atrial fibrillation,
 History of bleeding,
-History of blood in stool,
+History of blood in stool,Blood in stool
 History of cancer,
 History of carotid stenosis,
 History of central nervous system dysfunction,
@@ -1606,7 +1597,7 @@ History of diabetes,
 History of diabetes mellitus,
 History of diabetes or initial glucose >200 mg/dL,
 History of dialysis,
-History of difficult intubation,
+History of difficult intubation,Intubated
 History of excessive stool retention,
 History of gait disturbance,
 History of gastrointestinal or urinary tract hemorrhage within 21 days,
@@ -1615,13 +1606,13 @@ History of heart disease,
 History of heart failure,
 History of high blood glucose,
 History of hydronephrosis,
-History of hypertension,
+History of hypertension,Hypertension
 History of inflammatory bowel disease,
 History of intracranial hemorrhage,
 History of ischemic heart disease,
 History of large diameter stools that can obstruct the toilet,
 History of large-diameter stools,
-History of large-diameter stools that may obstruct the toilet ,History of large-diameter stools that may obstruct the toilet
+History of large-diameter stools that may obstruct the toilet,
 History of liver disease,
 History of migration of pain to RLQ,
 History of motion sickness or PONV,
@@ -1631,7 +1622,7 @@ History of preadolescent sexual abuse,
 History of prior stroke and diabetes,
 History of recurrent urinary tract infections,
 History of retentive posturing or excessive volitional stool retention,
-"History of sepsis or prerenal acute kidney injury, use of pressors, or hypotension",
+"History of sepsis or prerenal acute kidney injury, use of pressors, or hypotension",Hypotension
 History of severe organ failure or immunocompromise,
 History of similar event,
 History of solid-organ or stem-cell transplant,
@@ -1643,14 +1634,14 @@ History of unilateral weakness,
 "History of vagal nerve stimulator (VNS), ketogenic diet, or epilepsy surgery",
 History of vascular disease,
 History of vertigo,
-History of vomiting,
-History of worsening headache,
+History of vomiting,Nausea/vomiting
+History of worsening headache,Headache
 Home,
 Home and hobbies (HH),
-Horizontal head impulse test (h-HIT),
-Hormonal therapy ,Hormonal therapy
+Horizontal head impulse test (h-HIT),Heart rate
+Hormonal therapy,
 Hormone use,
-Hormone use at VTE onset (if female),
+Hormone use at VTE onset (if female),Gender/Sex
 Hospital days pre-ECMO,
 Hospitalization for &ge;2 days,
 Hospitalization within 60 days,
@@ -1700,22 +1691,22 @@ How sharp is the pain?,
 How unpleasant is the pain?,
 Hygiene activities,
 HyperDense Cerebral Artery / Early Infarct on CT,
-Hyperbilirubinemia,
+Hyperbilirubinemia,Bilirubin
 Hypercalcemia,
 Hypercapnic respiratory failure,
 Hyperdense cerebral artery sign on initial CT,
 Hyperpigmentation,
 Hypertension,
-Hypertension (Uncontrolled),
-Hypertension History,
-Hypertension history,
-Hypertension or ≥1 cardiac diseases,
+Hypertension (Uncontrolled),Hypertension
+Hypertension History,Hypertension
+Hypertension history,Hypertension
+Hypertension or ≥1 cardiac diseases,Hypertension
 Hyperthermia,
 Hypervigilance,
 Hypoalbuminemia,
 Hypochondriasis,
 Hypotension,
-Hypotension or hypoperfusion within 4 hrs prior to arrest ,Hypotension or hypoperfusion within 4 hrs prior to arrest
+Hypotension or hypoperfusion within 4 hrs prior to arrest,Hypotension
 Hypoxia,
 "I felt dizzy, lightheaded, or faint when I read or listened to news about the coronavirus",
 I felt nauseous or had stomach problems when I thought about or was exposed to information about the coronavirus,
@@ -1741,9 +1732,9 @@ ICU/CCU stay,
 IGHV mutational status,
 "IL-6, µ/mL",
 INR,
-INR  <1.5,
-INR > 6.5 (PT > 100 sec),
-INR >1.5,
+INR  <1.5,INR
+INR > 6.5 (PT > 100 sec),INR
+INR >1.5,INR
 IPH &ge;8 mm or multiple,
 IPH &gt;4 to &lt;8 mm,
 IVH,
@@ -1765,11 +1756,11 @@ Imaging evidence of urate deposition in symptomatic joint/bursa,
 Imaging findings characteristic of acute cholecystitis,
 Immobility within the last four weeks,
 Immobility/stupor,
-Immobilization,
-Immobilization at least 3 days OR surgery in the previous 4 weeks,
-Immobilization for ≥3 days,
-Immobilized &ge;7 days,
-Immobilized ≥7 days,
+Immobilization,Immobilized
+Immobilization at least 3 days OR surgery in the previous 4 weeks,Immobilized
+Immobilization for ≥3 days,Immobilized
+Immobilized &ge;7 days,Immobilized
+Immobilized ≥7 days,Immobilized
 Immobilizing plaster cast,
 Immunocompromised status at time of ECMO,
 Immunologic phenomena,
@@ -1787,8 +1778,8 @@ Impulsivity,
 Inability to bear weight both immediately after injury AND in ED,
 Inability to feel,
 Inability to remember an important aspect of the traumatic event,
-Inadequate propulsive forces as measured with manometry with or without inappropriate contraction of the anal sphincter and/or pelvic floor muscles (as defined by age and sex-appropriate normal values for the technique),
-Inappropriate contraction of the pelvic floor as measured with anal surface EMG or manometry with adequate propulsive forces during attempted defecation (as defined by age and sex-appropriate normal values for the technique),
+Inadequate propulsive forces as measured with manometry with or without inappropriate contraction of the anal sphincter and/or pelvic floor muscles (as defined by age and sex-appropriate normal values for the technique), Age 
+Inappropriate contraction of the pelvic floor as measured with anal surface EMG or manometry with adequate propulsive forces during attempted defecation (as defined by age and sex-appropriate normal values for the technique), Age 
 Incapacitation due to abnormal movements,
 Incomplete emptying: How often have you had the sensation of not emptying your bladder?,
 Inconsolable,
@@ -1811,7 +1802,7 @@ Infant appears generally well,
 Infarction (new or old) on CT,
 Infection,
 Infection source,
-Inflammatory articular disease ,Inflammatory articular disease
+Inflammatory articular disease,
 Inflammatory back pain,
 Inflammatory bowel disease,
 Inflammatory-type rash,
@@ -1829,7 +1820,7 @@ Initial insomnia,
 Initial phosphate,
 Initial rhythm,
 Initial systolic BP,
-Initial triage diastolic blood pressure &ge;110 mmHg,
+Initial triage diastolic blood pressure &ge;110 mmHg,Diastolic BP
 Initial troponin,
 Injectable sodium phosphates,
 Injury Severity Score (ISS),
@@ -1847,9 +1838,9 @@ Instrumental Activities of Daily Living score (IADL),
 "Insufficient criteria for irritable bowel syndrome, functional dyspepsia, or abdominal migraine",
 Insular Ribbon (I),
 Insulin,
-Insulin use,
-Insulin-dependent diabetes mellitus,
-Insulin-requiring diabetes,
+Insulin use,Insulin
+Insulin-dependent diabetes mellitus,Insulin
+Insulin-requiring diabetes,Insulin
 Intense or prolonged psychological distress at exposure to internal or external cues that symbolize or resemble an aspect of the traumatic event,
 Intensity,
 Intensive care unit or coronary care unit stay,
@@ -1870,9 +1861,9 @@ Intrahospital location before ICU admission,
 Intraoperative blood loss,
 Intravenous drug use,
 Intraventricular hemorrhage,
-Intraventricular hemorrhage (IVH) present,
-Intubated?,
-Intubation for respiratory distress,
+Intraventricular hemorrhage (IVH) present,Intraventricular hemorrhage
+Intubated?,Intubated
+Intubation for respiratory distress,Intubated
 Involved:uninvolved sFLC ratio ≥100,
 "Involvement of at least 3 nodal sites, each with diameter >3 cm",
 Iritis/uveitis,
@@ -1883,8 +1874,8 @@ Is the adverse event hindering at least one activity of daily living?,
 "Is the adverse event hindering walking, preventing the patient from attending their own bodily needs?",
 "Is the adverse event leaving the patient bedridden, in need of constant help, incontinent?",
 Is the adverse event resulting in any new neurological deficit?,
-Is the intubated patient on CMV?,
-Ischemic changes on EKG,
+Is the intubated patient on CMV?,Intubated
+Ischemic changes on EKG,ECG
 Isolated tenderness of the patella (no other bony tenderness),
 Isosource HN,
 Item 10: Repeat item 9,
@@ -1918,46 +1909,46 @@ Juxtaarticular new bone formation on hand or foot x-ray,
 Juxtacordial,
 K,
 K frequency,
-Karnofsky Performance Score,
-Karnofsky Performance Status,
-Karnofsky Performance Status <80%,
-Karnofsky or Lanksy scale,
+Karnofsky Performance Score,Karnofsky
+Karnofsky Performance Status,Karnofsky
+Karnofsky Performance Status <80%,Karnofsky
+Karnofsky or Lanksy scale,Karnofsky
 Karyotype,
 Ki-67,
-Kidney disease ,Kidney disease
+Kidney disease,
 Killip Class II-IV,
 Killip class (signs/symptoms),
 Known CAD (stenosis ≥50%),
 "Known CAD, cerebrovascular disease, or peripheral vascular disease",
 Known bleeding diathesis,
 Known coronary artery disease or &ge;3 risk factors,
-Known hypercoagulable state ,Known hypercoagulable state
+Known hypercoagulable state,
 "Known intracranial arteriovenous malformation, neoplasm, or aneurysm",
 Known thrombophilia,
 Known underlying immunosuppression,
 LDH,
-LDH &gt;1.5&times; upper limit of normal,
-LDH &gt;350,
-LDH > 1.5x Upper Limit of Normal,
-LDH >600 IU/L,
-LDH below upper limit of normal,
-LDH elevated,
-LDL Cholesterol ≥190mg/dL (4.92 mmol/L),
-LDL cholesterol,
-LDL in mmol/L (mg/dL),
+LDH &gt;1.5&times; upper limit of normal,LDH
+LDH &gt;350,LDH
+LDH > 1.5x Upper Limit of Normal,LDH
+LDH >600 IU/L,LDH
+LDH below upper limit of normal,LDH
+LDH elevated,LDH
+LDL Cholesterol ≥190mg/dL (4.92 mmol/L),LDL
+LDL cholesterol,LDL
+LDL in mmol/L (mg/dL),LDL
 LKM1 antibody,
 LV function or LVEF,
-Labile INR,
+Labile INR,INR
 Laboratory data: abnormal liver enzymes,
 Laboratory data: evidence of inflammatory response,
-Lack of appetite,
+Lack of appetite,Appetite
 Lack of judgement and insight,
 Lack of spontaneity and flow of conversation,
-Lactate > 3.5 mmol/L after fluid resuscitation ( 3 mmol/L after full fluid resuscitation (12 hours),
-"Lactate concentration, mmol/L",
-Lactate dehydrogenase,
-"Lactate dehydrogenase, U/L",
-"Lactic acidosis, SBP &lt;90 or SBP drop &ge;40 mm Hg of normal",
+Lactate > 3.5 mmol/L after fluid resuscitation ( 3 mmol/L after full fluid resuscitation (12 hours),Lactate
+"Lactate concentration, mmol/L",Lactate
+Lactate dehydrogenase,Lactate
+"Lactate dehydrogenase, U/L",Lactate
+"Lactic acidosis, SBP &lt;90 or SBP drop &ge;40 mm Hg of normal",Acidosis
 Lactulose-based osmotic diarrhea,
 Large boggy scalp hematoma,
 Large vessel occlusion (LVO) present?,
@@ -1975,20 +1966,20 @@ Leg motor impairment,
 Leg weakness,
 Legs,
 Length of stay,
-Length of stay (days),
-"Length of stay before ICU admission, days",
+Length of stay (days),Length of stay
+"Length of stay before ICU admission, days",Length of stay
 Lentiform nucleus (L),
 Letters attention test with >2 errors,
 Leukemia,
 Leukemic phase (>5.0 x10⁹/L circulating malignant cells),
-"Leukocyte count, cells/µL",
-Leukocyte left shift,
-"Leukocytes, G/L",
+"Leukocyte count, cells/µL",White blood cell count
+Leukocyte left shift,White blood cell count
+"Leukocytes, G/L",White blood cell count
 Leukocytosis,
 "Leukocytosis >10,000",
 Leukocyturia,
 Leukopenia or lymphopenia,
-Level of consciousness,
+Level of consciousness,level of consciousness
 Level of independence,
 Lichenification,
 Lifestyle alteration,
@@ -2010,7 +2001,7 @@ Liver histology: interface hepatitis,
 Liver histology: other changes,
 Liver histology: predominantly lymphoplasmacytic infiltrate,
 Liver histology: rosetting of liver cells,
-"Liver, pancreas, and biliary ","Liver, pancreas, and biliary"
+"Liver, pancreas, and biliary",
 Lobular inflammation,
 Localized disease - T stage,
 Localized tenderness along the deep venous system,
@@ -2018,7 +2009,7 @@ Location (L),
 Location of pain,
 Location relative to polar lines,
 Long term care resident,
-"Loose or watery stools, without predominant abdominal pain or bothersome bloating, occurring in >25% of stools",
+"Loose or watery stools, without predominant abdominal pain or bothersome bloating, occurring in >25% of stools",Abdominal pain
 Loose stools are rarely present without the use of laxatives,
 Loose stools rarely present without use of laxatives,
 Looser stools associated with onset of pain,
@@ -2031,16 +2022,16 @@ Low risk factor present,
 "Lower (legs, knees, ankles, toes)",
 Lower GI,
 Lower limb paralysis,
-Lowest heart rate,
+Lowest heart rate,Heart rate
 Lowest mean arterial pressure,
 Lu(a),
 Lu(a) frequency,
 Lu(b),
 Lu(b) frequency,
-Lumpy or hard stools ,Lumpy or hard stools
+Lumpy or hard stools,
 Lumpy or hard stools (Bristol Stool Form Scale 1-2) more than one-fourth (25%) of defecations,
 Lung contusion,
-Lupus headache,
+Lupus headache,Headache
 Lymphocytes,
 Lymphoma,
 Lymphovascular Invasion (LVI),
@@ -2062,11 +2053,11 @@ Major surgery or serious non-head trauma in the previous 14 days,
 Major trauma,
 Major vessel involvement,
 Makes eye contact with caregiver,
-Malaise or weight loss >2 kg,
-Male age &gt;60 years,
-Male patient,
-Male patient with uncontrolled hypertension,
-Male sex,
+Malaise or weight loss >2 kg,Weight
+Male age &gt;60 years, Age 
+Male patient,Gender/Sex
+Male patient with uncontrolled hypertension,Hypertension
+Male sex,Gender/Sex
 Malignancy History,
 Malignancy history,
 Malignancy w/ treatment within 6 months or palliative,
@@ -2075,18 +2066,18 @@ Mannerisms and posturing,
 Manual maneuvers to facilitate defecation,
 Manual maneuvers to facilitate more than one-fourth (25%) of defecations,
 Marked change in tone,
-Marked change in tone (hyper or hypotonia),
+Marked change in tone (hyper or hypotonia),Marked change in tone
 Marked distress regarding binge eating is present,
 Marked local inflammation,
 Marked physiological reactions to internal or external cues that symbolize or resemble an aspect of the traumatic event,
 Markedly diminished interest or participation in significant activities,
 Marshall CT classification,
-Maternal age < 40 years,
+Maternal age < 40 years, Age 
 Maternal blood volume,
 Maximal extent of BE above the GE Junction (M value),
 Maximal net ST-segment deviation,
 Maximal tenderness in RLQ,
-Maximum heart rate,
+Maximum heart rate,Heart rate
 Maximum number reached before next breath,
 Mean airway pressure (PAW),
 Mean arterial pressure,
@@ -2147,6 +2138,7 @@ Moro reflex,
 Morphology,
 Morphology criteria for VT present in both precordial leads V1-2 and V6,
 Motor Response,
+Motor response,
 Motor response (upper extremities),
 Motor retardation,
 Motor score,
@@ -2155,7 +2147,7 @@ Mouth opening,
 Move heavy objects,
 Moving or speaking so slowly that other people could have noticed? Or so fidgety or restless that you have been moving a lot more than usual?,
 Mucosal appearance at endoscopy,
-Multi-lobar involvement on chest x-ray,
+Multi-lobar involvement on chest x-ray,chest x-ray
 Multifocal,
 Multilobar opacities in chest radiograph,
 Multilobar/bilateral X-ray,
@@ -2180,24 +2172,24 @@ N,
 N frequency,
 NCI mucositis grade ≥2,
 NIH Stroke Scale,
-NIH Stroke Scale (NIHSS) ≥ 10,
-NIHSS >25,
-NIHSS Score,
+NIH Stroke Scale (NIHSS) ≥ 10,NIH Stroke Scale
+NIHSS >25,NIH Stroke Scale
+NIHSS Score,NIH Stroke Scale
 NT-proBNP,
 "NT-proBNP ≥5,000 ng/L (pg/mL)",
-NYHA Class,
-NYHA class,
-NYHA class 3 or 4 heart failure,
-NYHA/WHO functional class,
+NYHA Class,NYHA
+NYHA class,NYHA
+NYHA class 3 or 4 heart failure,NYHA
+NYHA/WHO functional class,NYHA
 NaHCO₃ concentrate,
 Nadir platelet count,
 Nasal flaring,
-Nasal stuffiness ,Nasal stuffiness
+Nasal stuffiness,
 Nature of lesion,
-Nausea,
-Nausea & vomiting,
-Nausea and vomiting,
-Nausea or vomiting,
+Nausea,Nausea/vomiting
+Nausea & vomiting,Nausea/vomiting
+Nausea and vomiting,Nausea/vomiting
+Nausea or vomiting,Nausea/vomiting
 Nausea/vomiting,
 Near drowning,
 Nearness to collecting system or sinus (mm),
@@ -2209,7 +2201,7 @@ Neck vein distention,
 Needs help taking meds,
 Negative endoscopic ultrasound,
 Negative immunofixation of serum and urine AND disappearance of any soft tissue plasmacytomas AND <5% plasma cells in bone marrow,
-"Negative urine analysis (abscence of blood, WBCs, bacteria)",
+"Negative urine analysis (abscence of blood, WBCs, bacteria)",White blood cell count
 Negative vocalization,
 Negativism,
 Neglect or aphasia,
@@ -2226,7 +2218,7 @@ Neurologic: intracranial mass effect,
 Neurological dysfunction,
 Neurological or musculoskeletal dysfunction severely affecting mobility,
 Neurological status,
-Neurologically intact or with minimal deficits at admission ,Neurologically intact or with minimal deficits at admission
+Neurologically intact or with minimal deficits at admission,
 Neuromuscular blockade before ECMO,
 Neuropsychological conditions,
 "Neurosurgery, head trauma, or stroke in past 3 months",
@@ -2236,19 +2228,19 @@ Neutrophil-lymphocyte ratio (NLR),
 Neutrophilia,
 Neutrophils > upper limit of normal,
 New fistula,
-New ischemic changes on EKG,
-New loss of pulses,
+New ischemic changes on EKG,ECG
+New loss of pulses,Heart rate
 New onset sensory or motor neuropathy involving cranial nerves,
 New onset stroke,
 New shortness of breath,
 Newly initiated non-heparin medication known to cause thrombocytopenia,
 Nitric oxide before ECMO,
 No chronic or underlying illness,
-"No diarrhea; or, if diarrhea present, fecal leukocytes <5 WBC/hpf",
+"No diarrhea; or, if diarrhea present, fecal leukocytes <5 WBC/hpf",White blood cell count
 No disturbance of consciousness,
 No evidence of fecal retention,
 No evidence of focal infection,
-"No evidence of infant failure to thrive, fever, or illness",
+"No evidence of infant failure to thrive, fever, or illness",Fever
 "No evidence of organic, systemic, metabolic or structural disease likely to explain symptoms",
 "No evidence of organic, systemic, or metabolic diseases that is likely to explain the symptoms on routine investigations (including at upper endoscopy)",
 No explanation for the event after conducting history and physical,
@@ -2266,7 +2258,7 @@ No previous hospitalizations,
 No prior BRUE,
 "No retching, hematemesis, aspiration, apnea, failure to thrive, feeding or swallowing difficulties, or abnormal posturing",
 No symptom relief despite optimal antisecretory therapy,
-No unexplained hyperbilirubinemia,
+No unexplained hyperbilirubinemia,Bilirubin
 Nocturia: How many times do you typically get up at night to urinate?,
 Nocturnal cough,
 Node-positive primary,
@@ -2285,7 +2277,7 @@ Normal endoscopy and absence of evidence that EoE is the cause for symptoms,
 Normal hematocrit,
 Nosocomial IE,
 Not being able to stop or control worrying,
-Not consistently associated with vomiting,
+Not consistently associated with vomiting,Nausea/vomiting
 Not hospitalized longer than mother after delivery,
 Not preceded by retching,
 Not significantly (<20%) related to bowel movements,
@@ -2310,7 +2302,7 @@ Number of chemotherapy drugs,
 Number of clinical attacks,
 Number of comorbidities,
 Number of cytopenias,
-Number of days of headache,
+Number of days of headache,Headache
 Number of desired units,
 Number of extraspinal bone metastases foci,
 Number of falls,
@@ -2348,14 +2340,13 @@ O2 saturation <95%,
 O2: Causal link is uncertain,
 O3: Causal link is unlikely but disease is present,
 O9: Incomplete workup,
-Obesity,
-Obesity ,Obesity
+Obesity,BMI
 Obesity (BMI &ge;35 kg/m&sup2;),BMI
 Obesity (BMI &gt;30 kg/m2),BMI
 Obesity (BMI >30),BMI
 Obesity (BMI ≥30),BMI
-Obesity parameter,
-Obesity/overweight,
+Obesity parameter,BMI
+Obesity/overweight,BMI
 Objective clinical evidence of 1 lesion with reasonable historical evidence of a prior attack,
 Objective clinical evidence of ≥2 lesions on MRI,
 Objective evidence of hippocampal amnestic syndrome,
@@ -2364,9 +2355,9 @@ Obstetric history,
 Obstruction (hydronephrosis),
 "Occipital, parietal or temporal scalp hematoma; history of LOC ≥5 sec; not acting normally per parent or severe mechanism of injury?",
 Occurs at different intervals (not daily),
-Older (Age &gt; 75),
+Older (Age &gt; 75),Age
 Oliguria (urine output 6 hours,
-"On average, ≥1 episode of vomiting per week",
+"On average, ≥1 episode of vomiting per week",Nausea/vomiting
 On mechanical ventilation,
 On oral contraceptives or hormone replacement,
 On outpatient metolazone,
@@ -2377,7 +2368,7 @@ Only in patients without measurable serum and urine M protein levels: difference
 Only minor or rapidly improving stroke symptoms,
 Onset associated with a change in stool form (appearance),
 Onset associated with a change in stool frequency,
-Onset at age >40 to <90 years,
+Onset at age >40 to <90 years, Age 
 Onset between 6 and 60 months of age,
 Onset during exertion,
 Onset of Treatment >90 minutes,
@@ -2401,7 +2392,7 @@ Orthopnea,
 Osmolyte,
 Osmotic diarrhea - PEG,
 Other,
-Other autoimmune disease(s) ,Other autoimmune disease(s)
+Other autoimmune disease(s),
 Other body fluid,
 Other causes for thrombocytopenia,
 Other congenital or acquired thrombophilia,
@@ -2413,16 +2404,16 @@ Other risk factors,
 "Over the past two weeks, have you felt down, depressed, or hopeless?",
 "Over the past two weeks, have you had thoughts of killing yourself?",
 Oxfordshire Community Stroke Project classification,
-Oxygen Saturations,
+Oxygen Saturations,Oxygen saturation
 Oxygen requirements,
 Oxygen saturation,
-Oxygen saturation <90%,
+Oxygen saturation <90%,Oxygen saturation
 Oxygenation,
-"Oxygenation (PaO2/FiO2), mm Hg",
-"Oxygenation, PaO₂/FiO₂ mm Hg",
-O₂ sat on room air ,O₂ sat on room air
-O₂ sat on room air <95%,
-O₂ saturation,
+"Oxygenation (PaO2/FiO2), mm Hg",PaO2
+"Oxygenation, PaO₂/FiO₂ mm Hg",PaO2
+O₂ sat on room air,Oxygen saturation
+O₂ sat on room air <95%,Oxygen saturation
+O₂ saturation,Oxygen saturation
 P1,
 P1 frequency,
 PACLitaxel-eluting stent,
@@ -2433,37 +2424,37 @@ PE most likely diagnosis,
 PEEP,
 "PEEP, cm H₂O",
 PPROM,
-PSA at diagnosis (ng/mL),
-PSA level,
-PSA value,
-PSA1,
-PSA2,
-PSA3,
-PSA4,
-PSA5,
+PSA at diagnosis (ng/mL),PSA
+PSA level,PSA
+PSA value,PSA
+PSA1,PSA
+PSA2,PSA
+PSA3,PSA
+PSA4,PSA
+PSA5,PSA
 PT,
 PT control/reference level,
 PT lab normal,
 PaCO₂,
-PaCO₂ &ge;75 mmHg (&ge;10 kPa),
+PaCO₂ &ge;75 mmHg (&ge;10 kPa),PaCO₂
 PaO2,
-PaO2 &lt;54 mmHg (or PaO2/FiO2 &lt;250 mmHg),
-PaO2 &lt;65 mmHg or SpO2 &lt;90%,
-PaO2/FiO2 &lt;150 mmHg,
-PaO2/FiO2 ratio,
-PaO₂,
-"PaO₂ &lt;60 mmHg, SaO₂ &le;90%, or PaO₂/FiO₂ &lt;250",
-"PaO₂ &lt;70 mmHg, SaO₂ &le;93%, or PaO₂/FiO₂ &lt;333",
-PaO₂ <59.3 mmHg (7.9 kPa),
-"PaO₂, mmHg",PaO₂
-PaO₂/FiO₂,
-PaO₂/FiO₂ ratio,
-"PaO₂/FiO₂, if on mechanical ventilation or CPAP ","PaO₂/FiO₂, if on mechanical ventilation or CPAP"
+PaO2 &lt;54 mmHg (or PaO2/FiO2 &lt;250 mmHg),PaO2
+PaO2 &lt;65 mmHg or SpO2 &lt;90%,PaO2
+PaO2/FiO2 &lt;150 mmHg,PaO2
+PaO2/FiO2 ratio,PaO2
+PaO₂,PaO2
+"PaO₂ &lt;60 mmHg, SaO₂ &le;90%, or PaO₂/FiO₂ &lt;250",PaO2
+"PaO₂ &lt;70 mmHg, SaO₂ &le;93%, or PaO₂/FiO₂ &lt;333",PaO2
+PaO₂ <59.3 mmHg (7.9 kPa),PaO2
+"PaO₂, mmHg",PaO2
+PaO₂/FiO₂,PaO2
+PaO₂/FiO₂ ratio,PaO2
+"PaO₂/FiO₂, if on mechanical ventilation or CPAP",PaO2
 Packed RBCs,
 Packs of cigarettes smoked per day,
 Pain,
 Pain 0-1,
-Pain associated with vomiting,
+Pain associated with vomiting,Nausea/vomiting
 "Pain described as burning, cutting, very strong, terrible, feeling of pressure, dull, boring, or 'not so bad'",
 "Pain is not explained by another structural or functional gastrointestinal disorder, or other medical condition",
 Pain is reproduced by palpation,
@@ -2486,14 +2477,14 @@ Pancreatic duct diameter,
 "Paper speed, mm/sec",
 Paracentesis during admission,
 Paralysis of arm(s) or leg(s),
-"Paralysis, paresis, or recent plaster immobilization of the lower extremity",
+"Paralysis, paresis, or recent plaster immobilization of the lower extremity",Immobilized
 Paravalvular complication,
-Parent with MI before age 60 years,
+Parent with MI before age 60 years, Age 
 Parent with asthma,
 Parental asthma,
 Parental history of diabetes,
 Paresthesia,
-"Paroxysmal episodes of intense, acute periumbilical, midline, or diffuse abdominal pain lasting ≥1 hour (should be the most severe and distressing symptom)",
+"Paroxysmal episodes of intense, acute periumbilical, midline, or diffuse abdominal pain lasting ≥1 hour (should be the most severe and distressing symptom)",Abdominal pain
 Paroxysmal nocturnal dyspnea or orthopnea,
 Paroxysmal sweats,
 Partial pressure of oxygen &lt;60 mmHg or &lt;8 kPa,
@@ -2506,7 +2497,7 @@ Pathological T category,
 Pathology,
 Patient,
 Patient Description,
-Patient age,
+Patient age,Age
 Patient assumes pain is cardiac,
 Patient body weight,
 Patient consumed any amount of alcohol within the last 30 days OR patient had a positive blood alcohol level upon admission,
@@ -2517,7 +2508,7 @@ Patient global assessment of disease activity,
 Patient has allergic rhinitis,
 Patient has atopic dermatitis,
 "Patient has elevated cholesterol, family history of FH, and/or family history of premature cardiac death",
-Patient height,
+Patient height,Height
 Patient hematocrit,
 Patient is acutely ill and there has been or is likely to be no nutritional intake for &gt;5 days,
 Patient on blood thinners,
@@ -2525,24 +2516,24 @@ Patient on loop diuretic,
 Patient on neuromuscular blockade (NMBA),
 Patient prone or on ECMO,
 Patient response,
-Patient sex,
+Patient sex,Sex
 Patient status,
 Patient using cardiotoxins,
 Patient weight,
 Patient wheezing OR unable to speak in full sentences while at rest/with minimal effort,
-Patient with aeroallergen sensitivity (ex: hay fever),
+Patient with aeroallergen sensitivity (ex: hay fever),Fever
 "Patient with allergy to milk, egg, or peanuts",
 Patient with eczema,
 Patient with family history of cardiomyopathy,
-Patient with fluctuating mental status in past 24 hours by fluctuation of level of consciousness/sedation,
-"Patient with history of hypertension, coronary artery disease, OR diabetes",
+Patient with fluctuating mental status in past 24 hours by fluctuation of level of consciousness/sedation,level of consciousness
+"Patient with history of hypertension, coronary artery disease, OR diabetes",Hypertension
 "Patient with known structural heart disease, shortness of breath and fatigue",
 "Patient with marked heart failure symptoms at rest, despite maximum therapy",
 Patient with premature cerebral or peripheral vascular disease,
 Patient with premature coronary artery disease,
 "Patient with previous MI, LV systolic dysfunction, or asymptomatic valvular disease",
 Patient's ALP,
-Patient's ALT,
+Patient's ALT,ALT
 Patient's Ambulatory Ability,
 Patient's Baseline Activity,
 Patient's awareness of abnormal movements,
@@ -2568,7 +2559,7 @@ Percentage of region affected,
 Percentage of trunk affected,
 Percentage of upper limbs affected,
 Performance status,
-Performance status <80% (Karnofsky),
+Performance status <80% (Karnofsky),Karnofsky
 Perfusion,
 Peri-rectal disease,
 Periannular complications,
@@ -2584,7 +2575,6 @@ Peripheral oxygen saturation,
 Peripheral oxygen saturation on room air,
 Peripheral pain/swelling,
 Peripheral vascular disease,
-Peripheral vascular disease ,Peripheral vascular disease
 Peritoneal soiling,
 Peritonitis (rebound tenderness/guarding),
 Periventricular,
@@ -2600,8 +2590,8 @@ Persistent negative emotional state,
 "Persistent or intermittent, nonpainful, sensation of a lump or foreign body in the throat with no structural lesion identified on physical examination, laryngoscopy, or endoscopy",
 Persistent or recurrent regurgitation of recently ingested food into the mouth with subsequent spitting or remastication and swallowing,
 Persistent seizures despite trial of &ge;2 antiseizure medications,
-Persistent vomiting,
-Persistent vomiting following surgery,
+Persistent vomiting,Nausea/vomiting
+Persistent vomiting following surgery,Nausea/vomiting
 "Persistent, distorted cognitions about the cause or consequences of the traumatic event that lead the individual to blame themselves or others",
 Personal care (PC),
 Personal history of alcohol abuse,
@@ -2610,7 +2600,7 @@ Personal history of prescription drug abuse,
 Pessimistic thoughts,
 Phlegm,
 Phosphate > 3.75 mg/dL (1.2 mmol/L) at 48-96 hours,
-Physical ability ,Physical ability
+Physical ability,
 Physical activity,
 Physical changes,
 Physical inactivity,
@@ -2626,52 +2616,52 @@ Plasma volume,
 "Plasma, cryoprecipitate, platelets, or IVIG",
 Plasma-lyte A,
 Plateau pressure (Pplat),
-"Platelet concentration, x 1000 cells/μl",
+"Platelet concentration, x 1000 cells/μl",Platelet count
 Platelet count,
-Platelet count &ge;400&times;109/L,
-Platelet count 9/L,
-"Platelet count, cells x 109/L",
-"Platelet count, cells/L",
-Platelet unit content,
-Platelets 9/L ,Platelets 9/L
-Platelets > upper limit of normal,
-"Platelets, &times;10&sup3;/&micro;L",
-"Platelets, G/L",
-"Platelets, ×10³/µL (10⁹/L)",
+Platelet count &ge;400&times;109/L,Platelet count
+Platelet count 9/L,Platelet count
+"Platelet count, cells x 109/L",Platelet count
+"Platelet count, cells/L",Platelet count
+Platelet unit content,Platelet count
+Platelets 9/L,Platelet count
+Platelets > upper limit of normal,Platelet count
+"Platelets, &times;10&sup3;/&micro;L",Platelet count
+"Platelets, G/L",Platelet count
+"Platelets, ×10³/µL (10⁹/L)",Platelet count
 Pleural effusion,
 Pleural effusion on x-ray,
 Pleural effusion present,
-Pleural fluid LDH,
-"Pleural fluid LDH, U/L",
+Pleural fluid LDH,LDH
+"Pleural fluid LDH, U/L",LDH
 Pleural fluid Protein,
 Pleural or peritoneal fluid,
 Pleural or peritoneal serous effusion (irrespective of cell content),
 Pleuritic chest pain with pleural rub/effusion or pleural thickening,
 Pneumonia,
 Polyarthralgia,
-Polymorphonuclear leukocytes,
+Polymorphonuclear leukocytes,White blood cell count
 Polymorphous exanthem,
-Poor appetite or overeating?,
+Poor appetite or overeating?,Appetite
 Poor attention,
 Poor feeding,
 Poor functional status,
-Poor impulse control,
+Poor impulse control,Heart rate
 Poor rapport,
-Popliteal pulse loss (left),
-Popliteal pulse loss (right),
+Popliteal pulse loss (left),Heart rate
+Popliteal pulse loss (right),Heart rate
 Population,
 Population risk,
-Portal hypertension,
-Portal pressure/bilirubin,
+Portal hypertension,Hypertension
+Portal pressure/bilirubin,Bilirubin
 Position,
 Positive CSF,
-Positive FAST,
-Positive FAST for Intra-Abdominal Fluid,
+Positive FAST,AST
+Positive FAST for Intra-Abdominal Fluid,AST
 Positive Factor V Leiden,
 Positive blood alcohol level (BAL) on presentation,
 Positive cardiac marker,
 Positive culture for group A β-hemolytic streptococcus,
-Positive direct Coombs test ,Positive direct Coombs test
+Positive direct Coombs test,
 Positive family history of SpA,
 Positive focal neurologic sign,
 Positive lupus anticoagulant,
@@ -2689,27 +2679,27 @@ Postdate pregnancy,
 Posterior MCA cortex (M3),
 Posterior cortex immediately rostral to M3 (M6),
 Posterior ligamentous complex,
-Posterior tibial pulse loss (left),
-Posterior tibial pulse loss (right),
+Posterior tibial pulse loss (left),Heart rate
+Posterior tibial pulse loss (right),Heart rate
 Postoperative radiotherapy (PORT),
 Postprandial fullness,
 Posture,
 Posturing/catalepsy,
 Potassium,
-Potassium &le;3.5 mEq/L,
-"Potassium, mEq/L",
+Potassium &le;3.5 mEq/L,Potassium
+"Potassium, mEq/L",Potassium
 Pre-ECMO cardiac arrest,
 Pre-ICH cognitive impairment,
-Pre-chemotherapy leukocyte count >11x10⁹/L,
+Pre-chemotherapy leukocyte count >11x10⁹/L,White blood cell count
 Pre-chemotherapy platelet count ≥350x10⁹/L,
 Pre-eclampsia,
 Pre-existing native valve disease,
 Pre-operative CT done,
 Pre-operative creatinine >2 mg/dL / 176.8 µmol/L,
-Pre-operative treatment with insulin,
+Pre-operative treatment with insulin,Insulin
 Pre-pregnancy weight,
 Pre-stroke disability (mRS Score),
-Pre-tPA NIH Stroke Scale,
+Pre-tPA NIH Stroke Scale,NIH Stroke Scale
 Pre-test probability,
 Pre-transfusion platelet count,
 Preadmission dependence,
@@ -2722,10 +2712,10 @@ Predisposing and/or precipitating factors,
 Predisposing heart condition or injection drug use,
 Predisposition to vasovagal symptoms,
 Pregnancy,
-Pregnancy (and recent pregnancy),
-Pregnancy or postpartum,
-Pregnant,
-Pregnant patient,
+Pregnancy (and recent pregnancy),Pregnancy
+Pregnancy or postpartum,Pregnancy
+Pregnant,Pregnancy
+Pregnant patient,Pregnancy
 Prematurity (&lt;32 weeks or between 32&ndash;38 weeks and corrected to &lt;45 weeks),
 Preoccupation,
 Preoperative CEA level >200 ng/mL,
@@ -2785,11 +2775,11 @@ Problems with concentration,
 Procalcitonin ≥0.5 ng/mL,
 Processed blood,
 Progressive worsening of memory and other cognitive functions,
-Projectile vomiting,
+Projectile vomiting,Nausea/vomiting
 Prolongation of expiration,
-"Prolonged PR interval, after accounting for age variability (unless carditis is a major criterion)",
+"Prolonged PR interval, after accounting for age variability (unless carditis is a major criterion)", Age 
 "Prolonged PT, seconds",
-Prostate height,
+Prostate height,Height
 Prostate length,
 Prostate width,
 Prosthetic IE,
@@ -2804,24 +2794,25 @@ Psychological risk,
 Psychomotor agitation or retardation,
 Psychosis,
 Pulmocare,
-Pulmonary artery systolic pressure,
-"Pulmonary artery systolic pressure, mm Hg",
+Pulmonary artery systolic pressure,Systolic BP
+"Pulmonary artery systolic pressure, mm Hg",Systolic BP
 Pulmonary comorbidity,
-Pulmonary congestion on chest x-ray,
+Pulmonary congestion on chest x-ray,chest x-ray
 Pulmonary disease,
 Pulmonary dysfunction,
 Pulmonary radiography,
 Pulmonary rales,
 Pulmonary vascular resistance &lt;5 Wood units on right heart catheterization,
-Pulse,
-Pulse &ge;109 beats/min,Pulse
-Pulse &ge;125 beats/min,Pulse
-Pulse >90 bpm,Pulse
-Pulse and BP inequality,Pulse
-Pulse inequality,Pulse
-Pulse oximetry,Pulse
-Pulse pressure before ECMO ≤20 mmHg,Pulse
-"Pulse, beats per minute",Pulse
+Pulse,Heart rate
+Pulse &ge;109 beats/min,Heart rate
+Pulse &ge;125 beats/min,Heart rate
+Pulse >90 bpm,Heart rate
+Pulse and BP inequality,Heart rate
+Pulse inequality,Heart rate
+Pulse oximetry,Heart rate
+Pulse pressure before ECMO ≤20 mmHg,Heart rate
+"Pulse, beats per minute",Heart rate
+Pupil response,
 Pupil size,
 Pupils,
 Purulent pleural fluid,
@@ -2854,8 +2845,8 @@ RIF tenderness,
 RV dysfunction,
 Race,Race/Ethnicity
 Race/ethnicity,Race/Ethnicity
-Radial pulse loss (left),
-Radial pulse loss (right),
+Radial pulse loss (left),Heart rate
+Radial pulse loss (right),Heart rate
 Radius (cm),
 Rales,
 Rapid deceleration mechanism,
@@ -2868,7 +2859,7 @@ Reaching,
 "Read ""Face"", ""Velvet"", ""Church"", ""Daisy"", ""Red"", and ask patient to repeat (do two trials and a recall later in exam)","Read Face, Velvet, Church, Daisy, Red, and ask patient to repeat (do two trials and a recall later in exam)"
 "Read and ask patient to repeat: ""I only know that John is the one to help today""",Read and ask patient to repeat: I only know that John is the one to help today
 "Read and ask patient to repeat: ""The cat always hid under the couch when dogs were in the room""",Read and ask patient to repeat: The cat always hid under the couch when dogs were in the room
-"Read list of digits (2, 1, 8, 5, 4) at 1 digit/sec and ask patient to repeat them in the forward order ","Read list of digits (2, 1, 8, 5, 4) at 1 digit/sec and ask patient to repeat them in the forward order"
+"Read list of digits (2, 1, 8, 5, 4) at 1 digit/sec and ask patient to repeat them in the forward order",
 "Read list of digits (7, 4, 2) at 1 digit/sec and ask patient to repeat them in the backward order",
 Read list of letters and ask patient to tap with their hand at each letter A: FBAC MNAA JKLB AFAK DEAA AJAM OFAAB,
 Reason other than failure to progress for first cesarean delivery,
@@ -2895,26 +2886,25 @@ Rectal examination showing fecal occult blood,
 "Recurrent bloating and/or distension occurring, on average, &ge;1 day per week",
 "Recurrent distressing dreams where content and/or affect of dream are related to the traumatic event; in children, there may be frightening dreams without recognizable content",
 Recurrent episodes of pain localized to the rectum and unrelated to defecation,
-Recurrent or single thunderclap headache,
-Recurrent uncontrolled passage of fecal material in an individual with a developmental age of ≥4 years,
+Recurrent or single thunderclap headache,Headache
+Recurrent uncontrolled passage of fecal material in an individual with a developmental age of ≥4 years, Age 
 "Recurrent, involuntary, and intrusive distressing memories of the traumatic event; in children, repetitive play may occur where themes/aspects of the traumatic event are expressed",
 Redness,
 Reduced Platelet Count or Function,
-Reduced appetite,
+Reduced appetite,Appetite
 Reduced dietary intake in the last week,
 Reduced mobility,
 Reduced sleep,
-Refractory VT/VF ,Refractory VT/VF
+Refractory VT/VF,
 Regional lymph node status,Regional lymph node
 Regurgitation,
 Regurgitation is not preceded by retching,
 Regurgitation ≥2 times per day for ≥3 weeks,
 Related to defecation,
 Reliability risk,
-Relief of vomiting episodes by sustained cessation of cannabis use,
+Relief of vomiting episodes by sustained cessation of cannabis use,Nausea/vomiting
 Relieved with defecation,
 Renal,
-Renal ,Renal
 Renal bruit (left),
 Renal bruit (right),
 Renal comorbidity,
@@ -2952,7 +2942,7 @@ Respiratory rate &ge;22,Respiratory rate
 Respiratory rate &ge;25,Respiratory rate
 Respiratory rate &ge;30,Respiratory rate
 Respiratory rate &ge;30 breaths/min,Respiratory rate
-Respiratory rate &gt;20 or PaCO₂ &lt;32 mm Hg,Respiratory rate
+Respiratory rate &gt;20 or PaCO₂ &lt;32 mm Hg,PaCO₂
 Respiratory rate &gt;22,Respiratory rate
 Respiratory rate &gt;30 breaths/min,Respiratory rate
 Respiratory rate >24,Respiratory rate
@@ -2962,7 +2952,7 @@ Respiratory rate ≥30,Respiratory rate
 "Respiratory rate, breaths/min",Respiratory rate
 Respiratory symptoms present,
 Response to therapy,
-Resting Pulse Rate (BPM),
+Resting Pulse Rate (BPM),Heart rate
 Restless,
 Restlessness observation during assessment,
 Retardation,
@@ -2976,14 +2966,13 @@ Rheumatic disease,
 Rheumatoid factor,
 Rheumatoid factor negative,
 Rheumatologic disease,
-Rheumatologic disease ,Rheumatologic disease
 "Rheumatologic disease (e.g., lupus, rheumatoid arthritis)",
 Right iliac fossa (RIF) pain,
 Right lower quadrant tenderness,
 "Right upper abdominal quadrant mass, pain, or tenderness",
 Right upper quadrant (Morison’s pouch) fluid,
 Rigidity,
-Ringer’s lactate,
+Ringer’s lactate,Lactate
 Risk factor,
 Risk factors,
 Risk factors for neurotoxicity present,
@@ -3008,11 +2997,11 @@ SDH &gt;4 to &lt;8 mm,
 SLA,
 SOFA Score,
 "ST Elevation at the J-point, relative to QRS onset, is at least 1 mm AND has an amplitude at least 25% of the preceding S-wave",
-ST segment depression on EKG,
-ST segment deviation on EKG?,
+ST segment depression on EKG,ECG
+ST segment deviation on EKG?,ECG
 ST segment elevation 60 ms after the J point in lead V3,
 SaO₂,
-SaO₂ <90% on arrival,
+SaO₂ <90% on arrival,SaO₂
 Sacroiliitis on imaging,
 Salivation,
 Saturation ≤94% on room air,
@@ -3025,13 +3014,13 @@ Seborrhea,
 Second recorded creatinine (Cr2),
 Secondary grade,
 Seizure,
-Seizure activity,
-Seizure after head injury (and no previous history of epilepsy),
-Seizure after injury,
-Seizure at (or prior to) initial presentation,
-Seizure at stroke onset,
-Seizure onset before age of 12 years,
-Seizures (not hypertensive),
+Seizure activity,Seizure
+Seizure after head injury (and no previous history of epilepsy),Seizure
+Seizure after injury,Seizure
+Seizure at (or prior to) initial presentation,Seizure
+Seizure at stroke onset,Seizure
+Seizure onset before age of 12 years, Age 
+Seizures (not hypertensive),Seizure
 Select lowest line that patient can read correctly.,
 Select measurement available,
 Select most severe in lifetime,
@@ -3039,7 +3028,7 @@ Select most severe in the past month,
 Select stats type,
 Self-care,
 "Self-dress, including shoelaces and buttons",
-"Self-induced vomiting, eating disorders, regurgitation, or rumination  are excluded",
+"Self-induced vomiting, eating disorders, regurgitation, or rumination  are excluded",Nausea/vomiting
 Sensation,
 Sensation of anorectal obstruction/blockage,
 Sensation of anorectal obstruction/blockage more than one-fourth (25%) of defecations,
@@ -3058,13 +3047,13 @@ Serositis,
 "Serum CA-125, U/mL",
 Serum CO2 ≥35 mEq/L (35 mmol/L),
 Serum CO₂ ≥35 mmol/L (mEq/L),
-Serum LDH,
-Serum LDH > upper limit of normal,
-Serum LDH level >1× normal,
+Serum LDH,LDH
+Serum LDH > upper limit of normal,LDH
+Serum LDH level >1× normal,LDH
 Serum M component,
 Serum Na < 132 mmol/L,
 Serum Urate,
-"Serum WBC count, 10⁹ cells/L",
+"Serum WBC count, 10⁹ cells/L",White blood cell count
 Serum albumin,
 "Serum albumin, g/dL (g/L)",
 Serum alcohol concentration,
@@ -3072,7 +3061,7 @@ Serum alkaline phosphatase > 1.5x the upper limit of normal,
 Serum and urine M component detectable by immunofixation but not on electrophoresis OR ≥90% reduction in serum M component plus urine M component <100 mg per 24 hrs,
 Serum bicarbonate < 24,
 "Serum bicarbonate, mEq/L (mmol/L)",
-Serum bilirubin,
+Serum bilirubin,Bilirubin
 "Serum calcium, mg/dL (mmol/L)",
 Serum creatinine,
 "Serum creatinine, mg/dL",
@@ -3093,7 +3082,7 @@ Serum β2 microglobulin,
 "Serum β2 microglobulin, mg/L (or µg/mL)",
 Setting,
 Severe Renal Disease,
-Severe abdominal pain,
+Severe abdominal pain,Abdominal pain
 Severe angina (≥2 episodes in 24 hrs or persisting discomfort),
 Severe angina (≥2 episodes in 24 hrs),
 Severe comorbidities,
@@ -3105,7 +3094,7 @@ Severe liver impairment,
 Severe or end-stage kidney disease,
 Severe pain needing IV pain medication required >24 hr,
 Severe sepsis or shock,
-"Severe sepsis with hypotension, despite adequate fluid resuscitation",
+"Severe sepsis with hypotension, despite adequate fluid resuscitation",Hypotension
 Severe tonsil inflammation,
 Severity,
 Severity (S),
@@ -3120,7 +3109,7 @@ Shampoo hair,
 Shock,
 Shortness of breath,
 Shortness of breath symptoms,
-Signs of CHF at presentation,
+Signs of CHF at presentation,CHF
 Signs of basal skull fracture,
 Signs or symptoms of heart failure,
 Signs/Symptoms,
@@ -3142,7 +3131,7 @@ Skin rash extent >50%,
 Skull injury,
 Sleep,
 Sleep disturbance,
-Sleepiness descriptions ,Sleepiness descriptions
+Sleepiness descriptions,
 Small amounts of urine leakage (drops),
 Small bowel,
 Smoke inhalation,
@@ -3154,13 +3143,13 @@ Sneezing,
 Social activity,
 Social support risk,
 Sodium,
-Sodium &lt;130 mmol/L,
-Sodium (mEq/L),
-Sodium desired,
-Sodium in other body fluid,
-Sodium in other enteral solution,
-"Sodium level at discharge, mEq/L",
-"Sodium, mEq/L or mmol/L",
+Sodium &lt;130 mmol/L,Sodium
+Sodium (mEq/L),Sodium
+Sodium desired,Sodium
+Sodium in other body fluid,Sodium
+Sodium in other enteral solution,Sodium
+"Sodium level at discharge, mEq/L",Sodium
+"Sodium, mEq/L or mmol/L",Sodium
 Solid areas,
 Solid tumor,
 Somatic anxiety,
@@ -3170,8 +3159,8 @@ Source population,
 SpO2,
 SpO2 <95%,
 SpO2/FiO2 ratio,
-SpO₂,
-SpO₂/FiO₂,
+SpO₂,Oxygen saturation
+SpO₂/FiO₂,Oxygen saturation
 "Specificity, %",
 Speech,
 Speech disturbance,
@@ -3189,12 +3178,12 @@ Staring,
 Startle to touch,
 State Behavioral Scale (SBS),
 Station,
-Status at onset of fever,
+Status at onset of fever,Fever
 Steatosis grade,
 Stent diameter <3 mm,
 Stereotyped thinking,
-Stereotypical episodes of vomiting regarding onset (acute) and duration (<1 week),
-"Stereotypical episodic vomiting resembling cyclic vomiting syndrome (CVS) in terms of onset, duration, and frequency",
+Stereotypical episodes of vomiting regarding onset (acute) and duration (<1 week),Nausea/vomiting
+"Stereotypical episodic vomiting resembling cyclic vomiting syndrome (CVS) in terms of onset, duration, and frequency",Nausea/vomiting
 Stereotypical pattern and symptoms in the individual patient,
 Stereotypy,
 Steroids for chronic condition,
@@ -3212,7 +3201,6 @@ Straining: How often have you had to strain to start urination?,
 Stress-induced hyperglycemia,
 Stridor,
 Stroke,
-Stroke ,Stroke
 Stroke History,
 Stroke history,
 Stroke or TIA,
@@ -3223,15 +3211,15 @@ Subacute change in extremities,
 Subarachnoid hemorrhage present on imaging,
 Subclavian bruit (left),
 Subclavian bruit (right),
-Subclavian pulse loss (left),
-Subclavian pulse loss (right),
+Subclavian pulse loss (left),Heart rate
+Subclavian pulse loss (right),Heart rate
 Subcutaneous nodules,
 Substance use disorders,
 Subtypes,
 Sudden onset,
-Suicidal thoughts,
+Suicidal thoughts,Suicidality
 Suicidality,
-Suicide,
+Suicide,Suicidality
 Sulfonylurea use,
 Suplena,
 Suprapubic fluid,
@@ -3266,9 +3254,9 @@ Symptoms >1 month before admission,
 Symptoms began &le;5 days prior,
 "Symptoms cause clinically significant distress or impairment in social, occupational, or other important areas of functioning",
 Symptoms last >4 weeks,
-"Symptoms of abdominal pain, flatulence, or bowel irregularity",
+"Symptoms of abdominal pain, flatulence, or bowel irregularity",Abdominal pain
 Syncope,
-Syncope during effort ,Syncope during effort
+Syncope during effort,
 Syncope in supine position,
 Syncope without prodrome,
 Synovial fluid analysis of a symptomatic (ever) joint or bursa,
@@ -3276,7 +3264,7 @@ Synovitis,
 Systolic BP,
 Systolic BP &le;100,Systolic BP
 Systolic BP &le;90 in ED,Systolic BP
-Systolic BP &lt;90 mmHg or Diastolic BP &le;60 mmHg,Systolic BP
+Systolic BP &lt;90 mmHg or Diastolic BP &le;60 mmHg,Diastolic BP
 Systolic BP < 100 mmHg,Systolic BP
 Systolic BP <100 mmHg,Systolic BP
 Systolic BP <90 mmHg at triage,Systolic BP
@@ -3288,7 +3276,7 @@ Systolic blood pressure,Systolic BP
 Systolic blood pressure &lt;90 mmHg,Systolic BP
 "Systolic blood pressure, mm Hg",Systolic BP
 "Systolic blood pressure, mmHg",Systolic BP
-Systolic pressure &lt;90 mmHg,
+Systolic pressure &lt;90 mmHg,Systolic BP
 "TIMP1, ng/mg protein",
 TP53 status,
 TPN,
@@ -3306,23 +3294,23 @@ Takes long time to respond to interactions,
 Takes more than three prescription drugs per day,
 Target BMI,BMI
 Target hemoglobin,
-Temp &gt;38&deg;C (100.4&deg;F),
-Temp &gt;38&deg;C (100.4&deg;F) or &lt;36&deg;C (96.8&deg;F),
-Temp > 38.5°C / 101.3°F,
-Temp >100.4 °F (38°C),
-Temp >38.5°C (101.3°F) or < 36°C (96.8°F),
-Temp ≥101.3ºF (38.5ºC),
+Temp &gt;38&deg;C (100.4&deg;F),Temperature
+Temp &gt;38&deg;C (100.4&deg;F) or &lt;36&deg;C (96.8&deg;F),Temperature
+Temp > 38.5°C / 101.3°F,Temperature
+Temp >100.4 °F (38°C),Temperature
+Temp >38.5°C (101.3°F) or < 36°C (96.8°F),Temperature
+Temp ≥101.3ºF (38.5ºC),Temperature
 Temperature,
-Temperature &deg;F (&deg;C),
-Temperature &gt;100.4&deg;F (38.0&deg;C) within 24 hours of admission,
-Temperature &lt;35&deg;C (95&deg;F) or &gt;39.9&deg;C (103.8&deg;F),
-Temperature (&deg;C),
-Temperature <36°C/96.8°F,
-Temperature > 38.3°C (100.9°F),
-Temperature >100.0 °F (37.8°C),
-Temperature between 37°C and 39°C,
-Temperature ≥39ºC (102.2ºF),
-"Temperature, &deg;F (&deg;C)",
+Temperature &deg;F (&deg;C),Temperature
+Temperature &gt;100.4&deg;F (38.0&deg;C) within 24 hours of admission,Temperature
+Temperature &lt;35&deg;C (95&deg;F) or &gt;39.9&deg;C (103.8&deg;F),Temperature
+Temperature (&deg;C),Temperature
+Temperature <36°C/96.8°F,Temperature
+Temperature > 38.3°C (100.9°F),Temperature
+Temperature >100.0 °F (37.8°C),Temperature
+Temperature between 37°C and 39°C,Temperature
+Temperature ≥39ºC (102.2ºF),Temperature
+"Temperature, &deg;F (&deg;C)",Temperature
 Tender Joint Count,
 Tender joint count,
 Tender/swollen anterior cervical lymph nodes,
@@ -3346,7 +3334,7 @@ The child is toilet-trained,
 "The disturbance causes clinically significant distress or impairment in social, occupational, or other important areas of functioning",
 "The disturbance is not attributable to the physiological effects of a substance (e.g. medication, alcohol) or another medical condition",
 The nature and intensity of the pain is not explained by a current or previous GI diagnosis,
-"The occurrence of ≥2 periods of intense, unremitting nausea and paroxysmal vomiting, lasting hours to days within a 6-month period",
+"The occurrence of ≥2 periods of intense, unremitting nausea and paroxysmal vomiting, lasting hours to days within a 6-month period",Nausea/vomiting
 The pain is associated with ≥2 of the following:,
 The pain is incapacitating and interferes with normal activities,
 The pain is not feigned,
@@ -3370,15 +3358,15 @@ Thromboembolic history,
 Thrombolysis or embolectomy needed,
 Thrombosis,
 Thrombosis or other sequelae,
-Thunderclap headache (instantly peaking pain),
+Thunderclap headache (instantly peaking pain),Headache
 Thyromental distance,
 Tidal volume,
 Time,
 Time after transfusion,
-Time between PSA1 and PSA2 measurement,
-Time between PSA2 and PSA3 measurement,
-Time between PSA3 and PSA4 measurement,
-Time between PSA4 and PSA5 measurement,
+Time between PSA1 and PSA2 measurement,PSA
+Time between PSA2 and PSA3 measurement,PSA
+Time between PSA3 and PSA4 measurement,PSA
+Time between PSA4 and PSA5 measurement,PSA
 Time between both creatinine measurements,
 Time from diagnosis to systemic treatment <1 year,
 Time from initial diagnosis to systemic treatment &lt;1 year,
@@ -3400,8 +3388,8 @@ Torso,
 Total Cholesterol,
 "Total Epinephrine given, mg",
 Total SOFA score,
-Total bilirubin,
-"Total bilirubin, mg/dL (&micro;mol/L)",
+Total bilirubin,Bilirubin
+"Total bilirubin, mg/dL (&micro;mol/L)",Bilirubin
 Total blood volume,
 Total cholesterol,
 Total daily drug dosage (mg),
@@ -3411,8 +3399,8 @@ Total patients in the ED,
 Total patients registered,
 Total seconds counted before next breath,
 Total serum Protein,
-Total serum bilirubin,
-Total serum bilirubin (TSB),
+Total serum bilirubin,Bilirubin
+Total serum bilirubin (TSB),Bilirubin
 Total urine output,
 "Toxic, inflammatory, and metabolic disorders, all of which may require specific investigations",
 Toxicity,
@@ -3424,20 +3412,20 @@ Transported by EMS,
 Trauma type,
 Traumatic brain injury,
 Traumatic subarachnoid hemorrhage on CT,
-Treated chronic hypertension,
-Treatment for Hypertension,
-Treatment for hypertension,
+Treated chronic hypertension,Hypertension
+Treatment for Hypertension,Hypertension
+Treatment for hypertension,Hypertension
 Treatment required for reaction,
 Treatment with antiplatelet agents,
 Treatment with enzalutamide planned,
 Treatment with systemic antibiotics during C. diff infection therapy,
-Tremor,
-Tremor observation of outstretched hands,
+Tremor,Tremors
+Tremor observation of outstretched hands,Tremors
 Tremors,
 Tried hard not to think about the event(s) or went out of your way to avoid situations that reminded you of the event(s)?,
-"Triglyceride, mg/dL (mmol/L)",
+"Triglyceride, mg/dL (mmol/L)",Triglycerides
 Triglycerides,
-Triglycerides >200 mg/dL (>2.26 mmol/L),
+Triglycerides >200 mg/dL (>2.26 mmol/L),Triglycerides
 Troponin I or T elevated to MI level,
 Troponin observed,
 Troponin positive,
@@ -3488,24 +3476,24 @@ Tönnis classification,
 "Unable to bear weight in ED (4 steps, limping is allowed)",
 Unable to flex knee to 90°,
 Unconsciousness,
-Uncontrolled hypertension (>185 mmHg SBP or >110 mmHg DBP),
+Uncontrolled hypertension (>185 mmHg SBP or >110 mmHg DBP),Hypertension
 Uncooperativeness,
 Uncoordinated and/or repetitive movement,
 Underactive (very little movement while awake),
 Unilateral leg swelling,
 Unilateral lower limb pain,
 Unit volume,
-Unplanned weight loss in past 3-6 months,
+Unplanned weight loss in past 3-6 months,Weight
 Unusual thought content,
 Up to 3 tumors each with diameter ≤3 cm,
 "Upper (arms, wrists, hands, fingers)",
-Upper GI  ,Upper GI
+Upper GI,
 Upper extremity swing,
 Upper limb movements,
 Upper limit of normal ALP,
-Upper limit of normal ALT,
-Upper limit of normal for serum LDH,
-Upper limit of normal serum LDH,
+Upper limit of normal ALT,ALT
+Upper limit of normal for serum LDH,LDH
+Upper limit of normal serum LDH,LDH
 Upper lobe location of tumor,
 Urea,
 Urea ≥12 mmol/L (33 mg/dL),
@@ -3515,7 +3503,7 @@ Urgency: How often have you found it difficult to postpone urination?,
 Urinalysis positive,
 Urine,
 Urine M component,
-Urine WBC <10 WBC/hpf,
+Urine WBC <10 WBC/hpf,White blood cell count
 "Urine albumin-to-creatinine ratio, mg/g",
 Urine chloride,
 Urine creatinine,
@@ -3550,9 +3538,9 @@ Vasoconstrictive trigger identified,
 Vein graft stent,
 Venous ectasia,
 Venous ulcer,
-Verbal Response,
+Verbal Response,Verbal response
 Verbal response,
-Verbal responses,
+Verbal responses,Verbal response
 Verbalization,
 Verbigeration,
 Vertebral osteomyelitis,
@@ -3571,20 +3559,20 @@ Vocalization,
 Volume of inoculum,
 Volume to be calculated,
 Volume to be given,
-Vomiting,
-WBC,White blood
-"WBC &gt;12,000/mm&sup3;, &lt;4,000/mm&sup3;, or &gt;10% bands",White blood
-WBC &gt;16k,White blood
-"WBC 5,000-15,000/mm³ (5-15 × 10⁹/L)",White blood
-WBC 9/L,White blood
-"WBC > 10,000/µL",White blood
-"WBC > 12,000 cells/mm3",White blood
-WBC >12.0 × 10⁹/µL,White blood
-WBC >15 x 10³/µL (10⁹/L),White blood
-WBC count,White blood
-"WBC count, ×10⁹/L",White blood
-"WBC in ED ≥10,000/µL",White blood
-"WBC, x 10³/mm³",White blood
+Vomiting,Nausea/vomiting
+WBC,White blood cell count
+"WBC &gt;12,000/mm&sup3;, &lt;4,000/mm&sup3;, or &gt;10% bands",White blood cell count
+WBC &gt;16k,White blood cell count
+"WBC 5,000-15,000/mm³ (5-15 × 10⁹/L)",White blood cell count
+WBC 9/L,White blood cell count
+"WBC > 10,000/µL",White blood cell count
+"WBC > 12,000 cells/mm3",White blood cell count
+WBC >12.0 × 10⁹/µL,White blood cell count
+WBC >15 x 10³/µL (10⁹/L),White blood cell count
+WBC count,White blood cell count
+"WBC count, ×10⁹/L",White blood cell count
+"WBC in ED ≥10,000/µL",White blood cell count
+"WBC, x 10³/mm³",White blood cell count
 WHO category,
 WHO group 1 subgroup,
 Waist Circumference,
@@ -3606,12 +3594,12 @@ Waxy flexibility,
 Weak stream: How often have you had a weak urinary stream?,
 Wears pad,
 Weight,
-Weight < 67kg (147.7 lbs),
-Weight loss,
-Weight loss  >4.5 kg in 5 days in response to treatment,
-"Weight loss during the last 3 months, kg",
-Weight loss or gain,
-Weight loss within 3 months,
+Weight < 67kg (147.7 lbs),Weight
+Weight loss,Weight
+Weight loss  >4.5 kg in 5 days in response to treatment,Weight
+"Weight loss during the last 3 months, kg",Weight
+Weight loss or gain,Weight
+Weight loss within 3 months,Weight
 Wellbeing (overall feeling),
 Were your parents ever separated or divorced?,
 West-Haven Grade for Hepatic Encephalopathy,
@@ -3623,25 +3611,25 @@ What number best describes your pain on average in the past week?,
 What number does the patient see?,
 Wheals,
 Wheezing,
-Wheezing apart from colds,
-Wheezing episodes/year,
-Wheezing frequency,
-Wheezing unrelated to colds,
-Wheezing/dyspnea apart from colds,
+Wheezing apart from colds,Wheezing
+Wheezing episodes/year,Wheezing
+Wheezing frequency,Wheezing
+Wheezing unrelated to colds,Wheezing
+Wheezing/dyspnea apart from colds,Wheezing
 When did your last attempt occur?,
 "When you have a task that requires a lot of thought, how often do you avoid or delay getting started?",
-White,
-White Blood Cell Count,White blood
-White blood cell count,White blood
-"White blood cell count (x10,000/µL)",White blood
-"White blood cell count, x10⁹/dL",White blood
+White,Race/Ethnicity
+White Blood Cell Count,White blood cell count
+White blood cell count,
+"White blood cell count (x10,000/µL)",White blood cell count
+"White blood cell count, x10⁹/dL",White blood cell count
 Withdrawal,
 "Within the last year, has anyone forced you to have sexual activities?",
 "Within the last year, have you been hit, slapped, kicked, or otherwise physically hurt by your partner or someone important to you?",
 Witnessed LOC >5 min,
 Witnessed loss of consciousness,
 Witnessing the event in person as it occurred to others,
-Work and interests ,Work and interests
+Work and interests,
 Work of breathing,
 Worrying too much about different things,
 Worsening or crescendo angina,
@@ -3666,13 +3654,13 @@ c frequency,
 e,
 e frequency,
 eGFR,
-eGFR &gt;30 mL/min,
-eGFR &lt;60 mL/min/1.73 m2&nbsp;or renal insufficiency,
-eGFR < 45 or end-stage renal disease,
-"eGFR, mL/min/1.73 m²",
-"eGFR, mL/min/1.73m²",
+eGFR &gt;30 mL/min,eGFR
+eGFR &lt;60 mL/min/1.73 m2&nbsp;or renal insufficiency,eGFR
+eGFR < 45 or end-stage renal disease,eGFR
+"eGFR, mL/min/1.73 m²",eGFR
+"eGFR, mL/min/1.73m²",eGFR
 hs-cTnT concentration on arrival,
-hsCRP,
+hsCRP,C-reactive protein
 k,
 k frequency,
 mMRC Dyspnea Scale,
@@ -3682,16 +3670,16 @@ pH <7.0,
 pHa,
 s,
 s frequency,
-sBP,
-sBP &lt;90 mmHg,
-sBP 180 mmHg,
-sBP < 115 mmHg,
-sBP <100 mmHg,
-sBP ≤90 mm Hg,
+sBP,Systolic BP
+sBP &lt;90 mmHg,Systolic BP
+sBP 180 mmHg,Systolic BP
+sBP < 115 mmHg,Systolic BP
+sBP <100 mmHg,Systolic BP
+sBP ≤90 mm Hg,Systolic BP
 α/β ratio,
 “Dangerous” mechanism?,
 “Weight” of procedure,
-≤2 defecations in the toilet per week in a child of a developmental age of ≥4 years,
+≤2 defecations in the toilet per week in a child of a developmental age of ≥4 years, Age 
 ≤2 defecations per week,
 ≥1 breast biopsy with atypical hyperplasia,
 ≥1 episode of fecal incontinence per week,
@@ -3700,7 +3688,7 @@ sBP ≤90 mm Hg,
 ≥10 minutes of straining and crying before successful or unsuccessful passage of soft stools,
 ≥2 SIRS Criteria,
 ≥2 attacks,
-≥2 episodes of vomiting,
+≥2 episodes of vomiting,Nausea/vomiting
 ≥3 CAD risk factors,
 "≥3 discrete episodes in the prior year and 2 episodes in the past 6 months, occurring ≥1 week apart",
 ≥3 vomits after head injury,

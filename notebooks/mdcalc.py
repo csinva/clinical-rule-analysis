@@ -44,7 +44,7 @@ def clean_list_valued_strings(df):
 
 
 def clean_feature_name(feature_name: str):
-    return re.sub(CLEANR, "", feature_name)
+    return re.sub(CLEANR, "", feature_name).strip()
 
 
 def rename_feature_name(feature_name: str):
@@ -54,28 +54,97 @@ def rename_feature_name(feature_name: str):
     feature_name = feature_name.replace(", mmHg", "")
 
     # if word contains the keyword_contain, rename it to keyword_contain
-    keywords_contain = ["BMI", 'Ethnicity']
+    keywords_contain = [
+        "Ethnicity",
+        "D-dimer",
+        "Appetite",
+        "level of consciousness",
+        "chest x-ray",
+        "Weight loss",
+        "Karnofsky",
+        "Dysarthria",
+        "Facial palsy",
+        "Acidosis",
+        "Abdominal pain",
+        "altered mental status",
+        "Bilirubin",
+        "Eosinophilia",
+        "Enthesitis",
+        "white blood cell",
+        "Erythrocyte sedimentation rate",
+        "Estimated blood loss",
+        "Female",
+        "Ferritin",
+        "gestational age",
+        "Glasgow Coma Scale",
+        "Heart rate",
+        "Pulse",
+        "Headache",
+        "Height",
+        "Hematuria",
+        "Fever",
+        "Blood in stool",
+        "Diastolic BP",
+        "Hypotension",
+        "Hypertension",
+        "Immobilized",
+        "Immobilization",
+        "Insulin",
+        "Intraventricular hemorrhage",
+        "Intubation",
+        "Intubated",
+        "Lactate",
+        "Length of stay",
+        "Leukocyte",
+        "Marked change in tone",
+        "NIH Stroke Scale",
+        " Age ",
+        "(Age",
+        "Verbal response",
+        'Diastolic blood pressure',
+        'Systolic pressure',
+        'Vomiting',
+    ]
     for keyword in keywords_contain:
         if keyword.lower() in feature_name.lower():
-            feature_name = keyword
-            # feature_name = feature_name.replace('Age, years', 'Age')
+            k = keyword.strip(".,:;!?()")
+            feature_name = k
 
-    # remap specific words to other names
-    keywords_map = {
-        "Systolic Blood Pressure": "Systolic BP",
-        "Ethnicity": "Race",
-        "WBC": "White blood cell count",
-        "Sex": "Gender",
-    }
-    for keyword in keywords_map.keys():
-        if feature_name.lower().startswith(keyword.lower()):
-            feature_name = keywords_map[keyword]
+    keywords_cased_contain = [
+        "ALT",
+        "AST",
+        "BMI",
+        "CRP",
+        "C-reactive protein",
+        "CD4",
+        "CHF",
+        "ECG",
+        "EKG",
+        "HDL",
+        "GCS",
+        "WBC",
+        "INR",
+        "LDL",
+        "LDH",
+        "NIHSS",
+        "NYHA",
+        "PSA",
+        "PaCO₂",
+        "PaO₂",
+        "PaO2",
+        'sBP',
+    ]
+    for keyword in keywords_cased_contain:
+        if keyword in feature_name:
+            feature_name = keyword
 
     # if word starts with keyword_prefix, rename it to the prefix
     keyword_prefixes = [
         "Age",
         "ASA",
         "Albumin",
+        "Anxiety",
+        "Atrial fibrillation",
         "ED visits",
         "EKG",
         "ESR",
@@ -83,32 +152,94 @@ def rename_feature_name(feature_name: str):
         "BMI",
         "BUN",
         "Biliary",
-        "Bilirubin",
-        "Blood in stool",
+        "Calcium",
         "Congestive heart failure",
         "Creatinine",
-        "D-dimer",
         "Dementia",
-        "Diastolic BP",
         "Distracting ",
         "ECOG",
-        "Fever",
+        "Erythema",
         "Glucose",
         "Hematocrit",
         "Hemoglobin",
-        "Pulse",
         "Race",
         "Regional lymph node",
         "Respiratory rate",
         "Scalp hematoma",
         "Sex",
         "Systolic BP",
-        "WBC",
-        "White blood",
+        "Male",
+        "Nausea",
+        "Oxygen saturation",
+        "Platelet",
+        "Potassium",
+        "Pregnancy",
+        "Pregnant",
+        "SaO₂",
+        "Seizure",
+        "Sodium",
+        "Sp02",
+        "SpO₂",
+        "Temp",
+        "Tremor",
+        "Triglyceride",
+        "Wheezing",
+        "eGFR",
+        "Weight",
+        "Suidicid",
     ]
     for keyword in keyword_prefixes:
         if feature_name.lower().startswith(keyword.lower()):
             feature_name = keyword
+
+    # remap specific words to other names
+    keywords_map = {
+        "Systolic Blood Pressure": "Systolic BP",
+        "Ethnicity": "Race",
+        "White blood cell": "White blood cell count",
+        "WBC": "White blood cell count",
+        "Sex": "Gender",
+        "CRP": "C-reactive protein",
+        "Diminished breath sounds": "Decreased breath sounds",
+        "EKG": "ECG",
+        "Female": "Gender",
+        "GCS": "Glasgow Coma Scale",
+        "Glasgow Coma Score": "Glasgow Coma Scale",
+        "Pulse": "Heart rate",
+        "Immobilization": "Immobilized",
+        "Intubation": "Intubated",
+        "Leukocyte": "White blood cell count",
+        "Vomiting": "Nausea/vomiting",
+        "NIHSS": "NIH Stroke Scale",
+        "Obesity": "BMI",
+        "O₂ sat": "Oxygen saturation",
+        "PaO₂": "PaO2",
+        "Patient age": "Age",
+        "Patient sex": "Sex",
+        "Persistent vomiting": "Nausea/vomiting",
+        "Platelet": "Platelet count",
+        "Pregnant": "Pregnancy",
+        "SpO₂": "Oxygen saturation",
+        "Sp02": "Oxygen saturation",
+        "Suicid": "Suicidality",
+        "Temp": "Temperature",
+        "Tremor": "Tremors",
+        "Triglyceride": "Triglycerides",
+        'sBP': 'Systolic BP',
+        'Diastolic blood pressure': 'Diastolic BP',
+        'Systolic pressure': 'Systolic BP',
+
+    }
+    for keyword in keywords_map.keys():
+        if feature_name.lower().startswith(keyword.lower()):
+            feature_name = keywords_map[keyword]
+
+    keyword_prefixes_cased = {
+        "HR": "Heart rate",
+    }
+    for keyword in keyword_prefixes_cased.keys():
+        if feature_name.startswith(keyword):
+            feature_name = keyword_prefixes_cased[keyword]
 
     # if word ends with keyword_suffix, rename it to the suffix
     keyword_suffixes = ["Saline", "Race"]
@@ -118,21 +249,18 @@ def rename_feature_name(feature_name: str):
 
     # final cleanup
     RENAME = {
-        'Race': 'Race/Ethnicity',
-        'Gender': 'Gender/Sex',
+        "Race": "Race/Ethnicity",
+        "Gender": "Gender/Sex",
+        "Male": "Gender/Sex",
+        "Nausea": "Nausea/vomiting",
+        "Vomiting": "Nausea/vomiting",
+        "White": "Race/Ethnicity",
     }
     feature_name = RENAME.get(feature_name, feature_name)
+    feature_name = clean_feature_name(feature_name)
+    # remove leading/trailing punctuation
 
     return feature_name
-
-
-def get_renamed_unique_feature_names_from_list(all_feature_names: list):
-    """Returns list of unique feature names after cleaning"""
-    ans = []
-    for feature_name in all_feature_names:
-        feature_name = rename_feature_name(feature_name)
-        ans.append(feature_name)
-    return list(set(ans))
 
 
 def get_feature_names_with_vals_list(schema):
