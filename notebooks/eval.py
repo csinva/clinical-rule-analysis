@@ -38,7 +38,7 @@ def int_or_empty(x):
 
 
 def str_contains_number(x):
-    return x is not None and any(char.isdigit() for char in str(x))
+    return x is not None and any(char.isdigit() for char in str(x)) and not any(char.isalpha() for char in str(x))
 
 def str_is_percentage(s):
     return '%' in s or '.' in s

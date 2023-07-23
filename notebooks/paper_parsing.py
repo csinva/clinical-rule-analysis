@@ -147,7 +147,10 @@ def check_race_keywords(
     for id in tqdm(ids_with_paper):
         i = df[df.id == id].index[0]
         row = df.iloc[i]
-        paper_file = join(papers_dir, str(int(row.id)) + ".txt")
-        real_input = pathlib.Path(paper_file).read_text()
-        df.loc[i, 'paper_contains_race_keywords'] = int(_check_keywords(real_input))
+        try:
+            paper_file = join(papers_dir, str(int(row.id)) + ".txt")
+            real_input = pathlib.Path(paper_file).read_text()
+            df.loc[i, 'paper_contains_race_keywords'] = int(_check_keywords(real_input))
+        except Exception as e:
+            pass
     return df

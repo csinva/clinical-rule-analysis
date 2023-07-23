@@ -52,7 +52,7 @@ Original feature,Chandan rename
 19. I have had trouble concentrating.,
 1A. Level of consciousness,level of consciousness
 1A: Level of consciousness,level of consciousness
-1B. Ask age and to point out family member, Age 
+1B. Ask age and to point out family member,Age
 1B: Ask month and age,
 1B: Level of consciousness/orientation questions,level of consciousness
 1C. Command to blink eyes and touch nose,
@@ -380,7 +380,7 @@ Amnesia >5 min,
 Amniotic fluid volume (AFV),
 Amount ingested,
 Amyloid PET: increased tracer retention,
-An infant who is <5 months of age when the symptoms start and stop, Age 
+An infant who is <5 months of age when the symptoms start and stop,Age
 "Anal fissure, fistula, or abscess",
 Anal fissures,
 "Anaphylaxis or angioedema
@@ -435,7 +435,7 @@ Aphasia,
 Aphthous ulcers,
 Apparent sadness,
 Appearance/color,
-Arcus cornealis at age &lt;45 years, Age 
+Arcus cornealis at age &lt;45 years,Age
 Are both digits equally clear?,
 Are dentures usually worn?,
 Are there indications for antivenom?,
@@ -459,7 +459,7 @@ Arthritis (polyarthritis only),
 Arthritis/arthralgias,
 Ascites,
 Asian-American sub race,Race/Ethnicity
-Ask patient age and current month, Age 
+Ask patient age and current month,Age
 Ask patient similarity between train and bicycle (e.g. both are modes of transportation),
 Ask patient similarity between watch and ruler (e.g. both are measuring tools),
 "Ask patient the date, month, year, day, place, and city",
@@ -541,7 +541,7 @@ BUN ≥ 43 mg/dL (15.35 mmol/L),BUN
 "BUN, serum",BUN
 B[I]RDs,
 Back pain,
-Back pain ≥3 months and age at onset <45 years, Age 
+Back pain ≥3 months and age at onset <45 years,Age
 Bacteremia,
 "Band neutrophils ≤1,500/mm³ (≤1.5 × 10⁹/L)",
 Base Excess,
@@ -754,7 +754,7 @@ Chest wall retractions,
 Chest worst injury?,
 Chest x-ray,chest x-ray
 Child-Pugh grade,
-Children &lt;18 years with known LDL &gt;95th percentile for age and sex, Age 
+Children &lt;18 years with known LDL &gt;95th percentile for age and sex,Age
 Children with certain underlying conditions,
 Chloride,
 Choose available data,
@@ -1019,9 +1019,9 @@ Distance walked,
 Distant metastasis excluding peritoneal metastasis,
 Distinct period of mood disturbance,
 "Distractibility (i.e., attention too easily drawn to unimportant or irrelevant external stimuli), as reported or observed",
-Distracting injury,Distracting 
-Distracting injury present,Distracting 
-Distracting painful injury,Distracting 
+Distracting injury,Distracting
+Distracting injury present,Distracting
+Distracting painful injury,Distracting
 Distribution of involved joints,
 Disturbance of volition,
 "Do arguments ever result in hitting, kicking, or pushing?",
@@ -1136,7 +1136,7 @@ Either of the following:,
 Ejected from vehicle,
 Ejection Fraction,
 Ejection fraction,
-Elderly age (≥70 years), Age 
+Elderly age (≥70 years),Age
 Elevated BNP or NT-proBNP,
 Elevated CRP,C-reactive protein
 Elevated WBC count,White blood cell count
@@ -1319,7 +1319,7 @@ First TIA in lifetime,
 First live birth,
 First menstrual period,
 First recorded creatinine (Cr1),
-First-degree relative with known LDL &gt;95th percentile for age and sex, Age 
+First-degree relative with known LDL &gt;95th percentile for age and sex,Age
 First-degree relative with premature coronary and/or vascular disease,
 First-degree relative with tendon xanthomata and/or arcus cornealis,
 First-degree relatives with breast cancer,
@@ -1778,8 +1778,8 @@ Impulsivity,
 Inability to bear weight both immediately after injury AND in ED,
 Inability to feel,
 Inability to remember an important aspect of the traumatic event,
-Inadequate propulsive forces as measured with manometry with or without inappropriate contraction of the anal sphincter and/or pelvic floor muscles (as defined by age and sex-appropriate normal values for the technique), Age 
-Inappropriate contraction of the pelvic floor as measured with anal surface EMG or manometry with adequate propulsive forces during attempted defecation (as defined by age and sex-appropriate normal values for the technique), Age 
+Inadequate propulsive forces as measured with manometry with or without inappropriate contraction of the anal sphincter and/or pelvic floor muscles (as defined by age and sex-appropriate normal values for the technique),Age
+Inappropriate contraction of the pelvic floor as measured with anal surface EMG or manometry with adequate propulsive forces during attempted defecation (as defined by age and sex-appropriate normal values for the technique),Age
 Incapacitation due to abnormal movements,
 Incomplete emptying: How often have you had the sensation of not emptying your bladder?,
 Inconsolable,
@@ -2054,7 +2054,7 @@ Major trauma,
 Major vessel involvement,
 Makes eye contact with caregiver,
 Malaise or weight loss >2 kg,Weight
-Male age &gt;60 years, Age 
+Male age &gt;60 years,Age
 Male patient,Gender/Sex
 Male patient with uncontrolled hypertension,Hypertension
 Male sex,Gender/Sex
@@ -2072,7 +2072,7 @@ Marked local inflammation,
 Marked physiological reactions to internal or external cues that symbolize or resemble an aspect of the traumatic event,
 Markedly diminished interest or participation in significant activities,
 Marshall CT classification,
-Maternal age < 40 years, Age 
+Maternal age < 40 years,Age
 Maternal blood volume,
 Maximal extent of BE above the GE Junction (M value),
 Maximal net ST-segment deviation,
@@ -2368,7 +2368,7 @@ Only in patients without measurable serum and urine M protein levels: difference
 Only minor or rapidly improving stroke symptoms,
 Onset associated with a change in stool form (appearance),
 Onset associated with a change in stool frequency,
-Onset at age >40 to <90 years, Age 
+Onset at age >40 to <90 years,Age
 Onset between 6 and 60 months of age,
 Onset during exertion,
 Onset of Treatment >90 minutes,
@@ -2479,7 +2479,7 @@ Paracentesis during admission,
 Paralysis of arm(s) or leg(s),
 "Paralysis, paresis, or recent plaster immobilization of the lower extremity",Immobilized
 Paravalvular complication,
-Parent with MI before age 60 years, Age 
+Parent with MI before age 60 years,Age
 Parent with asthma,
 Parental asthma,
 Parental history of diabetes,
@@ -2777,7 +2777,7 @@ Processed blood,
 Progressive worsening of memory and other cognitive functions,
 Projectile vomiting,Nausea/vomiting
 Prolongation of expiration,
-"Prolonged PR interval, after accounting for age variability (unless carditis is a major criterion)", Age 
+"Prolonged PR interval, after accounting for age variability (unless carditis is a major criterion)",Age
 "Prolonged PT, seconds",
 Prostate height,Height
 Prostate length,
@@ -2887,7 +2887,7 @@ Rectal examination showing fecal occult blood,
 "Recurrent distressing dreams where content and/or affect of dream are related to the traumatic event; in children, there may be frightening dreams without recognizable content",
 Recurrent episodes of pain localized to the rectum and unrelated to defecation,
 Recurrent or single thunderclap headache,Headache
-Recurrent uncontrolled passage of fecal material in an individual with a developmental age of ≥4 years, Age 
+Recurrent uncontrolled passage of fecal material in an individual with a developmental age of ≥4 years,Age
 "Recurrent, involuntary, and intrusive distressing memories of the traumatic event; in children, repetitive play may occur where themes/aspects of the traumatic event are expressed",
 Redness,
 Reduced Platelet Count or Function,
@@ -3019,7 +3019,7 @@ Seizure after head injury (and no previous history of epilepsy),Seizure
 Seizure after injury,Seizure
 Seizure at (or prior to) initial presentation,Seizure
 Seizure at stroke onset,Seizure
-Seizure onset before age of 12 years, Age 
+Seizure onset before age of 12 years,Age
 Seizures (not hypertensive),Seizure
 Select lowest line that patient can read correctly.,
 Select measurement available,
@@ -3679,7 +3679,7 @@ sBP ≤90 mm Hg,Systolic BP
 α/β ratio,
 “Dangerous” mechanism?,
 “Weight” of procedure,
-≤2 defecations in the toilet per week in a child of a developmental age of ≥4 years, Age 
+≤2 defecations in the toilet per week in a child of a developmental age of ≥4 years,Age
 ≤2 defecations per week,
 ≥1 breast biopsy with atypical hyperplasia,
 ≥1 episode of fecal incontinence per week,
