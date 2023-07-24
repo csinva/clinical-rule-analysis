@@ -1,4 +1,5 @@
 import re
+from typing import List, Tuple
 import numpy as np
 
 CLEANR = re.compile("<.*?>")
@@ -101,9 +102,9 @@ def rename_feature_name(feature_name: str):
         " Age ",
         "(Age",
         "Verbal response",
-        'Diastolic blood pressure',
-        'Systolic pressure',
-        'Vomiting',
+        "Diastolic blood pressure",
+        "Systolic pressure",
+        "Vomiting",
     ]
     for keyword in keywords_contain:
         if keyword.lower() in feature_name.lower():
@@ -132,7 +133,7 @@ def rename_feature_name(feature_name: str):
         "PaCO₂",
         "PaO₂",
         "PaO2",
-        'sBP',
+        "sBP",
     ]
     for keyword in keywords_cased_contain:
         if keyword in feature_name:
@@ -225,10 +226,9 @@ def rename_feature_name(feature_name: str):
         "Temp": "Temperature",
         "Tremor": "Tremors",
         "Triglyceride": "Triglycerides",
-        'sBP': 'Systolic BP',
-        'Diastolic blood pressure': 'Diastolic BP',
-        'Systolic pressure': 'Systolic BP',
-
+        "sBP": "Systolic BP",
+        "Diastolic blood pressure": "Diastolic BP",
+        "Systolic pressure": "Systolic BP",
     }
     for keyword in keywords_map.keys():
         if feature_name.lower().startswith(keyword.lower()):
@@ -263,7 +263,9 @@ def rename_feature_name(feature_name: str):
     return feature_name
 
 
-def get_feature_names_with_vals_list(schema):
+def get_feature_score_tuples_list_from_schema(schema) -> List[Tuple[str, float]]:
+    """For each feature in the schema, calculate the number of points it can contribute
+    and normalize by the total number of points in the schema."""
     if isinstance(schema, list):
         feature_names_with_vals = []
         tot_points = 0
@@ -276,7 +278,7 @@ def get_feature_names_with_vals_list(schema):
                 if "options" in s:
                     points = [opt["value"] for opt in s["options"]]
                     point_range = max(points) - min(points)
-                    tot_points += max(points)
+                    tot_points += point_range
                 else:  # example: age text box
                     # print('feature_name', feature_name, 'has no options')
                     # point_range = None
