@@ -1307,6 +1307,7 @@ Fever for ≥5 days,Fever
 Fever in past 24 hours,Fever
 Fever ≥100.4°F (38°C),Fever
 Fever/temperature > 100°F/37.8°C,Fever
+FiO2,
 FiO2 >0.35 (>4 L/min),
 FiO₂,
 Fibersource HN,
@@ -3044,6 +3045,7 @@ Septic shock,
 Septicemia,
 Serology (need at least one serology test result to use these criteria),
 Serositis,
+Serum Albumin,
 "Serum CA-125, U/mL",
 Serum CO2 ≥35 mEq/L (35 mmol/L),
 Serum CO₂ ≥35 mmol/L (mEq/L),

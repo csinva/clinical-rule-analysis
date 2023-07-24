@@ -1,6 +1,7 @@
 import re
 from typing import List, Tuple
 import numpy as np
+import pandas as pd
 
 CLEANR = re.compile("<.*?>")
 
