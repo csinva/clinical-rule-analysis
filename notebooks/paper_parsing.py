@@ -17,6 +17,40 @@ import pubmed
 import openai
 from os.path import dirname
 from paper_setup import papers_dir
+import imodelsx
+import paper_setup
+import prompts
+
+openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
+imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 1
+
+
+def extract_nums_and_add_to_df(df, ids_with_paper, extract_texts=True):
+    if extract_texts:
+        # extract text from pdfs (create file num.txt for each file num.pdf)
+        paper_setup.extract_texts_from_pdf(
+            ids_with_paper, papers_dir=paper_setup.papers_dir
+        )
+
+    # get prompt
+    llm = imodelsx.llm.get_llm("gpt-4-0613")  # gpt-3.5-turbo-0613
+
+    # properties, functions, content_str = prompts.get_prompts_gender_and_race()
+    # print('attempting to add', properties.keys())
+    # add_columns_based_on_properties(df, ids_with_paper, properties, functions, content_str, llm)
+
+    properties, functions, content_str = prompts.get_prompts_gender()
+    print("attempting to add", properties.keys())
+    add_columns_based_on_properties(
+        df, ids_with_paper, properties, functions, content_str, llm
+    )
+
+    properties, functions, content_str = prompts.get_prompts_race()
+    print("attempting to add", properties.keys())
+    add_columns_based_on_properties(
+        df, ids_with_paper, properties, functions, content_str, llm
+    )
+    return df
 
 
 def rename_to_none(x: str):
@@ -142,7 +176,8 @@ def check_race_keywords(
                 return True
         return False
 
-    df["paper_contains_keywords"] = ""
+    df["paper_contains_race_keywords"] = np.nan
+
     # run loop
     for id in tqdm(ids_with_paper):
         i = df[df.id == id].index[0]
@@ -150,7 +185,7 @@ def check_race_keywords(
         try:
             paper_file = join(papers_dir, str(int(row.id)) + ".txt")
             real_input = pathlib.Path(paper_file).read_text()
-            df.loc[i, 'paper_contains_race_keywords'] = int(_check_keywords(real_input))
+            df.loc[i, "paper_contains_race_keywords"] = int(_check_keywords(real_input))
         except Exception as e:
             pass
     return df

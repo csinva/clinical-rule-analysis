@@ -74,7 +74,7 @@ def download_gsheet(papers_dir=papers_dir):
     df["ref_href"] = pubmed.get_updated_refs(df)
 
     # check that found papers are present
-    ids_with_paper = df[df["found_paper (0=no, 1=yes)"] > 0].id.astype(int).values
+    ids_with_paper = df[df["found_paper (0=no, 1=yes)"] == 1].id.astype(int).values
     ids_found = sorted(
         [
             int(x.replace(".pdf", ""))
