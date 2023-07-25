@@ -50,14 +50,14 @@ Original feature,Chandan rename
 17. I have been less able to complete tasks that require physical effort.,
 18. My thinking has been slowed down.,
 19. I have had trouble concentrating.,
-1A. Level of consciousness,level of consciousness
-1A: Level of consciousness,level of consciousness
+1A. Level of consciousness,Level of consciousness
+1A: Level of consciousness,Level of consciousness
 1B. Ask age and to point out family member,Age
 1B: Ask month and age,
-1B: Level of consciousness/orientation questions,level of consciousness
+1B: Level of consciousness/orientation questions,Level of consciousness
 1C. Command to blink eyes and touch nose,
 1C: 'Blink eyes' & 'squeeze hands',
-1C: Level of consciousness commands,level of consciousness
+1C: Level of consciousness commands,Level of consciousness
 1st degree relative with diabetes,
 1st metatarsophalangeal joint involvement,
 2. Horizontal extraocular movements,
@@ -191,7 +191,7 @@ Abnormal WBC count,White blood cell count
 Abnormal behavior,
 Abnormal blood glucose (<50 mg/dL),
 Abnormal cardiac enzymes,
-Abnormal chest X-ray,chest x-ray
+Abnormal chest X-ray,Chest x-ray
 Abnormal drowsiness,
 Abnormal initial EKG,ECG
 Abnormal leukocyte count or >10% bands,White blood cell count
@@ -367,10 +367,10 @@ Already known thrombophilic condition,
 Already on antiplatelet therapy,
 Alteration in mental status,
 Altered level of alertness,
-Altered level of consciousness present,level of consciousness
+Altered level of consciousness present,Level of consciousness
 Altered level of responsiveness,
-Altered mental status,altered mental status
-"Altered mental status (disorientation, lethargy, stupor, or coma)",altered mental status
+Altered mental status,
+"Altered mental status (disorientation, lethargy, stupor, or coma)",Altered mental status
 Alternating constipation and diarrhea,
 Alternative diagnoses excluded (by ≥3 biological investigations),
 Alternative diagnosis to DVT as likely or more likely,
@@ -752,7 +752,7 @@ Chest tightness,
 Chest wall retractions,
 "Chest wall, sternum, thoracic spine, or scapular tenderness",
 Chest worst injury?,
-Chest x-ray,chest x-ray
+Chest x-ray,
 Child-Pugh grade,
 Children &lt;18 years with known LDL &gt;95th percentile for age and sex,Age
 Children with certain underlying conditions,
@@ -835,7 +835,7 @@ Consciousness (GCS),Glasgow Coma Scale
 Consistency,
 Consolability,
 Consolidation on CXR,
-Consolidation on chest x-ray,chest x-ray
+Consolidation on chest x-ray,Chest x-ray
 Constitutional symptoms,
 Constitutional symptoms present,
 Continuous cord compression (signal change within cord on MRI) in setting of neuro deficit,
@@ -1980,7 +1980,7 @@ Leukocytosis,
 "Leukocytosis >10,000",
 Leukocyturia,
 Leukopenia or lymphopenia,
-Level of consciousness,level of consciousness
+Level of consciousness,
 Level of independence,
 Lichenification,
 Lifestyle alteration,
@@ -2148,7 +2148,7 @@ Mouth opening,
 Move heavy objects,
 Moving or speaking so slowly that other people could have noticed? Or so fidgety or restless that you have been moving a lot more than usual?,
 Mucosal appearance at endoscopy,
-Multi-lobar involvement on chest x-ray,chest x-ray
+Multi-lobar involvement on chest x-ray,Chest x-ray
 Multifocal,
 Multilobar opacities in chest radiograph,
 Multilobar/bilateral X-ray,
@@ -2526,7 +2526,7 @@ Patient with aeroallergen sensitivity (ex: hay fever),Fever
 "Patient with allergy to milk, egg, or peanuts",
 Patient with eczema,
 Patient with family history of cardiomyopathy,
-Patient with fluctuating mental status in past 24 hours by fluctuation of level of consciousness/sedation,level of consciousness
+Patient with fluctuating mental status in past 24 hours by fluctuation of level of consciousness/sedation,Level of consciousness
 "Patient with history of hypertension, coronary artery disease, OR diabetes",Hypertension
 "Patient with known structural heart disease, shortness of breath and fatigue",
 "Patient with marked heart failure symptoms at rest, despite maximum therapy",
@@ -2798,7 +2798,7 @@ Pulmocare,
 Pulmonary artery systolic pressure,Systolic BP
 "Pulmonary artery systolic pressure, mm Hg",Systolic BP
 Pulmonary comorbidity,
-Pulmonary congestion on chest x-ray,chest x-ray
+Pulmonary congestion on chest x-ray,Chest x-ray
 Pulmonary disease,
 Pulmonary dysfunction,
 Pulmonary radiography,

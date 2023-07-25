@@ -49,6 +49,178 @@ def clean_feature_name(feature_name: str):
     return re.sub(CLEANR, "", feature_name).strip()
 
 
+KEYWORDS_CONTAIN = [
+    "Ethnicity",
+    "D-dimer",
+    "Appetite",
+    "Level of consciousness",
+    "Chest x-ray",
+    "Weight loss",
+    "Karnofsky",
+    "Dysarthria",
+    "Facial palsy",
+    "Acidosis",
+    "Abdominal pain",
+    "Altered mental status",
+    "Bilirubin",
+    "Eosinophilia",
+    "Enthesitis",
+    "White blood cell",
+    "Erythrocyte sedimentation rate",
+    "Estimated blood loss",
+    "Female",
+    "Ferritin",
+    "gestational age",
+    "Glasgow Coma Scale",
+    "Heart rate",
+    "Pulse",
+    "Headache",
+    "Height",
+    "Hematuria",
+    "Fever",
+    "Blood in stool",
+    "Diastolic BP",
+    "Hypotension",
+    "Hypertension",
+    "Immobilized",
+    "Immobilization",
+    "Insulin",
+    "Intraventricular hemorrhage",
+    "Intubation",
+    "Intubated",
+    "Lactate",
+    "Length of stay",
+    "Leukocyte",
+    "Marked change in tone",
+    "NIH Stroke Scale",
+    " Age ",
+    "(Age",
+    "Verbal response",
+    "Diastolic blood pressure",
+    "Systolic pressure",
+    "Vomiting",
+]
+KEYWORDS_CASED_CONTAIN = [
+    "ALT",
+    "AST",
+    "BMI",
+    "CRP",
+    "C-reactive protein",
+    "CD4",
+    "CHF",
+    "ECG",
+    "EKG",
+    "HDL",
+    "GCS",
+    "WBC",
+    "INR",
+    "LDL",
+    "LDH",
+    "NIHSS",
+    "NYHA",
+    "PSA",
+    "PaCO₂",
+    "PaO₂",
+    "PaO2",
+    "sBP",
+]
+KEYWORD_PREFIXES = [
+    "Age",
+    "ASA",
+    "Albumin",
+    "Anxiety",
+    "Atrial fibrillation",
+    "ED visits",
+    "EKG",
+    "ESR",
+    "Endoscopy",
+    "BMI",
+    "BUN",
+    "Biliary",
+    "Calcium",
+    "Congestive heart failure",
+    "Creatinine",
+    "Dementia",
+    "Distracting ",
+    "ECOG",
+    "Erythema",
+    "Glucose",
+    "Hematocrit",
+    "Hemoglobin",
+    "Race",
+    "Regional lymph node",
+    "Respiratory rate",
+    "Scalp hematoma",
+    "Sex",
+    "Systolic BP",
+    "Male",
+    "Nausea",
+    "Oxygen saturation",
+    "Platelet",
+    "Potassium",
+    "Pregnancy",
+    "Pregnant",
+    "SaO₂",
+    "Seizure",
+    "Sodium",
+    "Sp02",
+    "SpO₂",
+    "Temp",
+    "Tremor",
+    "Triglyceride",
+    "Wheezing",
+    "eGFR",
+    "Weight",
+    "Suidicid",
+]
+KEYWORDS_MAP = {
+    "Systolic Blood Pressure": "Systolic BP",
+    "Ethnicity": "Race",
+    "White blood cell": "White blood cell count",
+    "WBC": "White blood cell count",
+    "Sex": "Gender",
+    "CRP": "C-reactive protein",
+    "Diminished breath sounds": "Decreased breath sounds",
+    "EKG": "ECG",
+    "Female": "Gender",
+    "GCS": "Glasgow Coma Scale",
+    "Glasgow Coma Score": "Glasgow Coma Scale",
+    "Pulse": "Heart rate",
+    "Immobilization": "Immobilized",
+    "Intubation": "Intubated",
+    "Leukocyte": "White blood cell count",
+    "Vomiting": "Nausea/vomiting",
+    "NIHSS": "NIH Stroke Scale",
+    "Obesity": "BMI",
+    "O₂ sat": "Oxygen saturation",
+    "PaO₂": "PaO2",
+    "Patient age": "Age",
+    "Patient sex": "Sex",
+    "Persistent vomiting": "Nausea/vomiting",
+    "Platelet": "Platelet count",
+    "Pregnant": "Pregnancy",
+    "SpO₂": "Oxygen saturation",
+    "Sp02": "Oxygen saturation",
+    "Suicid": "Suicidality",
+    "Temp": "Temperature",
+    "Tremor": "Tremors",
+    "Triglyceride": "Triglycerides",
+    "sBP": "Systolic BP",
+    "Diastolic blood pressure": "Diastolic BP",
+    "Systolic pressure": "Systolic BP",
+}
+KEYWORD_PREFIXES_CASED_MAP = {
+    "HR": "Heart rate",
+}
+KEYWORD_RENAME_FINAL_MAP = {
+    "Race": "Race/Ethnicity",
+    "Gender": "Sex/Gender",
+    "Male": "Sex/Gender",
+    "Nausea": "Nausea/vomiting",
+    "Vomiting": "Nausea/vomiting",
+    "White": "Race/Ethnicity",
+}
+
 def rename_feature_name(feature_name: str):
     # remove units from a feature
     feature_name = feature_name.replace('"', "")
@@ -56,208 +228,41 @@ def rename_feature_name(feature_name: str):
     feature_name = feature_name.replace(", mmHg", "")
 
     # if word contains the keyword_contain, rename it to keyword_contain
-    keywords_contain = [
-        "Ethnicity",
-        "D-dimer",
-        "Appetite",
-        "level of consciousness",
-        "chest x-ray",
-        "Weight loss",
-        "Karnofsky",
-        "Dysarthria",
-        "Facial palsy",
-        "Acidosis",
-        "Abdominal pain",
-        "altered mental status",
-        "Bilirubin",
-        "Eosinophilia",
-        "Enthesitis",
-        "white blood cell",
-        "Erythrocyte sedimentation rate",
-        "Estimated blood loss",
-        "Female",
-        "Ferritin",
-        "gestational age",
-        "Glasgow Coma Scale",
-        "Heart rate",
-        "Pulse",
-        "Headache",
-        "Height",
-        "Hematuria",
-        "Fever",
-        "Blood in stool",
-        "Diastolic BP",
-        "Hypotension",
-        "Hypertension",
-        "Immobilized",
-        "Immobilization",
-        "Insulin",
-        "Intraventricular hemorrhage",
-        "Intubation",
-        "Intubated",
-        "Lactate",
-        "Length of stay",
-        "Leukocyte",
-        "Marked change in tone",
-        "NIH Stroke Scale",
-        " Age ",
-        "(Age",
-        "Verbal response",
-        "Diastolic blood pressure",
-        "Systolic pressure",
-        "Vomiting",
-    ]
-    for keyword in keywords_contain:
+
+    for keyword in KEYWORDS_CONTAIN:
         if keyword.lower() in feature_name.lower():
             k = keyword.strip(".,:;!?()")
             feature_name = k
 
-    keywords_cased_contain = [
-        "ALT",
-        "AST",
-        "BMI",
-        "CRP",
-        "C-reactive protein",
-        "CD4",
-        "CHF",
-        "ECG",
-        "EKG",
-        "HDL",
-        "GCS",
-        "WBC",
-        "INR",
-        "LDL",
-        "LDH",
-        "NIHSS",
-        "NYHA",
-        "PSA",
-        "PaCO₂",
-        "PaO₂",
-        "PaO2",
-        "sBP",
-    ]
-    for keyword in keywords_cased_contain:
+    for keyword in KEYWORDS_CASED_CONTAIN:
         if keyword in feature_name:
             feature_name = keyword
 
     # if word starts with keyword_prefix, rename it to the prefix
-    keyword_prefixes = [
-        "Age",
-        "ASA",
-        "Albumin",
-        "Anxiety",
-        "Atrial fibrillation",
-        "ED visits",
-        "EKG",
-        "ESR",
-        "Endoscopy",
-        "BMI",
-        "BUN",
-        "Biliary",
-        "Calcium",
-        "Congestive heart failure",
-        "Creatinine",
-        "Dementia",
-        "Distracting ",
-        "ECOG",
-        "Erythema",
-        "Glucose",
-        "Hematocrit",
-        "Hemoglobin",
-        "Race",
-        "Regional lymph node",
-        "Respiratory rate",
-        "Scalp hematoma",
-        "Sex",
-        "Systolic BP",
-        "Male",
-        "Nausea",
-        "Oxygen saturation",
-        "Platelet",
-        "Potassium",
-        "Pregnancy",
-        "Pregnant",
-        "SaO₂",
-        "Seizure",
-        "Sodium",
-        "Sp02",
-        "SpO₂",
-        "Temp",
-        "Tremor",
-        "Triglyceride",
-        "Wheezing",
-        "eGFR",
-        "Weight",
-        "Suidicid",
-    ]
-    for keyword in keyword_prefixes:
+
+    for keyword in KEYWORD_PREFIXES:
         if feature_name.lower().startswith(keyword.lower()):
             feature_name = keyword
 
     # remap specific words to other names
-    keywords_map = {
-        "Systolic Blood Pressure": "Systolic BP",
-        "Ethnicity": "Race",
-        "White blood cell": "White blood cell count",
-        "WBC": "White blood cell count",
-        "Sex": "Gender",
-        "CRP": "C-reactive protein",
-        "Diminished breath sounds": "Decreased breath sounds",
-        "EKG": "ECG",
-        "Female": "Gender",
-        "GCS": "Glasgow Coma Scale",
-        "Glasgow Coma Score": "Glasgow Coma Scale",
-        "Pulse": "Heart rate",
-        "Immobilization": "Immobilized",
-        "Intubation": "Intubated",
-        "Leukocyte": "White blood cell count",
-        "Vomiting": "Nausea/vomiting",
-        "NIHSS": "NIH Stroke Scale",
-        "Obesity": "BMI",
-        "O₂ sat": "Oxygen saturation",
-        "PaO₂": "PaO2",
-        "Patient age": "Age",
-        "Patient sex": "Sex",
-        "Persistent vomiting": "Nausea/vomiting",
-        "Platelet": "Platelet count",
-        "Pregnant": "Pregnancy",
-        "SpO₂": "Oxygen saturation",
-        "Sp02": "Oxygen saturation",
-        "Suicid": "Suicidality",
-        "Temp": "Temperature",
-        "Tremor": "Tremors",
-        "Triglyceride": "Triglycerides",
-        "sBP": "Systolic BP",
-        "Diastolic blood pressure": "Diastolic BP",
-        "Systolic pressure": "Systolic BP",
-    }
-    for keyword in keywords_map.keys():
-        if feature_name.lower().startswith(keyword.lower()):
-            feature_name = keywords_map[keyword]
 
-    keyword_prefixes_cased = {
-        "HR": "Heart rate",
-    }
-    for keyword in keyword_prefixes_cased.keys():
+    for keyword in KEYWORDS_MAP.keys():
+        if feature_name.lower().startswith(keyword.lower()):
+            feature_name = KEYWORDS_MAP[keyword]
+
+    for keyword in KEYWORD_PREFIXES_CASED_MAP.keys():
         if feature_name.startswith(keyword):
-            feature_name = keyword_prefixes_cased[keyword]
+            feature_name = KEYWORD_PREFIXES_CASED_MAP[keyword]
 
     # if word ends with keyword_suffix, rename it to the suffix
-    keyword_suffixes = ["Saline", "Race"]
-    for keyword in keyword_suffixes:
+    KEYWORD_SUFFIXES = ["Saline", "Race"]
+    for keyword in KEYWORD_SUFFIXES:
         if feature_name.lower().endswith(keyword.lower()):
             feature_name = keyword
 
     # final cleanup
-    RENAME = {
-        "Race": "Race/Ethnicity",
-        "Gender": "Gender/Sex",
-        "Male": "Gender/Sex",
-        "Nausea": "Nausea/vomiting",
-        "Vomiting": "Nausea/vomiting",
-        "White": "Race/Ethnicity",
-    }
-    feature_name = RENAME.get(feature_name, feature_name)
+
+    feature_name = KEYWORD_RENAME_FINAL_MAP.get(feature_name, feature_name)
     feature_name = clean_feature_name(feature_name)
     # remove leading/trailing punctuation
 
