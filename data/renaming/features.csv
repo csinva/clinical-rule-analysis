@@ -1285,9 +1285,9 @@ Feelings of detachment or estrangement from others,
 Feelings of guilt,
 Felt guilty or unable to stop blaming yourself or others for the event(s) or any problems the event(s) may have caused?,
 "Felt numb or detached from people, activities, or your surroundings?",
-Female,Gender/Sex
-Female with diabetes mellitus,Gender/Sex
-Female ≥65 years or male ≥55 years,Gender/Sex
+Female,Sex/Gender
+Female with diabetes mellitus,Sex/Gender
+Female ≥65 years or male ≥55 years,Sex/Gender
 Femoral pulse loss (left),Heart rate
 Femoral pulse loss (right),Heart rate
 Ferritin,
@@ -1366,7 +1366,7 @@ Gastrointestinal somatic symptoms,
 Gastrointestinal symptoms present,
 Gastrointestinal-hepatic dysfunction,
 Gegenhalten,
-Gender,Gender/Sex
+Gender,Sex/Gender
 General condition (Karnofsky Performance Status),Karnofsky
 General somatic symptoms,
 General well-being,
@@ -1506,7 +1506,7 @@ Hematocrit,
 Hematocrit &lt;30%,Hematocrit
 Hematocrit <30%,Hematocrit
 Hematocrit of transfused RBCs,Hematocrit
-Hematocrit ≥ 43% (male) or 39.6% (female),Gender/Sex
+Hematocrit ≥ 43% (male) or 39.6% (female),Sex/Gender
 "Hematocrit, goal",Hematocrit
 "Hematocrit, initial",Hematocrit
 Hematological dysfunction,
@@ -1520,7 +1520,7 @@ Hemodialysis during admission,
 Hemodynamically unstable,
 Hemoglobin,
 Hemoglobin &lt;lower limit of normal,Hemoglobin
-Hemoglobin (female < 12 g/dL; male < 14 g/dL),Gender/Sex
+Hemoglobin (female < 12 g/dL; male < 14 g/dL),Sex/Gender
 Hemoglobin (final),Hemoglobin
 Hemoglobin (g/dL),Hemoglobin
 Hemoglobin (initial),Hemoglobin
@@ -1642,7 +1642,7 @@ Home and hobbies (HH),
 Horizontal head impulse test (h-HIT),Heart rate
 Hormonal therapy,
 Hormone use,
-Hormone use at VTE onset (if female),Gender/Sex
+Hormone use at VTE onset (if female),Sex/Gender
 Hospital days pre-ECMO,
 Hospitalization for &ge;2 days,
 Hospitalization within 60 days,
@@ -2056,9 +2056,9 @@ Major vessel involvement,
 Makes eye contact with caregiver,
 Malaise or weight loss >2 kg,Weight
 Male age &gt;60 years,Age
-Male patient,Gender/Sex
+Male patient,Sex/Gender
 Male patient with uncontrolled hypertension,Hypertension
-Male sex,Gender/Sex
+Male sex,Sex/Gender
 Malignancy History,
 Malignancy history,
 Malignancy w/ treatment within 6 months or palliative,
@@ -3104,9 +3104,9 @@ Severity classification,
 Severity of abnormal movements overall,
 Severity of disease,
 Severity of symptoms,
-Sex,Gender/Sex
-Sex at birth,Gender/Sex
-Sexual practices,Gender/Sex
+Sex,Sex/Gender
+Sex at birth,Sex/Gender
+Sexual practices,Sex/Gender
 Shampoo hair,
 Shock,
 Shortness of breath,
