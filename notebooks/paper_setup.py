@@ -16,6 +16,7 @@ import numpy as np
 import pubmed
 import openai
 from os.path import dirname
+
 path_to_file = dirname(__file__)
 path_to_repo = dirname(path_to_file)
 papers_dir = join(path_to_repo, "papers")
@@ -48,6 +49,7 @@ papers_dir = join(path_to_repo, "papers")
 #         join(pubmed_papers_dir, f"{paper_id}.pdf"),
 #     )
 
+
 def extract_texts_from_pdf(ids, papers_dir=papers_dir):
     for id in tqdm(ids):
         paper_file = join(papers_dir, str(id) + ".pdf")
@@ -60,7 +62,8 @@ def extract_texts_from_pdf(ids, papers_dir=papers_dir):
                     text.encode()
                 )
 
-def download_gsheet(papers_dir=papers_dir):
+
+def download_gsheet(papers_dir=papers_dir, fill_href=True, assert_checks=True):
     def remove_html_tags(text):
         clean = re.compile("<.*?>")
         return re.sub(clean, "", text).strip()
@@ -70,8 +73,8 @@ def download_gsheet(papers_dir=papers_dir):
         skiprows=0,
     )
     df.columns = list(map(remove_html_tags, df.columns))
-
-    df["ref_href"] = pubmed.get_updated_refs(df)
+    if fill_href:
+        df["ref_href"] = pubmed.get_updated_refs(df)
 
     # check that found papers are present
     ids_with_paper = df[df["found_paper (0=no, 1=yes)"] == 1].id.astype(int).values
@@ -97,21 +100,9 @@ def download_gsheet(papers_dir=papers_dir):
             print(df.loc[idx, "found_paper (0=no, 1=yes)"])
             df.loc[idx, "found_paper (0=no, 1=yes)"] = 1
 
-    # check if string is an integer
-    def _is_int(x):
-        try:
-            int(x)
-            return True
-        except:
-            return False
-
-    # check that values are integers or Unk
-    for col in df.columns:
-        # if col.startswith("num_") and col.endswith("_corrected"):
-        if col in ['num_male_corrected', 'num_female_corrected', 'num_total_corrected']:
-            vals = df[col][df[col].notna()].values
-            for val in vals:
-                assert val in {"Unk", '-'} or _is_int(val), f"{col} has {val} which is not an int or Unk"
+    # run automatic df checks
+    if assert_checks:
+        test_dataframe(df)
 
     return df, ids_with_paper
 
@@ -119,7 +110,7 @@ def download_gsheet(papers_dir=papers_dir):
 def extract_on_subsets(
     x: str,
     llm,
-    content_str: str="## Return each table and table caption in the following text. Make sure it is a valid table and not just a description of a tables. Format the table in markdown. If None are found, return None.\n\n{input}",
+    content_str: str = "## Return each table and table caption in the following text. Make sure it is a valid table and not just a description of a tables. Format the table in markdown. If None are found, return None.\n\n{input}",
     subset_len_tokens=7500,
     max_calls=3,
     frequency_penalty=0.01,
@@ -166,7 +157,7 @@ def extract_on_pages(
     llm,
     # content_str: str="## Return each table and table caption in the following text. Make sure it is a valid table and not just a description of a tables. Format the table in markdown. If None are found, return None.\n\n{input}",
     # content_str: str="## Return the input with cleaner formatting and use markdown formatting for tables.\n\n**Input**: {input}",
-    content_str = "## Repeat the entire input between <INPUT> and </INPUT>, but remove unnecessary newlines and format tables in markdown.\n\n<INPUT>\n{input}\n</INPUT>",
+    content_str="## Repeat the entire input between <INPUT> and </INPUT>, but remove unnecessary newlines and format tables in markdown.\n\n<INPUT>\n{input}\n</INPUT>",
     max_calls: int = 10,
     frequency_penalty=0,
 ) -> str:
@@ -187,7 +178,7 @@ def extract_on_pages(
             if "REFERENCES" in text:
                 texts[i] = text[: text.index("REFERENCES")]
                 texts = texts[: i + 1]
-    
+
     # split each text into 2 equal pieces
     # texts_new = []
     # for text in texts:
@@ -197,10 +188,9 @@ def extract_on_pages(
     #     else:
     #         texts_new.append(text)
     # texts = texts_new
-    
+
     for text in texts:
         print(len(text))
-
 
     tables_str = ""
     subset_num = 0
@@ -217,3 +207,38 @@ def extract_on_pages(
         tables_str += msg + "\n"
 
     return tables_str
+
+
+def test_dataframe(df):
+    """Checks that the dataframe has the correct format and values"""
+    assert len(df) == 690, "df should have 690 rows"
+
+    # check if string is an integer
+    def _is_int(x):
+        try:
+            int(x)
+            return True
+        except:
+            return False
+
+    # check that values are integers or Unk
+    for col in df.columns:
+        # if col.startswith("num_") and col.endswith("_corrected"):
+        if col in ["num_male_corrected", "num_female_corrected", "num_total_corrected"]:
+            vals = df[col][df[col].notna()].values
+            for val in vals:
+                assert val in {"Unk", "-"} or _is_int(
+                    val
+                ), f"{col} has {val} which is not an int or Unk"
+
+    # check some individual rows
+    row = df[df.id == 10470].iloc[0]
+    assert row.full_title_en == 'VIRSTA Score'
+    assert row.short_description_en == 'IE risk.'
+    assert row.ref_href == 'https://pubmed.ncbi.nlm.nih.gov/26916042/'
+
+    row = df[df.id == 10210].iloc[0]
+    assert row.full_title_en == 'PREVAIL Model for Prostate Cancer Survival'
+    assert row.short_description_en == 'Overall survival in metastatic prostate cancer.'
+    assert row.ref_href == 'https://www.ncbi.nlm.nih.gov/pubmed/30202945'
+
