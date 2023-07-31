@@ -78,10 +78,9 @@ def add_columns_based_on_properties(
     for id in tqdm(ids_with_paper):
         i = df[df.id == id].index[0]
         row = df.iloc[i]
-        paper_file = join(papers_dir, str(int(row.id)) + ".txt")
 
         try:
-            real_input = pathlib.Path(paper_file).read_text()
+            real_input = get_paper_text(id, papers_dir=papers_dir)
             args = call_on_subsets(
                 real_input, content_str=content_str, functions=functions, llm=llm
             )
@@ -158,6 +157,12 @@ def _check_evidence(ev: str, real_input: str):
     return False
 
 
+def get_paper_text(id, papers_dir=papers_dir):
+    paper_file = join(papers_dir, str(int(id)) + ".txt")
+    real_input = pathlib.Path(paper_file).read_text()
+    return real_input
+
+
 def check_race_keywords(
     df,
     ids_with_paper,
@@ -183,8 +188,7 @@ def check_race_keywords(
         i = df[df.id == id].index[0]
         row = df.iloc[i]
         try:
-            paper_file = join(papers_dir, str(int(row.id)) + ".txt")
-            real_input = pathlib.Path(paper_file).read_text()
+            real_input = get_paper_text(row.id, papers_dir)
             df.loc[i, "paper_contains_race_keywords"] = int(_check_keywords(real_input))
         except Exception as e:
             pass

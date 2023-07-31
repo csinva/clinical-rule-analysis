@@ -221,6 +221,7 @@ KEYWORD_RENAME_FINAL_MAP = {
     "White": "Race/Ethnicity",
 }
 
+
 def rename_feature_name(feature_name: str):
     # remove units from a feature
     feature_name = feature_name.replace('"', "")
@@ -298,3 +299,32 @@ def get_feature_score_tuples_list_from_schema(schema) -> List[Tuple[str, float]]
         ]
     else:
         return []
+
+
+def add_feature_names(df):
+    def _get_feature_names_list(schema):
+        if isinstance(schema, list):
+            return [
+                clean_feature_name(s["label_en"]) if "label_en" in s else "unknown"
+                for s in schema
+            ]
+        else:
+            return []
+
+    def _remove_unknown(x):
+        # these seem to be extra info in the calc, not actually a new feature
+        return [z for z in x if not z == "unknown"]
+
+    df["feature_names"] = df["input_schema"].apply(_get_feature_names_list)
+    df["feature_names"] = df["feature_names"].apply(_remove_unknown)
+    df["feature_names_unique_uncleaned"] = df["feature_names"].apply(
+        lambda l: list(set(l))
+    )
+    df["feature_names_unique"] = df["feature_names"].apply(
+        lambda l: list(set([rename_feature_name(x) for x in l]))
+    )
+    df["feature_score_tuples_list"] = df["input_schema"].apply(
+        get_feature_score_tuples_list_from_schema
+    )
+    df["num_features_unique"] = df["feature_names_unique"].apply(len)
+    return df
