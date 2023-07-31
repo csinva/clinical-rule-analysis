@@ -5,7 +5,6 @@ import numpy as np
 
 
 from collections import defaultdict
-import fitz
 import pandas as pd
 from os.path import join
 import os.path
@@ -13,24 +12,18 @@ from tqdm import tqdm
 import json
 import os
 import numpy as np
-import pubmed
 import openai
 from os.path import dirname
 from paper_setup import papers_dir
 import imodelsx
-import paper_setup
 import prompts
 
 openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
 imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 1
 
 
-def extract_nums_and_add_to_df(df, ids_with_paper, extract_texts=True):
-    if extract_texts:
-        # extract text from pdfs (create file num.txt for each file num.pdf)
-        paper_setup.extract_texts_from_pdf(
-            ids_with_paper, papers_dir=paper_setup.papers_dir
-        )
+def extract_nums_df(texts: List[str]) -> pd.DataFrame:
+    """Return dataframe with different extracted fields as columns"""
 
     # get prompt
     llm = imodelsx.llm.get_llm("gpt-4-0613")  # gpt-3.5-turbo-0613
@@ -41,16 +34,16 @@ def extract_nums_and_add_to_df(df, ids_with_paper, extract_texts=True):
 
     properties, functions, content_str = prompts.get_prompts_gender()
     print("attempting to add", properties.keys())
-    add_columns_based_on_properties(
-        df, ids_with_paper, properties, functions, content_str, llm
+    extractions1 = extract_columns_based_on_properties(
+        texts, properties, functions, content_str, llm
     )
 
     properties, functions, content_str = prompts.get_prompts_race()
     print("attempting to add", properties.keys())
-    add_columns_based_on_properties(
-        df, ids_with_paper, properties, functions, content_str, llm
+    extractions2 = extract_columns_based_on_properties(
+        texts, properties, functions, content_str, llm
     )
-    return df
+    return pd.DataFrame.from_dict(extractions1 | extractions2)
 
 
 def rename_to_none(x: str):
@@ -60,44 +53,36 @@ def rename_to_none(x: str):
         return x
 
 
-def add_columns_based_on_properties(
-    df,
-    ids_with_paper,
+def extract_columns_based_on_properties(
+    texts,
     properties,
     functions,
     content_str,
     llm,
-    papers_dir=papers_dir,
-):
+) -> Dict[str, List]:
     # initialize empty columns
+    out = {}
     for k in properties.keys():
-        if not k in df.columns:
-            df.loc[:, k] = None
+        out[k] = len(texts) * [None]
 
     # run loop
-    for id in tqdm(ids_with_paper):
-        i = df[df.id == id].index[0]
-        row = df.iloc[i]
-
+    for i, text in tqdm(enumerate(texts)):
         try:
-            real_input = get_paper_text(id, papers_dir=papers_dir)
             args = call_on_subsets(
-                real_input, content_str=content_str, functions=functions, llm=llm
+                text, content_str=content_str, functions=functions, llm=llm
             )
-            # print('args', args)
-            # print(json.dumps(args, indent=2))
             if args is not None:
                 for k in properties.keys():
                     if k in args:
-                        df.loc[i, k] = rename_to_none(args[k])
+                        out[k][i] = rename_to_none(args[k])
 
                         # remove spans if they are not actually contained in the text
                         if "_span" in k:
-                            if not _check_evidence(args[k], real_input):
-                                df.loc[i, k] = None
+                            if not _check_evidence(args[k], text):
+                                out[k][i] = None
         except Exception as e:
-            print(row.id, e)
-    return df
+            print(e)
+    return out
 
 
 def call_on_subsets(
@@ -129,7 +114,7 @@ def call_on_subsets(
             functions=functions,
             return_str=False,
             temperature=0.0,
-            verbose=True,
+            verbose=False,
         )
         if msg is not None and "function_call" in msg["choices"][0]["message"]:
             args = json.loads(

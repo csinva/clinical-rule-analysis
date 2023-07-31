@@ -25,16 +25,20 @@ papers_dir = join(path_to_repo, "papers")
 
 
 def compute_metrics(
-    df, columns_without_corrected=["num_male", "num_female", "num_total"]
+    df,
+    preds_col_to_gt_col_dict={
+        "num_male": "num_male_corrected",
+        "num_female": "num_female_corrected",
+        "num_total": "num_total_corrected",
+    },
 ) -> pd.DataFrame:
     d = defaultdict(list)
     for k in df.columns:
         # if k.startswith('num_') and k + '_corrected' in df.columns:
-        if k in columns_without_corrected:
-            idxs_with_labels = df[k + "_corrected"].notnull() & ~(
-                df[k + "_corrected"].isin({"Unk", "-"})
-            )
-            gt = df[k + "_corrected"][idxs_with_labels].astype(int)
+        if k in preds_col_to_gt_col_dict:
+            gt_col = preds_col_to_gt_col_dict[k]
+            idxs_with_labels = df[gt_col].notnull() & ~(df[gt_col].isin({"Unk", "-"}))
+            gt = df[gt_col][idxs_with_labels].astype(int)
             pred = df[k].apply(cast_int)[idxs_with_labels].astype(int)
             recall = (np.abs(gt - pred) <= 1).sum()
             d["target"].append(k)
@@ -52,7 +56,7 @@ def process_gender_counts(row):
     f = row["num_female"]
     tot = row["num_total"]
     if tot is not None and isinstance(tot, str):
-        tot = tot.replace(",", "").replace(' ', '')
+        tot = tot.replace(",", "").replace(" ", "")
     if (
         str_contains_number(m)
         and str_is_percentage(m)
@@ -82,7 +86,8 @@ def int_or_empty(x):
         return int(x)
     except:
         return ""
-    
+
+
 def int_or_neg1(x):
     try:
         return int(x)
