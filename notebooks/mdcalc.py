@@ -328,3 +328,11 @@ def add_feature_names(df):
     )
     df["num_features_unique"] = df["feature_names_unique"].apply(len)
     return df
+
+
+def process_categories(df) -> pd.DataFrame:
+    # remove coronavirus as a disease since it is completely encompassed by covid
+    df["disease_en"] = df["disease_en"].apply(
+        lambda l: [x for x in l if not x == "Coronavirus"]
+    )
+    return df
