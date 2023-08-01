@@ -8,3 +8,4 @@ data/pages
 **.code-workspace
 papers/*.pdf
 papers/*.txt
+results/*.png
