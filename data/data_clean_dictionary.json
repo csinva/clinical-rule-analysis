@@ -1,0 +1,19 @@
+{
+  "id": "Unique identifier of the CDI",
+  "title": "Title of the CDI",
+  "title_short": "Short title of the CDI",
+  "description": "Description of the CDI",
+  "description_short": "Short description of the CDI",
+  "categorization___chief_complaint": "Chief complaint this CDI addresses",
+  "categorization___disease": "Disease this CDI addresses",
+  "categorization___purpose": "Purpose of this CDI",
+  "categorization___type": "Type of this CDI",
+  "categorization___specialty": "Specialty this CDI addresses",
+  "categorization___system": "System this CDI addresses",
+  "paper___raw_text": "Raw text of the paper extracted from the pdf",
+  "paper___url": "Pubmed link to the paper",
+  "paper___citation": "Citation of the paper (authors + title + journal + year)",
+  "paper___author_names": "Names of the authors of the paper",
+  "paper___author_affiliations": "Affiliations of the authors of the paper",
+  "paper___year": "Year of the paper's publication"
+}

@@ -77,7 +77,7 @@ def download_gsheet(papers_dir=papers_dir, fill_href=True, assert_checks=True):
         df["ref_href"] = pubmed.get_updated_refs(df)
 
     # check that found papers are present
-    ids_with_paper = df[df["found_paper (0=no, 1=yes)"] == 1].id.astype(int).values
+    ids_with_paper = df[df["found_paper"] == 1].id.astype(int).values
     ids_found = sorted(
         [
             int(x.replace(".pdf", ""))
@@ -97,8 +97,8 @@ def download_gsheet(papers_dir=papers_dir, fill_href=True, assert_checks=True):
         else:
             print(paper_id, "in local pdfs but not in main.csv")
             idx = df[df.id == paper_id].index[0]
-            print(df.loc[idx, "found_paper (0=no, 1=yes)"])
-            df.loc[idx, "found_paper (0=no, 1=yes)"] = 1
+            print(df.loc[idx, "found_paper"])
+            df.loc[idx, "found_paper"] = 1
 
     # run automatic df checks
     if assert_checks:
