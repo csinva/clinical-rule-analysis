@@ -5,6 +5,7 @@
   - (Optional) Paper pdfs are put into this [gdrive folder](https://drive.google.com/drive/folders/1OUXtsddxEAOl3tKEZegBQSwArUecb-6J).
     - Each paper is named using its `id`
     - If using rclone, download with `rclone ls gdrive:data/public_data/mdcalc-papers --drive-shared-with-me`
+    - To download a single paper, `rclone copy gdrive:data/public_data/mdcalc-papers/10129.pdf . --drive-shared-with-me`
 
 
 # Working with the CDI Dataset
