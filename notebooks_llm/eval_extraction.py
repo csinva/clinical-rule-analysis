@@ -20,7 +20,7 @@ path_to_repo = dirname(path_to_file)
 papers_dir = join(path_to_repo, "papers")
 
 
-def compute_metrics(
+def compute_metrics_within_1(
     df,
     preds_col_to_gt_col_dict={
         "num_male": "num_male_corrected",
@@ -33,17 +33,21 @@ def compute_metrics(
         # if k.startswith('num_') and k + '_corrected' in df.columns:
         if k in preds_col_to_gt_col_dict:
             gt_col = preds_col_to_gt_col_dict[k]
-            idxs_with_labels = df[gt_col].notnull() & ~(df[gt_col].isin({"Unk", "-"}))
+            idxs_with_labels = df[gt_col].notnull() & ~(df[gt_col].isin({-1, "-"}))
             gt = df[gt_col][idxs_with_labels].astype(int)
             pred = df[k].apply(cast_int)[idxs_with_labels].astype(int)
-            recall = (np.abs(gt - pred) <= 1).sum()
-            d["target"].append(k)
-            d["recall"].append(recall)
-            d["n_labeled"].append(len(gt))
+            n_correct = (np.abs(gt - pred) <= 1).sum()
+            d["target"].append(gt_col)
+            d["n_gt"].append(len(gt))
+            d["n_pred"].append(df[k].apply(str_contains_number).sum())
+            d["n_correct"].append(n_correct)
             # d['n_predicted'].append(df[k].notnull().sum())
             # count number of values which contain a number
-            d["n_predicted_num"].append(df[k].apply(str_contains_number).sum())
-    return pd.DataFrame.from_dict(d).round(2)
+    metrics = pd.DataFrame.from_dict(d)
+    metrics["recall"] = metrics["n_correct"] / metrics["n_gt"]
+    metrics["precision"] = metrics["n_correct"] / metrics["n_pred"]
+
+    return metrics.round(2)
 
 
 def process_gender_counts(row):
