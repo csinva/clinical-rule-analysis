@@ -2,9 +2,68 @@ from copy import deepcopy
 from typing import List
 import numpy as np
 import imodelsx.llm
+import pandas as pd
+import imodels
 
 
-ABBREV_TO_CLEAN = {
+def raw_to_abbrev(feat_name: str):
+    return feat_name.split("_")[0]
+
+
+def abbrevs_to_idxs_raw(feats_abbrev, feats_raw: pd.Series):
+    return feats_raw.apply(lambda x: raw_to_abbrev(x) in feats_abbrev).values
+
+
+def get_iai_data(outcome):
+    df_full = pd.read_pickle(f"../data/pecarn/{outcome}.pkl").infer_objects()
+    y = df_full["outcome"].values
+    df = df_full.drop(columns=["outcome"])
+    X = df.values
+    feats_raw = pd.Series(df.columns)
+
+    # remove redundant features
+    idxs = feats_raw.str.endswith("_no") | feats_raw.str.endswith("_unknown")
+
+    # remove compound features
+    idxs |= feats_raw.str.contains("_or_")
+
+    # remove ambiguous features
+    idxs |= feats_raw.str.lower().str.startswith("other")
+
+    # remove specific features
+    idxs |= feats_raw.isin(["Age<2_yes"])
+    for k in ["LtCostalTender", "RtCostalTender"]:
+        idxs |= feats_raw.str.startswith(k)
+
+    # apply
+    X = X[:, ~idxs]
+    feats_raw = feats_raw[~idxs]
+    feats_abbrev_unique = set(feats_raw.apply(raw_to_abbrev))
+
+    return X, y, feats_raw, feats_abbrev_unique
+
+
+def get_tbi_data():
+    X, y, feats_raw = imodels.get_clean_dataset(
+        "tbi_pecarn_prop", data_source="imodels"
+    )
+    feats_raw = pd.Series(feats_raw)
+    # df = pd.DataFrame(X, columns=feats_raw)
+
+    # remove specific features
+    idxs = feats_raw.str.endswith("_nan")
+    # idxs |= feats_raw.isin(['AgeTwoPlus', 'AgeInMonth'])
+    # for k in ['LtCostalTender', 'RtCostalTender']:
+    # idxs |= feats_raw.str.startswith(k)
+
+    # apply
+    X = X[:, ~idxs]
+    feats_raw = feats_raw[~idxs]
+    feats_abbrev_unique = set(feats_raw.apply(raw_to_abbrev))
+    return X, y, feats_raw, feats_abbrev_unique
+
+
+ABBREV_TO_CLEAN_IAI = {
     "AbdDistention": "Abdominal distention",
     "AbdTenderDegree": "Degree of abdominal tenderness",
     "AbdTrauma": "Abdominal wall trauma",
@@ -27,8 +86,8 @@ ABBREV_TO_CLEAN = {
     "ThoracicTrauma": "Thoracic trauma",
     "VomitWretch": "Vomiting",
 }
-CLEAN_TO_ABBREV = {v.lower(): k for k, v in ABBREV_TO_CLEAN.items()}
-PECARN_FEATS_ORDERED = [
+CLEAN_TO_ABBREV_IAI = {v.lower(): k for k, v in ABBREV_TO_CLEAN_IAI.items()}
+PECARN_FEATS_ORDERED_IAI = [
     "AbdTrauma",
     "SeatBeltSign",
     "GCSScore",
@@ -55,7 +114,7 @@ def get_llm_feats_ordered(
         {"role": "assistant", "content": demonstration_answer},
     ]
 
-    feats_clean_unique = sorted(list(map(ABBREV_TO_CLEAN.get, feats_abbrev_unique)))
+    feats_clean_unique = sorted(list(map(ABBREV_TO_CLEAN_IAI.get, feats_abbrev_unique)))
     # shuffle list
     # rng.shuffle(feats_clean_unique)
     feats_bulleted_list = "- " + "\n- ".join(feats_clean_unique)
@@ -67,11 +126,13 @@ def get_llm_feats_ordered(
 
     # parse bulleted list
     feats_parsed = bulleted_list_ranked.strip("- ").split("\n- ")
-    assert [feat for feat in feats_parsed if not feat.lower() in CLEAN_TO_ABBREV] == []
+    assert [
+        feat for feat in feats_parsed if not feat.lower() in CLEAN_TO_ABBREV_IAI
+    ] == []
     assert len(feats_parsed) == len(feats_abbrev_unique), [
         k for k in feats_clean_unique if not k in feats_parsed
     ]
-    feats_ordered = [CLEAN_TO_ABBREV.get(feat.lower()) for feat in feats_parsed]
+    feats_ordered = [CLEAN_TO_ABBREV_IAI.get(feat.lower()) for feat in feats_parsed]
     return feats_ordered
 
 
@@ -88,22 +149,22 @@ def get_feats_ordered(
         return feats_ordered
     elif strategy == "pecarn":
         remaining_feats = [
-            k for k in feats_abbrev_unique if k not in PECARN_FEATS_ORDERED
+            k for k in feats_abbrev_unique if k not in PECARN_FEATS_ORDERED_IAI
         ]
         return (
-            list(PECARN_FEATS_ORDERED)
+            list(PECARN_FEATS_ORDERED_IAI)
             + rng.choice(
                 remaining_feats, size=len(remaining_feats), replace=False
             ).tolist()
         )
     elif strategy == "pecarn___gpt-4-0314":
         remaining_feats = [
-            k for k in feats_abbrev_unique if k not in PECARN_FEATS_ORDERED
+            k for k in feats_abbrev_unique if k not in PECARN_FEATS_ORDERED_IAI
         ]
         feats_ordered = get_llm_feats_ordered(
             remaining_feats, strategy=strategy.split("___")[1], seed=seed
         )
-        return list(PECARN_FEATS_ORDERED) + feats_ordered
+        return list(PECARN_FEATS_ORDERED_IAI) + feats_ordered
     elif "gpt" in strategy:
         return get_llm_feats_ordered(feats_abbrev_unique, strategy=strategy, seed=seed)
 
