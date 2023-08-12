@@ -267,6 +267,19 @@ def rename_feature_name(feature_name: str):
     feature_name = clean_feature_name(feature_name)
     # remove leading/trailing punctuation
 
+    # deal with special chars
+    SPECIALS = {
+        "&lt;": "<",
+        "&gt;": ">",
+        "&le;": "≤",
+        "&ge;": "≥",
+        "&ndash;": "-",
+        "&mdash;": "-",
+        "&nbsp;": " ",
+    }
+    for special in SPECIALS:
+        feature_name = feature_name.replace(special, SPECIALS[special])
+
     return feature_name
 
 
@@ -335,4 +348,47 @@ def process_categories(df) -> pd.DataFrame:
     df["disease_en"] = df["disease_en"].apply(
         lambda l: [x for x in l if not x == "Coronavirus"]
     )
+    return df
+
+
+def rewrite_feature_names_manually(df):
+    FEATURE_NAMES_UPDATE = {
+        10389: [
+            "AST",
+            "ALT",
+            "Bilirubin",
+            "Symptomatic liver dysfunction",
+            "Fibrosis by biopsy",
+            "Compensated cirrhosis",
+            "Activities of daily living",
+        ],
+        10383: [
+            "Confined to one lobe of the lung",
+            "lung parenchyma",
+            "oxygen",
+            "intubation",
+        ],
+        10382: [
+            "Activities of Daily Living",
+            "TSH",
+        ],
+        10378: [
+            "Creatinine",
+            "Dialysis",
+        ],
+        10377: [
+            "Fasting glucose",
+            "Activities of Daily Living",
+            "T1DM",
+            "Ketosis",
+        ],
+    }
+    for id in FEATURE_NAMES_UPDATE.keys():
+        df.loc[df.id == id, "feature_names_raw"] = df.loc[df.id == id].apply(
+            lambda row: FEATURE_NAMES_UPDATE[row.id], axis=1
+        )
+        df.loc[df.id == id, "feature_names"] = df.loc[df.id == id].apply(
+            lambda row: [rename_feature_name(x) for x in row.feature_names_raw],
+            axis=1,
+        )
     return df
