@@ -43,7 +43,7 @@ def get_iai_data(outcome):
     return X, y, feats_raw, feats_abbrev_unique
 
 
-def get_tbi_data():
+def get_tbi_data(outcome='tbi_young'):
     X, y, feats_raw = imodels.get_clean_dataset(
         "tbi_pecarn_prop", data_source="imodels"
     )
@@ -60,6 +60,16 @@ def get_tbi_data():
     X = X[:, ~idxs]
     feats_raw = feats_raw[~idxs]
     feats_abbrev_unique = set(feats_raw.apply(raw_to_abbrev))
+
+    # split dataset
+    idxs_age = X[:, feats_raw == "AgeTwoPlus"].astype(bool).squeeze()
+    if 'young' in outcome:
+        idxs_age = ~idxs_age
+    print(idxs_age.shape)
+    X = X[idxs_age]
+    y = y[idxs_age]
+
+
     return X, y, feats_raw, feats_abbrev_unique
 
 
@@ -86,7 +96,6 @@ ABBREV_TO_CLEAN_IAI = {
     "ThoracicTrauma": "Thoracic trauma",
     "VomitWretch": "Vomiting",
 }
-CLEAN_TO_ABBREV_IAI = {v.lower(): k for k, v in ABBREV_TO_CLEAN_IAI.items()}
 PECARN_FEATS_ORDERED_IAI = [
     "AbdTrauma",
     "SeatBeltSign",
@@ -97,6 +106,60 @@ PECARN_FEATS_ORDERED_IAI = [
     "DecrBreathSound",
     "VomitWretch",
 ]
+
+PECARN_FEATS_ORDERED_TBI_YOUNG = {
+    "AMS",
+    "HemaLoc",
+    "LocLen",
+    "InjuryMech",
+    "SFxPalp",
+    "ActNorm",
+}
+
+ABBREV_TO_CLEAN_TBI_YOUNG = {
+    "AMS": "Altered mental status",
+    "HemaLoc": "Scalp haematoma",
+    "LocLen": "Loss of consciousness",
+    "InjuryMech": "Mechanism of injury",
+    "SFxPalp": "Skull fracture",
+    "ActNorm": "Acting normally",
+}
+
+PECARN_FEATS_ORDERED_TBI_OLD = {
+    "AMS",
+    "LocLen",
+    "Vomit",
+    "InjuryMech",
+    "SFxBas",
+    "HASeverity",
+}
+
+ABBREV_TO_CLEAN_TBI_OLD = {
+    "AMS": "Altered mental status",
+    "LocLen": "Loss of consciousness",
+    "Vomit": "Vomiting",
+    "InjuryMech": "Mechanism of injury",
+    "SFxBas": "Basilar skull fracture",
+    "HASeverity": "Sever headache",
+}
+FEATS = {
+    "iai": {
+        "abbrev_to_clean": ABBREV_TO_CLEAN_IAI,
+        "clean_to_abbrev": {v.lower(): k for k, v in ABBREV_TO_CLEAN_IAI.items()},
+        "pecarn_feats_ordered": PECARN_FEATS_ORDERED_IAI,
+    },
+    "tbi_young": {
+        "abbrev_to_clean": ABBREV_TO_CLEAN_TBI_YOUNG,
+        "clean_to_abbrev": {v.lower(): k for k, v in ABBREV_TO_CLEAN_TBI_YOUNG.items()},
+        "pecarn_feats_ordered": PECARN_FEATS_ORDERED_TBI_YOUNG,
+    },
+    "tbi_old": {
+        "abbrev_to_clean": ABBREV_TO_CLEAN_TBI_OLD,
+        "clean_to_abbrev": {v.lower(): k for k, v in ABBREV_TO_CLEAN_TBI_OLD.items()},
+        "pecarn_feats_ordered": PECARN_FEATS_ORDERED_TBI_OLD,
+    },
+}
+FEATS["iai-i"] = FEATS["iai"]
 
 
 def get_llm_feats_ordered(
