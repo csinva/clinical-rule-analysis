@@ -21,11 +21,11 @@ openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
 imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 1
 
 
-def extract_nums_df(texts: List[str]) -> pd.DataFrame:
+def extract_nums_df(texts: List[str], repeat_delay=3) -> pd.DataFrame:
     """Return dataframe with different extracted fields as columns"""
 
     # get prompt
-    llm = imodelsx.llm.get_llm("gpt-4-0613")  # gpt-3.5-turbo-0613
+    llm = imodelsx.llm.get_llm("gpt-4-0613", repeat_delay=repeat_delay)  # gpt-3.5-turbo-0613
 
     # properties, functions, content_str = prompts_extraction.get_prompts_gender_and_race()
     # print('attempting to add', properties.keys())
@@ -113,7 +113,7 @@ def call_on_subsets(
             functions=functions,
             return_str=False,
             temperature=0.0,
-            verbose=False,
+            verbose=True,
         )
         if msg is not None and "function_call" in msg["choices"][0]["message"]:
             args = json.loads(

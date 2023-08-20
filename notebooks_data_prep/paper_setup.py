@@ -63,7 +63,9 @@ def extract_texts_from_pdf(ids, papers_dir=papers_dir):
                 )
 
 
-def download_gsheet(papers_dir=papers_dir, fill_href=True, assert_checks=True):
+def download_gsheet(papers_dir=papers_dir, fill_href=True, 
+                    run_pdf_checks=True,
+                    run_data_checks=True):
     def remove_html_tags(text):
         clean = re.compile("<.*?>")
         return re.sub(clean, "", text).strip()
@@ -85,23 +87,25 @@ def download_gsheet(papers_dir=papers_dir, fill_href=True, assert_checks=True):
             if x.endswith(".pdf")
         ]
     )
-    for paper_id in ids_with_paper:
-        if paper_id in ids_found:
-            continue
-        else:
-            print("should have paper", paper_id)
 
-    for paper_id in ids_found:
-        if paper_id in ids_with_paper:
-            continue
-        else:
-            print(paper_id, "in local pdfs but not in main.csv")
-            idx = df[df.id == paper_id].index[0]
-            print(df.loc[idx, "found_paper"])
-            df.loc[idx, "found_paper"] = 1
+    if run_pdf_checks:
+        for paper_id in ids_with_paper:
+            if paper_id in ids_found:
+                continue
+            else:
+                print("should have paper", paper_id)
+
+        for paper_id in ids_found:
+            if paper_id in ids_with_paper:
+                continue
+            else:
+                print(paper_id, "in local pdfs but not in main.csv")
+                idx = df[df.id == paper_id].index[0]
+                # print(df.loc[idx, "found_paper"])
+                df.loc[idx, "found_paper"] = 1
 
     # run automatic df checks
-    if assert_checks:
+    if run_data_checks:
         test_dataframe(df)
 
     return df, ids_with_paper
@@ -236,9 +240,13 @@ def test_dataframe(df):
     assert row.full_title_en == 'VIRSTA Score'
     assert row.short_description_en == 'IE risk.'
     assert row.ref_href == 'https://pubmed.ncbi.nlm.nih.gov/26916042/'
+    assert row.num_male_corrected == 1295
+    assert row.num_female_corrected == 713
+    assert row.num_total_corrected == 2008
 
     row = df[df.id == 10210].iloc[0]
     assert row.full_title_en == 'PREVAIL Model for Prostate Cancer Survival'
     assert row.short_description_en == 'Overall survival in metastatic prostate cancer.'
     assert row.ref_href == 'https://www.ncbi.nlm.nih.gov/pubmed/30202945'
+    assert row.num_male_corrected == -1
 
