@@ -99,7 +99,7 @@ def download_gsheet(papers_dir=papers_dir, fill_href=True,
             if paper_id in ids_with_paper:
                 continue
             else:
-                print(paper_id, "in local pdfs but not in main.csv")
+                print('ID', paper_id, "in local pdfs but not in main.csv")
                 idx = df[df.id == paper_id].index[0]
                 # print(df.loc[idx, "found_paper"])
                 df.loc[idx, "found_paper"] = 1
