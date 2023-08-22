@@ -188,22 +188,27 @@ def get_llm_feats_ordered(
         {"role": "user", "content": demonstration},
         {"role": "assistant", "content": demonstration_answer},
     ]
-    print(sorted(feats_abbrev_unique))
-    print(dset_dict["abbrev_to_clean"])
+    # print(sorted(feats_abbrev_unique))
+    # print(dset_dict["abbrev_to_clean"])
+    feats_abbrev_subset = [
+        k for k in feats_abbrev_unique if k in dset_dict["abbrev_to_clean"]
+    ]
     feats_clean_unique = sorted(
-        list(map(dset_dict["abbrev_to_clean"].get, feats_abbrev_unique))
+        list(map(dset_dict["abbrev_to_clean"].get, feats_abbrev_subset))
     )
     # shuffle list
     # rng.shuffle(feats_clean_unique)
     feats_bulleted_list = "- " + "\n- ".join(feats_clean_unique)
     question = f"""Return the following bulleted list in order of how each feature is for predicting intra-abdominal injury requiring intervention. First should be the most important.
-    {feats_bulleted_list}"""
+{feats_bulleted_list}"""
     messages = deepcopy(MESSAGES_INIT)
     messages.append({"role": "user", "content": question})
     bulleted_list_ranked = llm(messages, temperature=0)
+    print("prompt", question)
 
     # parse bulleted list
     feats_parsed = bulleted_list_ranked.strip("- ").split("\n- ")
+    print('\n\n->', feats_parsed, '\n\n')
     assert [
         feat
         for feat in feats_parsed
@@ -248,6 +253,7 @@ def get_feats_ordered(
         )
         return list(dset_dict["pecarn_feats_ordered"]) + feats_ordered
     elif "gpt" in strategy:
+        print("abbrev", feats_abbrev_unique)
         return get_llm_feats_ordered(
             feats_abbrev_unique, dset_dict, strategy=strategy, seed=seed
         )
