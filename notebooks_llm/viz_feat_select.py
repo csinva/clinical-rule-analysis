@@ -13,7 +13,7 @@ def viz_curves(
     outcome: str,
     n_start=0,
     n_end=1000,
-    n_pecarn = 8
+    n_pecarn=8,
 ):
     plt.figure(dpi=150)  # , figsize=(3, 2))
     R, C = 2, 2
@@ -29,10 +29,10 @@ def viz_curves(
     for i, met in enumerate(mets):
         plt.subplot(R, C, i + 1)
         for strategy in strategies:
+            assert strategy in mets_avg, f"{strategy} not in {mets_avg.keys()}"
             m = deepcopy(mets_avg[strategy])
-            # m = m.head(n)
             pecarn_val = m[met].values[n_pecarn - 1]
-            m = m.loc[n_start:n_end - 1]
+            m = m.loc[n_start : n_end - 1]
             if strategy not in COLORS:
                 continue
 
