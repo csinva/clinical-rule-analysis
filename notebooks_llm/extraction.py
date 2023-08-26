@@ -2,8 +2,6 @@ import pathlib
 import re
 from typing import Dict, List
 import numpy as np
-
-
 from collections import defaultdict
 import pandas as pd
 from os.path import join
@@ -17,15 +15,19 @@ from os.path import dirname
 import imodelsx
 import prompts_extraction
 
+path_to_repo = dirname(dirname(os.path.abspath(__file__)))
+
 openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
-imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 1
+imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 5
 
 
 def extract_nums_df(texts: List[str], repeat_delay=3) -> pd.DataFrame:
     """Return dataframe with different extracted fields as columns"""
 
     # get prompt
-    llm = imodelsx.llm.get_llm("gpt-4-0613", repeat_delay=repeat_delay)  # gpt-3.5-turbo-0613
+    llm = imodelsx.llm.get_llm(
+        "gpt-4-0613", repeat_delay=repeat_delay
+    )  # gpt-3.5-turbo-0613
 
     # properties, functions, content_str = prompts_extraction.get_prompts_gender_and_race()
     # print('attempting to add', properties.keys())
@@ -139,3 +141,10 @@ def _check_evidence(ev: str, real_input: str):
         real_input = "".join(real_input.split())
         return ev.lower() in real_input.lower()
     return False
+
+
+if __name__ == "__main__":
+    df = pd.read_pickle(join(path_to_repo, "data/data_clean.pkl"))
+    idxs = df["paper___raw_text"].notna()
+    texts = df[idxs]["paper___raw_text"].tolist()
+    extractions = extract_nums_df(texts)

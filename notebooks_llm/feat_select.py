@@ -140,7 +140,7 @@ ABBREV_TO_CLEAN_TBI_OLD = {
     "Vomit": "Vomiting",
     "InjuryMech": "Mechanism of injury",
     "SFxBas": "Basilar skull fracture",
-    "HASeverity": "Sever headache",
+    "HASeverity": "Severe headache",
 }
 DSET_DICTS = {
     "iai": {
@@ -204,19 +204,21 @@ def get_llm_feats_ordered(
     messages = deepcopy(MESSAGES_INIT)
     messages.append({"role": "user", "content": question})
     bulleted_list_ranked = llm(messages, temperature=0)
-    print("prompt", question)
+    # print("prompt", question)
 
     # parse bulleted list
     feats_parsed = bulleted_list_ranked.strip("- ").split("\n- ")
-    print('\n\n->', feats_parsed, '\n\n')
+    # print("\n\n->", feats_parsed, "\n\n")
+    error_str = (
+        "Parsed: " + str(feats_parsed) + "\nExpected: " + str(feats_clean_unique)
+    )
+    assert len(feats_parsed) == len(feats_clean_unique), error_str
     assert [
         feat
         for feat in feats_parsed
         if not feat.lower() in dset_dict["clean_to_abbrev"]
-    ] == []
-    assert len(feats_parsed) == len(feats_abbrev_unique), [
-        k for k in feats_clean_unique if not k in feats_parsed
-    ]
+    ] == [], error_str
+
     feats_ordered = [
         dset_dict["clean_to_abbrev"].get(feat.lower()) for feat in feats_parsed
     ]
