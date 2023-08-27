@@ -18,10 +18,10 @@ import prompts_extraction
 path_to_repo = dirname(dirname(os.path.abspath(__file__)))
 
 openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
-imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 5
+# imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 30
 
 
-def extract_nums_df(texts: List[str], repeat_delay=3) -> pd.DataFrame:
+def extract_nums_df(texts: List[str], repeat_delay=30) -> pd.DataFrame:
     """Return dataframe with different extracted fields as columns"""
 
     # get prompt
