@@ -21,7 +21,7 @@ openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
 # imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 30
 
 
-def extract_nums_df(texts: List[str], repeat_delay=30) -> pd.DataFrame:
+def extract_nums_df(texts: List[str], repeat_delay=30, verbose=True) -> pd.DataFrame:
     """Return dataframe with different extracted fields as columns"""
 
     # get prompt
@@ -36,13 +36,15 @@ def extract_nums_df(texts: List[str], repeat_delay=30) -> pd.DataFrame:
     properties, functions, content_str = prompts_extraction.get_prompts_gender()
     print("attempting to add", properties.keys())
     extractions1 = extract_columns_based_on_properties(
-        texts, properties, functions, content_str, llm
+        texts, properties, functions, content_str, llm,
+        verbose=verbose,
     )
 
     properties, functions, content_str = prompts_extraction.get_prompts_race()
     print("attempting to add", properties.keys())
     extractions2 = extract_columns_based_on_properties(
-        texts, properties, functions, content_str, llm
+        texts, properties, functions, content_str, llm,
+        verbose=verbose,
     )
     return pd.DataFrame.from_dict(extractions1 | extractions2)
 
@@ -60,6 +62,7 @@ def extract_columns_based_on_properties(
     functions,
     content_str,
     llm,
+    verbose=True,
 ) -> Dict[str, List]:
     # initialize empty columns
     out = {}
@@ -70,7 +73,8 @@ def extract_columns_based_on_properties(
     for i, text in tqdm(enumerate(texts)):
         try:
             args = call_on_subsets(
-                text, content_str=content_str, functions=functions, llm=llm
+                text, content_str=content_str, functions=functions, llm=llm,
+                verbose=verbose,
             )
             if args is not None:
                 for k in properties.keys():
@@ -93,6 +97,7 @@ def call_on_subsets(
     llm,
     subset_len_tokens=4750,
     max_calls=3,
+    verbose=True,
 ):
     messages = [
         {
@@ -115,7 +120,7 @@ def call_on_subsets(
             functions=functions,
             return_str=False,
             temperature=0.0,
-            verbose=True,
+            verbose=verbose,
         )
         if msg is not None and "function_call" in msg["choices"][0]["message"]:
             args = json.loads(

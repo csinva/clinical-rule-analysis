@@ -29,49 +29,53 @@ def compute_metrics_within_1(
     },
 ) -> pd.DataFrame:
     d = defaultdict(list)
+    one_perc = (df["participants___total"].astype(float) / 100).apply(np.ceil)
     for k in df.columns:
         # if k.startswith('num_') and k + '_corrected' in df.columns:
+
+        # print(one_perc)
         if k in preds_col_to_gt_col_dict:
             gt_col = preds_col_to_gt_col_dict[k]
-            idxs_with_labels = df[gt_col].notnull() & ~(df[gt_col].isin({-1, "-"}))
+            # print(df.columns, gt_col)
+            idxs_with_labels = df[gt_col].notnull() & ~(df[gt_col].isin({-1}))
             gt = df[gt_col][idxs_with_labels].astype(int)
             pred = df[k].apply(cast_int)[idxs_with_labels].astype(int)
-            n_correct = (np.abs(gt - pred) <= 1).sum()
+            pred = pred.apply(lambda x: x if x >= 0 else np.nan)
+            # print('preds', (pred >= 0).sum())
+            # print('gt', gt)
+
             d["target"].append(gt_col)
             d["n_gt"].append(len(gt))
-            d["n_pred"].append(df[k].apply(str_contains_number).sum())
-            d["n_correct"].append(n_correct)
+            # print(df[k])
+            # d['n_pred'].append(df[k].notna().sum())
+            d["n_pred"].append((pred.notna() & (pred >= 0)).sum())
+            # print((gt - pred).values.tolist())
+            # d["n_correct_within_1"].append((np.abs(gt - pred) <= 1).sum())
+            d["n_correct_1_perc"].append(
+                (np.abs(gt - pred) <= one_perc[idxs_with_labels]).sum()
+            )
             # d['n_predicted'].append(df[k].notnull().sum())
             # count number of values which contain a number
     metrics = pd.DataFrame.from_dict(d)
-    metrics["recall"] = metrics["n_correct"] / metrics["n_gt"]
-    metrics["precision"] = metrics["n_correct"] / metrics["n_pred"]
+    metrics["recall"] = metrics["n_correct_1_perc"] / metrics["n_gt"]
+    metrics["precision"] = metrics["n_correct_1_perc"] / metrics["n_pred"]
 
     return metrics.round(2)
 
 
-def process_gender_counts(row):
-    """Process counts (convert percentages to nums if conditions are correct)"""
-    m = row["num_male"]
-    f = row["num_female"]
-    tot = row["num_total"]
+def convert_percentages_when_total_is_known(num, tot):
     if tot is not None and isinstance(tot, str):
         tot = tot.replace(",", "").replace(" ", "")
     if (
-        str_contains_number(m)
-        and str_is_percentage(m)
-        and str_contains_number(f)
-        and str_is_percentage(f)
+        str_contains_number(num)
+        and str_is_percentage(num)
         and str_contains_number(tot)
         and not str_is_percentage(tot)
     ):
-        m = percentage_to_num(m)
-        f = percentage_to_num(f)
+        num = percentage_to_num(num)
         tot = int(tot)
-        # print(m, f, tot)
-        m = round(m * tot / 100)
-        f = tot - m
-    return m, f
+        num = round(num * tot / 100)
+    return num
 
 
 def cast_int(x):
@@ -93,6 +97,13 @@ def int_or_neg1(x):
         return int(x)
     except:
         return -1
+
+
+def str_is_parsable(x):
+    """Check that string only contains numbers, percent, or periods"""
+    return x is not None and all(
+        char.isdigit() or char in [".", "%", " ", ","] for char in str(x)
+    )
 
 
 def str_contains_number(x):
