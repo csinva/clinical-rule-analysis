@@ -21,12 +21,18 @@ openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
 # imodelsx.llm.LLM_CONFIG["LLM_REPEAT_DELAY"] = 30
 
 
-def extract_nums_df(texts: List[str], repeat_delay=30, verbose=True) -> pd.DataFrame:
+def extract_nums_df(
+    texts: List[str],
+    repeat_delay=30,
+    verbose=True,
+    checkpoint="gpt-4-0613",
+    subset_len_tokens=4750,
+) -> pd.DataFrame:
     """Return dataframe with different extracted fields as columns"""
 
     # get prompt
     llm = imodelsx.llm.get_llm(
-        "gpt-4-0613", repeat_delay=repeat_delay
+        checkpoint, repeat_delay=repeat_delay
     )  # gpt-3.5-turbo-0613
 
     # properties, functions, content_str = prompts_extraction.get_prompts_gender_and_race()
@@ -36,15 +42,25 @@ def extract_nums_df(texts: List[str], repeat_delay=30, verbose=True) -> pd.DataF
     properties, functions, content_str = prompts_extraction.get_prompts_gender()
     print("attempting to add", properties.keys())
     extractions1 = extract_columns_based_on_properties(
-        texts, properties, functions, content_str, llm,
+        texts,
+        properties,
+        functions,
+        content_str,
+        llm,
         verbose=verbose,
+        subset_len_tokens=subset_len_tokens,
     )
 
     properties, functions, content_str = prompts_extraction.get_prompts_race()
     print("attempting to add", properties.keys())
     extractions2 = extract_columns_based_on_properties(
-        texts, properties, functions, content_str, llm,
+        texts,
+        properties,
+        functions,
+        content_str,
+        llm,
         verbose=verbose,
+        subset_len_tokens=subset_len_tokens,
     )
     return pd.DataFrame.from_dict(extractions1 | extractions2)
 
@@ -63,6 +79,7 @@ def extract_columns_based_on_properties(
     content_str,
     llm,
     verbose=True,
+    subset_len_tokens=4750,
 ) -> Dict[str, List]:
     # initialize empty columns
     out = {}
@@ -73,8 +90,12 @@ def extract_columns_based_on_properties(
     for i, text in tqdm(enumerate(texts)):
         try:
             args = call_on_subsets(
-                text, content_str=content_str, functions=functions, llm=llm,
+                text,
+                content_str=content_str,
+                functions=functions,
+                llm=llm,
                 verbose=verbose,
+                subset_len_tokens=subset_len_tokens,
             )
             if args is not None:
                 for k in properties.keys():
@@ -150,6 +171,18 @@ def _check_evidence(ev: str, real_input: str):
 
 if __name__ == "__main__":
     df = pd.read_pickle(join(path_to_repo, "data/data_clean.pkl"))
-    idxs = df["paper___raw_text"].notna()
-    texts = df[idxs]["paper___raw_text"].tolist()
-    extractions = extract_nums_df(texts)
+
+    gt_cols = [
+        "participants___male",
+        "participants___female",
+        "participants___total",
+        "participants___white",
+        "participants___black",
+        "participants___latino",
+        "participants___asian",
+    ]
+    idxs = df["paper___raw_text"].notna() & ((df[gt_cols] > 0).any(axis=1))
+    texts = df.loc[idxs, "paper___raw_text"].values.tolist()
+    extractions = extract_nums_df(
+        texts, verbose=True, checkpoint="gpt-3.5-turbo-0613", subset_len_tokens=3000
+    )

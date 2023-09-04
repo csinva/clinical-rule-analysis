@@ -9,3 +9,7 @@ data/pages
 papers/*.pdf
 papers/*.txt
 results/*.png
+results/**.pkl
+results/**.json
+results/*/*.pkl
+results/*/*.json
