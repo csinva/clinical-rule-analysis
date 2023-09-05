@@ -13,3 +13,4 @@ results/**.pkl
 results/**.json
 results/*/*.pkl
 results/*/*.json
+results/classification

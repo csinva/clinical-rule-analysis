@@ -199,15 +199,17 @@ if __name__ == "__main__":
     r = defaultdict(list)
     r.update(vars(args))
     r["save_dir_unique"] = save_dir_unique
-    cache_save_utils.save_json(
-        args=args, save_dir=save_dir_unique, fname="params.json", r=r
-    )
+    os.makedirs(save_dir_unique, exist_ok=True)
+    # cache_save_utils.save_json(
+    # args=args, save_dir=save_dir_unique, fname="params.json", r=r
+    # )
 
     # fit + eval
     for i, c in enumerate(tqdm(classes)):
         m = get_model(
             args.model_name,
             random_state=42,
+            class_name=c,
         )
         y_i = y[:, i]
         X_train, X_test, y_train, y_test = train_test_split(
@@ -227,7 +229,7 @@ if __name__ == "__main__":
 
     for k1 in ["macro"]:
         for k in ["precision", "recall", "f1-score"]:
-            r[f"mean_{k1}_{k}"].append(np.mean(r[f"{k1}_{k}"]))
+            r[f"mean_{k1}_{k}"] = np.mean(r[f"{k1}_{k}"])
 
     # save results
     joblib.dump(
