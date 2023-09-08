@@ -31,7 +31,7 @@ path_to_repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
 
 
-def get_classification_data(lab="categorization___chief_complaint", random_state=42):
+def get_classification_data(lab="categorization___chief_complaint", input_text='raw_text'):
     # prepare output
     classes = df[lab].explode()
     vc = classes.value_counts()
@@ -46,13 +46,15 @@ def get_classification_data(lab="categorization___chief_complaint", random_state
 
     # input text
     # set up text for prediction
-    # def get_text_representation(row):
-    #     # return f"""- Title: {row["title"]}
-    # # - Description: {row["description"]}
-    # # - Predictor variables: {str(row["feature_names"])[1:-1]}"""
-    #     return f"""{row["title"]}. {row["description"]}. Keywords: {str(row["info___keywords"])[1:-1]}"""
-    # df['text'] = df.apply(get_text_representation, axis=1)
-    X = df["paper___raw_text"]
+    if input_text == 'raw_text':
+        X = df["paper___raw_text"]
+    elif input_text == 'description':
+        def get_text_representation(row):
+            # return f"""- Title: {row["title"]}
+            # - Description: {row["description"]}
+            # - Predictor variables: {str(row["feature_names"])[1:-1]}"""
+            return f"""{row["title"]}. {row["description"]}. Keywords: {str(row["info___keywords"])[1:-1]}"""
+        X = df.apply(get_text_representation, axis=1)
 
     idxs = X.notna()
     X = X[idxs].tolist()
@@ -64,7 +66,7 @@ def get_classification_data(lab="categorization___chief_complaint", random_state
     # return X_train, X_test, y_train, y_test, le.classes_
 
 
-def get_model(model_name="decision_tree", random_state=42, class_name=None):
+def get_model(model_name="decision_tree", random_state=42, class_name=None, input_text='raw_text'):
     if model_name == "decision_tree":
         return Pipeline(
             [
@@ -79,6 +81,12 @@ def get_model(model_name="decision_tree", random_state=42, class_name=None):
                 ("clf", RandomForestClassifier(random_state=random_state)),
             ]
         )
+    # elif model_name == 'figs':
+    #     return Pipeline(
+    #         [
+
+    #         ]
+    #     )
     elif model_name == "logistic":
         return Pipeline(
             [
@@ -97,7 +105,8 @@ def get_model(model_name="decision_tree", random_state=42, class_name=None):
             normalize_embs=False,
             random_state=random_state,
             cache_embs_dir=os.path.expanduser(
-                join("~/.cache_mdcalc_embeddings", class_name)
+                join(os.path.expanduser("~/.cache_mdcalc_embeddings"),
+                     class_name, input_text)
             ),
             ngrams=2,
         )
@@ -105,9 +114,10 @@ def get_model(model_name="decision_tree", random_state=42, class_name=None):
         # pipe = MultiOutputClassifier(
         return LinearFinetuneClassifier(
             checkpoint="bert-base-uncased",
-            normalize_embs=False,
+            normalize_embs=True,
             random_state=random_state,
-            cache_embs_dir=os.path.expanduser("~/.cache_mdcalc_embeddings"),
+            cache_embs_dir=join(os.path.expanduser(
+                "~/.cache_mdcalc_embeddings"), class_name, input_text),
         )
         # )
 
@@ -129,6 +139,12 @@ def add_main_args(parser):
                  "categorization___system",
                  "categorization___disease",],
         help="name of label",
+    )
+    parser.add_argument(
+        '--input_text',
+        type=str,
+        default='raw_text',
+        help='input text to use'
     )
 
     # training misc args
@@ -193,7 +209,8 @@ if __name__ == "__main__":
 
     # get data
     df = pd.read_pickle(join(path_to_repo, 'data/data_clean.pkl'))
-    X, y, classes = get_classification_data(lab=args.label_name)
+    X, y, classes = get_classification_data(
+        lab=args.label_name, input_text=args.input_text)
 
     # set up saving dictionary + save params file
     r = defaultdict(list)
@@ -210,6 +227,7 @@ if __name__ == "__main__":
             args.model_name,
             random_state=42,
             class_name=c,
+            input_text=args.input_text,
         )
         y_i = y[:, i]
         X_train, X_test, y_train, y_test = train_test_split(
@@ -219,6 +237,7 @@ if __name__ == "__main__":
         m.fit(X_train, y_train)
         # df['y_pred_train'].append(m.predict(X_train))
         y_pred = m.predict(X_test)
+        y_pred_proba = m.predict_proba(X_test)[:, 1]
         # df['y_pred_test'].append(y_test)
         cls_report = classification_report(
             y_test, y_pred, output_dict=True, zero_division=0
@@ -226,6 +245,8 @@ if __name__ == "__main__":
         for k1 in ["macro"]:
             for k in ["precision", "recall", "f1-score"]:
                 r[f"{k1}_{k}"].append(cls_report[k1 + " avg"][k])
+        r["accuracy"].append(accuracy_score(y_test, y_pred))
+        r["roc_auc"].append(roc_auc_score(y_test, y_pred_proba))
 
     for k1 in ["macro"]:
         for k in ["precision", "recall", "f1-score"]:
