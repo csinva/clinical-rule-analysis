@@ -25,13 +25,32 @@ import imodels
 import inspect
 import os.path
 from imodelsx import cache_save_utils
+from skllm.config import SKLLMConfig
+from skllm import MultiLabelZeroShotGPTClassifier
+
 
 path_to_repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 openai.api_key = open("/home/chansingh/.OPENAI_KEY").read().strip()
+SKLLMConfig.set_openai_key(openai.api_key)
 
 
-def get_classification_data(lab="categorization___chief_complaint", input_text='raw_text'):
+def add_eval(r, y_test, y_pred, y_pred_proba):
+    cls_report = classification_report(
+        y_test, y_pred, output_dict=True, zero_division=0
+    )
+    for k1 in ["macro"]:
+        for k in ["precision", "recall", "f1-score"]:
+            r[f"{k1}_{k}"].append(cls_report[k1 + " avg"][k])
+    r["accuracy"].append(accuracy_score(y_test, y_pred))
+    r["roc_auc"].append(roc_auc_score(y_test, y_pred_proba))
+    return r
+
+
+def get_classification_data(lab="categorization___chief_complaint", input_text='description'):
+    # read data
+    df = pd.read_pickle(join(path_to_repo, 'data/data_clean.pkl'))
+
     # prepare output
     classes = df[lab].explode()
     vc = classes.value_counts()
@@ -41,7 +60,10 @@ def get_classification_data(lab="categorization___chief_complaint", input_text='
     df[lab] = df[lab].apply(lambda l: [x for x in l if x in top_classes])
 
     # label binarizer
-    le = MultiLabelBinarizer()
+    # top classes put most frequent first and last (helps with zero-shot)
+    top_classes = top_classes[::2].tolist(
+    ) + top_classes[1::2].tolist()[::-1]
+    le = MultiLabelBinarizer(classes=top_classes)
     y = le.fit_transform(df[lab])
 
     # input text
@@ -53,7 +75,7 @@ def get_classification_data(lab="categorization___chief_complaint", input_text='
             # return f"""- Title: {row["title"]}
             # - Description: {row["description"]}
             # - Predictor variables: {str(row["feature_names"])[1:-1]}"""
-            return f"""{row["title"]}. {row["description"]}. Keywords: {str(row["info___keywords"])[1:-1]}"""
+            return f"""{row["title"]}. {row["description"]}."""  # Keywords: {str(row["info___keywords"])[1:-1]}"""
         X = df.apply(get_text_representation, axis=1)
 
     idxs = X.notna()
@@ -61,7 +83,7 @@ def get_classification_data(lab="categorization___chief_complaint", input_text='
     y = y[idxs]
 
     # train test split
-    return X, y, le.classes_
+    return X, y, le.classes_, le
     # X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=random_state)
     # return X_train, X_test, y_train, y_test, le.classes_
 
@@ -119,7 +141,9 @@ def get_model(model_name="decision_tree", random_state=42, class_name=None, inpu
             cache_embs_dir=join(os.path.expanduser(
                 "~/.cache_mdcalc_embeddings"), class_name, input_text),
         )
-        # )
+    elif model_name == 'zero-shot':
+        return MultiLabelZeroShotGPTClassifier(
+            max_labels=5, openai_model="gpt-4-0314")
 
 
 # initialize args
@@ -208,8 +232,7 @@ if __name__ == "__main__":
     # torch.manual_seed(args.seed)
 
     # get data
-    df = pd.read_pickle(join(path_to_repo, 'data/data_clean.pkl'))
-    X, y, classes = get_classification_data(
+    X, y, classes, le = get_classification_data(
         lab=args.label_name, input_text=args.input_text)
 
     # set up saving dictionary + save params file
@@ -222,35 +245,46 @@ if __name__ == "__main__":
     # )
 
     # fit + eval
-    for i, c in enumerate(tqdm(classes)):
+    if not args.model_name == 'zero-shot':
+        for i, c in enumerate(tqdm(classes)):
+            m = get_model(
+                args.model_name,
+                random_state=42,
+                class_name=c,
+                input_text=args.input_text,
+            )
+            y_i = y[:, i]
+            X_train, X_test, y_train, y_test = train_test_split(
+                X, y_i, test_size=0.25, random_state=42, stratify=y_i
+            )
+
+            m.fit(X_train, y_train)
+            # df['y_pred_train'].append(m.predict(X_train))
+            y_pred = m.predict(X_test)
+            y_pred_proba = m.predict_proba(X_test)[:, 1]
+            # df['y_pred_test'].append(y_test)
+            r = add_eval(r, y_test, y_pred, y_pred_proba)
+
+    elif args.model_name == 'zero-shot':
         m = get_model(
             args.model_name,
             random_state=42,
-            class_name=c,
             input_text=args.input_text,
         )
-        y_i = y[:, i]
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y_i, test_size=0.25, random_state=42, stratify=y_i
+            X, y, test_size=0.25, random_state=42
         )
 
-        m.fit(X_train, y_train)
+        m.fit(None, [classes.tolist()])
         # df['y_pred_train'].append(m.predict(X_train))
-        y_pred = m.predict(X_test)
-        y_pred_proba = m.predict_proba(X_test)[:, 1]
-        # df['y_pred_test'].append(y_test)
-        cls_report = classification_report(
-            y_test, y_pred, output_dict=True, zero_division=0
-        )
-        for k1 in ["macro"]:
-            for k in ["precision", "recall", "f1-score"]:
-                r[f"{k1}_{k}"].append(cls_report[k1 + " avg"][k])
-        r["accuracy"].append(accuracy_score(y_test, y_pred))
-        r["roc_auc"].append(roc_auc_score(y_test, y_pred_proba))
+        y_pred_strs = m.predict(X_test)
+        y_pred = le.transform(y_pred_strs)
+        y_pred_proba = y_pred
+        for i in range(len(classes)):
+            r = add_eval(r, y_test[:, i], y_pred[:, i], y_pred_proba)
 
-    for k1 in ["macro"]:
-        for k in ["precision", "recall", "f1-score"]:
-            r[f"mean_{k1}_{k}"] = np.mean(r[f"{k1}_{k}"])
+    for k in ['macro_precision', 'macro_recall', 'macro_f1-score', 'accuracy', 'roc_auc']:
+        r[f"mean_{k}"] = np.mean(r[k])
 
     # save results
     joblib.dump(

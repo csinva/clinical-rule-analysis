@@ -13,10 +13,10 @@ params_shared_dict = {
                    "categorization___purpose",
                    "categorization___system",
                    "categorization___disease"],
-    # 'input_text': ['raw_text', 'description'],
-    # 'model_name': ['decision_tree', 'random_forest', 'logistic'],
-    'model_name': ['bert-base-uncased'],  # , 'aug-linear'],
-    'input_text': ['description', 'raw_text'],
+    'input_text': ['raw_text', 'description'],
+    'model_name': ['decision_tree', 'random_forest', 'logistic'],
+    # 'model_name': ['bert-base-uncased'],  # , 'aug-linear'],
+    # 'input_text': ['description', 'raw_text'],
     'save_dir': [join(repo_dir, 'results', 'classification')],
     # pass binary values with 0/1 instead of the ambiguous strings True/False
     'use_cache': [1],
@@ -35,5 +35,5 @@ submit_utils.run_args_list(
     args_list,
     script_name=join(repo_dir, 'notebooks_llm', '02_classification.py'),
     actually_run=True,
-    n_cpus=2
+    n_cpus=30
 )
