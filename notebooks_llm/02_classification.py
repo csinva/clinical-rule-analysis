@@ -281,7 +281,7 @@ if __name__ == "__main__":
         y_pred = le.transform(y_pred_strs)
         y_pred_proba = y_pred
         for i in range(len(classes)):
-            r = add_eval(r, y_test[:, i], y_pred[:, i], y_pred_proba)
+            r = add_eval(r, y_test[:, i], y_pred[:, i], y_pred_proba[:, i])
 
     for k in ['macro_precision', 'macro_recall', 'macro_f1-score', 'accuracy', 'roc_auc']:
         r[f"mean_{k}"] = np.mean(r[k])
