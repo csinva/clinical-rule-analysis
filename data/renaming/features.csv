@@ -10,10 +10,10 @@ Original feature,Chandan rename
 % myeloblasts in peripheral blood,
 % neutrophils,
 % of reticulocytes,
-&ge;2 seizure types,
-&ge;2 sites of metastasis,
-&gt;12 years old and &gt;40 kg,
-&gt;3 hrs from symptom onset (or last time seen WITHOUT stroke symptoms) to admission,
+&ge;2 seizure types,≥2 seizure types
+&ge;2 sites of metastasis,≥2 sites of metastasis
+&gt;12 years old and &gt;40 kg,>12 years old and >40 kg
+&gt;3 hrs from symptom onset (or last time seen WITHOUT stroke symptoms) to admission,>3 hrs from symptom onset (or last time seen WITHOUT stroke symptoms) to admission
 0.45% saline,Saline
 0.9% saline,Saline
 "1. Anxious mood: Worries, anticipation of the worst, fearful anticipation, irritability.",
@@ -160,7 +160,7 @@ ANA above laboratory reference range,
 ANA or SMA,
 ANA or anti-dsDNA antibodies,
 "ANA, SMA, or LKM-1 antibody",
-"ANC &gt;4,000/&mu;L",
+"ANC &gt;4,000/&mu;L","ANC >4,000/&mu;L"
 "ANC, ×10³/µL (10⁹/L)",
 APACHE II,
 ASA Class,ASA
@@ -270,8 +270,8 @@ Acute-phase reactants (need at least one acute-phase reactant test result to use
 Add another drug,
 Add another measurement,
 Additional features,
-Admission QTc &ge;450 msec,
-Admission glucose &gt;131 mg/dL (7.3 mmol/L) or &lt;66 mg/dL (3.7 mmol/L),
+Admission QTc &ge;450 msec,Admission QTc ≥450 msec
+Admission glucose &gt;131 mg/dL (7.3 mmol/L) or &lt;66 mg/dL (3.7 mmol/L),Admission glucose >131 mg/dL (7.3 mmol/L) or <66 mg/dL (3.7 mmol/L)
 Admission pH,
 Admit from skilled nursing facility,
 Admitted from nursing home,
@@ -449,9 +449,9 @@ Arm drift,
 Arm motor impairment,
 Arm weakness,
 Arrest disorder for previous cesarean delivery,
-Arterial pH &lt;7.30,
+Arterial pH &lt;7.30,Arterial pH <7.30
 Arterial pH < 7.30,
-Arterial pO2 &lt;60 mmHg within 48 hours,
+Arterial pO2 &lt;60 mmHg within 48 hours,Arterial pO2 <60 mmHg within 48 hours
 Arthralgia,
 Arthritis,
 Arthritis (monoarthritis or polyarthritis; polyarthralgia),
@@ -546,7 +546,7 @@ Bacteremia,
 "Band neutrophils ≤1,500/mm³ (≤1.5 × 10⁹/L)",
 Base Excess,
 Base deficit,
-Base deficit (24 - HCO3) &gt;4 mg/dL within 48 hours,
+Base deficit (24 - HCO3) &gt;4 mg/dL within 48 hours,Base deficit (24 - HCO3) >4 mg/dL within 48 hours
 Baseline NIH Stroke Scale,NIH Stroke Scale
 Baseline creatinine,
 Bathing,
@@ -680,7 +680,7 @@ CT shows multilobar infarction (hypodensity >1/3 cerebral hemisphere),
 CTAS Triage Scale (for ED patients),
 CTCAE for diarrhea,
 CVA or TIA,
-Ca &lt;8 mg/dL (&lt;2 mmol/L) within 48 hours,
+Ca &lt;8 mg/dL (&lt;2 mmol/L) within 48 hours,Ca <8 mg/dL (<2 mmol/L) within 48 hours
 Calcium,
 Calcium <8 mg/dL (2 mmol/L),Calcium
 Calcium >10mg/dL (>2.5 mmol/L),Calcium
@@ -851,7 +851,7 @@ Coronary artery disease detected by 2D echo or coronary angiogram,
 Coronary bypass graft,
 Corrected QT interval >480 ms,
 Corrected calcium > upper limit of normal,
-Corrected serum calcium &gt;10 mg/dL (2.5 mmol/L),
+Corrected serum calcium &gt;10 mg/dL (2.5 mmol/L),Corrected serum calcium >10 mg/dL (2.5 mmol/L)
 Corrected/delivered tidal volume (&Delta;V),
 Correctly spells “world” backward,
 Cortical infarct on imaging,
@@ -989,12 +989,12 @@ Diastolic BP >90,Diastolic BP
 Diastolic blood pressure before ECMO ≥40 mmHg,Diastolic BP
 "Diastolic blood pressure, mmHg",Diastolic BP
 Did a household member go to prison?,
-"Did a parent or other adult in the household often or very often... Swear at you, insult&nbsp;you, put you down, or humiliate you? or Act in a way that made you afraid that you&nbsp;might be physically hurt?",
-"Did a parent or other adult in the household&nbsp;often or very often... Push, grab, slap, or&nbsp;throw something at you?&nbsp;or&nbsp;Ever hit you so hard that you had marks or were injured?",
-"Did an adult or person at least five years older than you&nbsp;ever... Touch or fondle you or&nbsp;have you touch their body in a sexual way?&nbsp;or&nbsp;Attempt or actually have oral, anal, or&nbsp;vaginal intercourse with you?",
+"Did a parent or other adult in the household often or very often... Swear at you, insult&nbsp;you, put you down, or humiliate you? or Act in a way that made you afraid that you&nbsp;might be physically hurt?","Did a parent or other adult in the household often or very often... Swear at you, insult you, put you down, or humiliate you? or Act in a way that made you afraid that you might be physically hurt?"
+"Did a parent or other adult in the household&nbsp;often or very often... Push, grab, slap, or&nbsp;throw something at you?&nbsp;or&nbsp;Ever hit you so hard that you had marks or were injured?","Did a parent or other adult in the household often or very often... Push, grab, slap, or throw something at you? or Ever hit you so hard that you had marks or were injured?"
+"Did an adult or person at least five years older than you&nbsp;ever... Touch or fondle you or&nbsp;have you touch their body in a sexual way?&nbsp;or&nbsp;Attempt or actually have oral, anal, or&nbsp;vaginal intercourse with you?","Did an adult or person at least five years older than you ever... Touch or fondle you or have you touch their body in a sexual way? or Attempt or actually have oral, anal, or vaginal intercourse with you?"
 Did you live with anyone who was a problem drinker or alcoholic or who used street drugs?,
-"Did you&nbsp;often or very often&nbsp;feel that... No one in your family loved you or thought you were important or special?&nbsp;or&nbsp;Your family didn&rsquo;t look out for each other, feel close to each other, or support each other?",
-"Did you&nbsp;often or very often&nbsp;feel that... You didn&rsquo;t have enough to eat, had to wear dirty clothes, and had no one to protect you?&nbsp;or&nbsp;Your parents were too drunk or high to take care of you or take you to the doctor if you needed it?",
+"Did you&nbsp;often or very often&nbsp;feel that... No one in your family loved you or thought you were important or special?&nbsp;or&nbsp;Your family didn&rsquo;t look out for each other, feel close to each other, or support each other?","Did you often or very often feel that... No one in your family loved you or thought you were important or special? or Your family didn&rsquo;t look out for each other, feel close to each other, or support each other?"
+"Did you&nbsp;often or very often&nbsp;feel that... You didn&rsquo;t have enough to eat, had to wear dirty clothes, and had no one to protect you?&nbsp;or&nbsp;Your parents were too drunk or high to take care of you or take you to the doctor if you needed it?","Did you often or very often feel that... You didn&rsquo;t have enough to eat, had to wear dirty clothes, and had no one to protect you? or Your parents were too drunk or high to take care of you or take you to the doctor if you needed it?"
 Difficulty in abstract thinking,
 "Digestive: acute abdomen, other",
 Digestive: severe pancreatitis,
@@ -1047,7 +1047,7 @@ Does NOT meet Rome IV Criteria for IBS,
 Does not meet criteria for diarrhea-predominant IBS,
 "Does pain radiate to neck, jaw, or left arm?",
 Does palpation reproduce pain?,
-Does patient still have &gt;2 criteria despite NIV/HFNC?,
+Does patient still have &gt;2 criteria despite NIV/HFNC?,Does patient still have >2 criteria despite NIV/HFNC?
 Does the patient have any symptoms in their hands or arms?,
 Does the patient have difficulty running or climbing stairs?,
 Does the patient have difficulty with walking?,
@@ -1203,10 +1203,10 @@ Estimated glomerular filtration rate,
 Estimated percentage body burned,
 Estimated severity of trauma to tissue,
 Estrogen Receptor (ER) Status,
-EtOH &gt;80 mg/dL,
+EtOH &gt;80 mg/dL,EtOH >80 mg/dL
 Ethanol (Alcohol) Abuse,
 Ethnicity,Race/Ethnicity
-Evidence of &ge;2 organs failing,
+Evidence of &ge;2 organs failing,Evidence of ≥2 organs failing
 Evidence of abdominal wall trauma or seatbelt sign,
 Evidence of dissemination in space in the spinal cord,
 Evidence of endocardial involvement,
@@ -1275,7 +1275,7 @@ Family history of thrombosis,
 Fatigue,
 Feeding,
 Feeling afraid as if something awful might happen,
-Feeling bad about yourself &mdash; or that you are a failure or have let yourself or your family down?,
+Feeling bad about yourself &mdash; or that you are a failure or have let yourself or your family down?,Feeling bad about yourself - or that you are a failure or have let yourself or your family down?
 "Feeling disgusted with oneself, depressed, or very guilty afterward",
 "Feeling down, depressed, or hopeless?",
 "Feeling nervous, anxious, or on edge",
@@ -1327,13 +1327,13 @@ First-degree relatives with breast cancer,
 Five years or less since reaction,
 Flight of ideas or subjectively racing thoughts,
 Fluid intake,
-Fluid needs &gt;6 L within 48 hours,
+Fluid needs &gt;6 L within 48 hours,Fluid needs >6 L within 48 hours
 Fluid type,
 Focal neurologic deficit present,
 Focal neurological features,
 Foreign national,
 Formula,
-Frequency &gt;2.0 Hz for any periodic or rhythmic pattern,
+Frequency &gt;2.0 Hz for any periodic or rhythmic pattern,Frequency >2.0 Hz for any periodic or rhythmic pattern
 Frequency: How often have you had to urinate less than every two hours?,
 Frequent yawning,
 Friction and shear,
@@ -1470,7 +1470,7 @@ Have you ever felt Guilty about drinking?,
 Have you ever felt you needed a drink first thing in the morning (Eye-opener) to steady your nerves or to get rid of a hangover?,
 Have you ever felt you needed to Cut down on your drinking?,
 "Have you ever undergone alcohol rehabilitation treatment (i.e., inpatient or outpatient treatment programs, or Alcoholics Anonymous attendance)?",
-Hct drop &gt;10% from admission,
+Hct drop &gt;10% from admission,Hct drop >10% from admission
 Head and gaze deviation,
 Head and neck worst injury?,
 Headache,
@@ -1579,7 +1579,7 @@ History of Cancer,
 History of DVT/PE,
 History of Diabetes,
 History of ED or hospital admission due to hypoglycemia,
-History of EEG with generalized slow spike-and-wave (SSW) discharges (&lt;2.5 Hz),
+History of EEG with generalized slow spike-and-wave (SSW) discharges (&lt;2.5 Hz),History of EEG with generalized slow spike-and-wave (SSW) discharges (<2.5 Hz)
 History of LOC or history of vomiting or severe headache or severe mechanism of injury,Headache
 History of VTE,
 History of arrhythmia,
@@ -1644,7 +1644,7 @@ Hormonal therapy,
 Hormone use,
 Hormone use at VTE onset (if female),Sex/Gender
 Hospital days pre-ECMO,
-Hospitalization for &ge;2 days,
+Hospitalization for &ge;2 days,Hospitalization for ≥2 days
 Hospitalization within 60 days,
 Hostility,
 Hours,
@@ -1736,8 +1736,8 @@ INR,
 INR  <1.5,INR
 INR > 6.5 (PT > 100 sec),INR
 INR >1.5,INR
-IPH &ge;8 mm or multiple,
-IPH &gt;4 to &lt;8 mm,
+IPH &ge;8 mm or multiple,IPH ≥8 mm or multiple
+IPH &gt;4 to &lt;8 mm,IPH >4 to <8 mm
 IVH,
 Ideal body weight,
 "If all these functions are prevented, can the patient make purposeful movements with their hands or arms?",
@@ -1773,7 +1773,7 @@ Impaired mental status,
 Improvement with defecation,
 Impulsivity,
 "In children with constipation, the pain does not resolve with resolution of the constipation (children in whom the pain resolves have functional constipation, not irritable bowel syndrome)",
-"In comparison with other people of the&nbsp;same age, how does the patient consider their health status?",
+"In comparison with other people of the&nbsp;same age, how does the patient consider their health status?","In comparison with other people of the same age, how does the patient consider their health status?"
 "In general, how would you describe your relationship?",
 "In your lifetime, have you ever attempted to kill yourself?",
 Inability to bear weight both immediately after injury AND in ED,
@@ -1797,7 +1797,7 @@ Index admission type,
 Indication,
 Induration/thickness,
 Indwelling intra-arterial device,
-Infant &lt;1 year old,
+Infant &lt;1 year old,Infant <1 year old
 Infant <1 year old,
 Infant appears generally well,
 Infarction (new or old) on CT,
@@ -1845,7 +1845,7 @@ Insulin-requiring diabetes,Insulin
 Intense or prolonged psychological distress at exposure to internal or external cues that symbolize or resemble an aspect of the traumatic event,
 Intensity,
 Intensive care unit or coronary care unit stay,
-Intermittency: How often have you found&nbsp;you stopped and started again several times when you urinated?,
+Intermittency: How often have you found&nbsp;you stopped and started again several times when you urinated?,Intermittency: How often have you found you stopped and started again several times when you urinated?
 Internal Capsule (IC),
 Internal organ involved,
 Intervention for peripheral vascular disease,
@@ -1922,7 +1922,7 @@ Killip class (signs/symptoms),
 Known CAD (stenosis ≥50%),
 "Known CAD, cerebrovascular disease, or peripheral vascular disease",
 Known bleeding diathesis,
-Known coronary artery disease or &ge;3 risk factors,
+Known coronary artery disease or &ge;3 risk factors,Known coronary artery disease or ≥3 risk factors
 Known hypercoagulable state,
 "Known intracranial arteriovenous malformation, neoplasm, or aneurysm",
 Known thrombophilia,
@@ -1961,7 +1961,7 @@ Le(b),
 Le(b) frequency,
 "Learning that the traumatic event occurred to a close family member/close friend; if actual/threatened death of a family member or friend, event must have been violent or accidental",
 Left upper quadrant (splenorenal recess) fluid,
-Left ventricular ejection fraction &lt;35%,
+Left ventricular ejection fraction &lt;35%,Left ventricular ejection fraction <35%
 Leg claudication,
 Leg motor impairment,
 Leg weakness,
@@ -2087,7 +2087,7 @@ Mean arterial pressure OR administration of vasoactive agents required,
 "Mean central corneal thickness, µm",
 "Mean intraocular pressure, mmHg",Mean intraocular pressure
 "Mean pattern standard deviation, dB",
-Mean right atrial pressure &gt;20 mmHg within 1 year on right heart catheterization,
+Mean right atrial pressure &gt;20 mmHg within 1 year on right heart catheterization,Mean right atrial pressure >20 mmHg within 1 year on right heart catheterization
 Mean vertical cup-to-disc ratio by contour,
 Measured phenytoin level,
 Measured serum osm,
@@ -2488,7 +2488,7 @@ Paresthesia,
 "Paroxysmal episodes of intense, acute periumbilical, midline, or diffuse abdominal pain lasting ≥1 hour (should be the most severe and distressing symptom)",Abdominal pain
 Paroxysmal nocturnal dyspnea or orthopnea,
 Paroxysmal sweats,
-Partial pressure of oxygen &lt;60 mmHg or &lt;8 kPa,
+Partial pressure of oxygen &lt;60 mmHg or &lt;8 kPa,Partial pressure of oxygen <60 mmHg or <8 kPa
 Participate in moderate recreational activities,
 Participate in strenuous sports,
 Passive-apathetic social withdrawal,
@@ -2511,7 +2511,7 @@ Patient has atopic dermatitis,
 "Patient has elevated cholesterol, family history of FH, and/or family history of premature cardiac death",
 Patient height,Height
 Patient hematocrit,
-Patient is acutely ill and there has been or is likely to be no nutritional intake for &gt;5 days,
+Patient is acutely ill and there has been or is likely to be no nutritional intake for &gt;5 days,Patient is acutely ill and there has been or is likely to be no nutritional intake for >5 days
 Patient on blood thinners,
 Patient on loop diuretic,
 Patient on neuromuscular blockade (NMBA),
@@ -2544,7 +2544,7 @@ Patients with gastrostomy and >50% daily nutrition intake via G-tube,
 Patient’s home address,
 Pattern of joint/bursa involvement during episodes,
 Pattern of spread,
-Peak inspiratory pressure &ge;42 cm H₂O (&ge;4.1 kPa),
+Peak inspiratory pressure &ge;42 cm H₂O (&ge;4.1 kPa),Peak inspiratory pressure ≥42 cm H₂O (≥4.1 kPa)
 Peak inspiratory pressure ≤20 cm H₂O (≤2.0 kPa),
 Pedestrian or cyclist versus vehicle,
 Penetrating mechanism,
@@ -2590,7 +2590,7 @@ Persistent inability to experience positive emotions,
 Persistent negative emotional state,
 "Persistent or intermittent, nonpainful, sensation of a lump or foreign body in the throat with no structural lesion identified on physical examination, laryngoscopy, or endoscopy",
 Persistent or recurrent regurgitation of recently ingested food into the mouth with subsequent spitting or remastication and swallowing,
-Persistent seizures despite trial of &ge;2 antiseizure medications,
+Persistent seizures despite trial of &ge;2 antiseizure medications,Persistent seizures despite trial of ≥2 antiseizure medications
 Persistent vomiting,Nausea/vomiting
 Persistent vomiting following surgery,Nausea/vomiting
 "Persistent, distorted cognitions about the cause or consequences of the traumatic event that lead the individual to blame themselves or others",
@@ -2717,7 +2717,7 @@ Pregnancy (and recent pregnancy),Pregnancy
 Pregnancy or postpartum,Pregnancy
 Pregnant,Pregnancy
 Pregnant patient,Pregnancy
-Prematurity (&lt;32 weeks or between 32&ndash;38 weeks and corrected to &lt;45 weeks),
+Prematurity (&lt;32 weeks or between 32&ndash;38 weeks and corrected to &lt;45 weeks),Prematurity (<32 weeks or between 32-38 weeks and corrected to <45 weeks)
 Preoccupation,
 Preoperative CEA level >200 ng/mL,
 Preoperative SpO₂,
@@ -2726,7 +2726,7 @@ Preoperative anemia (Hgb ≤10 g/dL),
 Preoperative use of IABP,
 Prescribed antihypertensive medication,
 Prescribed steroids,
-Presence of &ldquo;plus&rdquo; features&nbsp;,
+Presence of &ldquo;plus&rdquo; features&nbsp;,Presence of &ldquo;plus&rdquo; features 
 "Presence of LPDs, LRDA, or BIPDs",
 "Presence of Monosodium Urate (MSU) crystals in a symptomatic joint, bursa, or tophus",
 Presence of a large fecal mass in the rectum,
@@ -2803,7 +2803,7 @@ Pulmonary disease,
 Pulmonary dysfunction,
 Pulmonary radiography,
 Pulmonary rales,
-Pulmonary vascular resistance &lt;5 Wood units on right heart catheterization,
+Pulmonary vascular resistance &lt;5 Wood units on right heart catheterization,Pulmonary vascular resistance <5 Wood units on right heart catheterization
 Pulse,Heart rate
 Pulse &ge;109 beats/min,Heart rate
 Pulse &ge;125 beats/min,Heart rate
@@ -2833,7 +2833,7 @@ Q7: Do you need another person to help you walk?,
 "Q8: Do you need help with eating, going to the toilet, or bathing?",
 Q9: Do you stay in bed most of the day and need constant nursing care?,
 QRS amplitude in lead V2,
-QRS duration &gt;130 ms,
+QRS duration &gt;130 ms,QRS duration >130 ms
 QT interval,
 Quarter hourly nebulizers (every 15 minutes),
 R to S interval >100 ms in one precordial lead,
@@ -2884,7 +2884,7 @@ Reckless or self-destructive behavior,
 Rectal bleeding,
 Rectal examination showing fecal occult blood,
 "Recurrent and prolonged periods of infant crying, fussing, or irritability reported by caregivers that occur without obvious cause and cannot be prevented or resolved by caregivers",
-"Recurrent bloating and/or distension occurring, on average, &ge;1 day per week",
+"Recurrent bloating and/or distension occurring, on average, &ge;1 day per week","Recurrent bloating and/or distension occurring, on average, ≥1 day per week"
 "Recurrent distressing dreams where content and/or affect of dream are related to the traumatic event; in children, there may be frightening dreams without recognizable content",
 Recurrent episodes of pain localized to the rectum and unrelated to defecation,
 Recurrent or single thunderclap headache,Headache
@@ -2991,10 +2991,10 @@ S1: Potentially causal,
 S2: Causal link uncertain,
 "S3: Causal link unlikely, but disease is present",
 S9: Incomplete workup,
-"SAH 1 hemisphere, &gt;3 sulci, 1-3 mm",
-SAH bihemispheric or &gt;3 mm,
-SDH &ge;8 mm,
-SDH &gt;4 to &lt;8 mm,
+"SAH 1 hemisphere, &gt;3 sulci, 1-3 mm","SAH 1 hemisphere, >3 sulci, 1-3 mm"
+SAH bihemispheric or &gt;3 mm,SAH bihemispheric or >3 mm
+SDH &ge;8 mm,SDH ≥8 mm
+SDH &gt;4 to &lt;8 mm,SDH >4 to <8 mm
 SLA,
 SOFA Score,
 "ST Elevation at the J-point, relative to QRS onset, is at least 1 mm AND has an amplitude at least 25% of the preceding S-wave",
@@ -3077,7 +3077,7 @@ Serum neutrophil-to-lymphocyte ratio,
 Serum osmolality,
 "Serum phosphorus, mg/dL (mmol/L)",
 Serum potassium,
-Serum procalcitonin &gt;0.5 ng/mL,
+Serum procalcitonin &gt;0.5 ng/mL,Serum procalcitonin >0.5 ng/mL
 Serum sodium,
 Serum uric acid > 5.88 mg/dL (0.35 mmol/L),
 Serum β2 microglobulin,
@@ -3251,9 +3251,9 @@ Symptom criteria for chronic levator ani syndrome but no tenderness during poste
 Symptom duration > 2 years,
 Symptom onset ≤3 days,
 Symptom severity,
-Symptoms &ge;10 mins,
+Symptoms &ge;10 mins,Symptoms ≥10 mins
 Symptoms >1 month before admission,
-Symptoms began &le;5 days prior,
+Symptoms began &le;5 days prior,Symptoms began ≤5 days prior
 "Symptoms cause clinically significant distress or impairment in social, occupational, or other important areas of functioning",
 Symptoms last >4 weeks,
 "Symptoms of abdominal pain, flatulence, or bowel irregularity",Abdominal pain
@@ -3284,7 +3284,7 @@ TP53 status,
 TPN,
 TPN sodium,
 TT-TG/PL ≥0.5,
-Tachycardia &ge;125,
+Tachycardia &ge;125,Tachycardia ≥125
 Tachycardia (HR >120),
 Tachycardia or bradycardia (if <1 year),
 Tachypnea (respiratory rate >30),
@@ -3371,7 +3371,7 @@ Time between PSA3 and PSA4 measurement,PSA
 Time between PSA4 and PSA5 measurement,PSA
 Time between both creatinine measurements,
 Time from diagnosis to systemic treatment <1 year,
-Time from initial diagnosis to systemic treatment &lt;1 year,
+Time from initial diagnosis to systemic treatment &lt;1 year,Time from initial diagnosis to systemic treatment <1 year
 Time interval between initial SRS and appearance of new brain metastases,
 Time of symptom onset <4.5 hours,
 Time since diagnosis,
@@ -3587,9 +3587,9 @@ Walk indoors,
 Walk outdoors on flat ground,
 Walking,
 Walking ability,
-"Was a household member depressed or mentally ill, or did a household member&nbsp;attempt suicide?",
+"Was a household member depressed or mentally ill, or did a household member&nbsp;attempt suicide?","Was a household member depressed or mentally ill, or did a household member attempt suicide?"
 Was this behavior within the past three months?,
-"Was your mother or stepmother:&nbsp;Often or very often&nbsp;pushed, grabbed, slapped, or&nbsp;had something thrown at her?&nbsp;or&nbsp;Sometimes, often, or very often&nbsp;kicked, bitten, hit with a fist, or hit with something hard?&nbsp;or&nbsp;Ever&nbsp;repeatedly hit at least a few minutes orthreatened with a gun or knife?",
+"Was your mother or stepmother:&nbsp;Often or very often&nbsp;pushed, grabbed, slapped, or&nbsp;had something thrown at her?&nbsp;or&nbsp;Sometimes, often, or very often&nbsp;kicked, bitten, hit with a fist, or hit with something hard?&nbsp;or&nbsp;Ever&nbsp;repeatedly hit at least a few minutes orthreatened with a gun or knife?","Was your mother or stepmother: Often or very often pushed, grabbed, slapped, or had something thrown at her? or Sometimes, often, or very often kicked, bitten, hit with a fist, or hit with something hard? or Ever repeatedly hit at least a few minutes orthreatened with a gun or knife?"
 Wash and brush their hair,
 Wash and dry body,
 Waxy flexibility,
@@ -3667,7 +3667,7 @@ k,
 k frequency,
 mMRC Dyspnea Scale,
 pH,
-pH &lt;7.35,
+pH &lt;7.35,pH <7.35
 pH <7.0,
 pHa,
 s,
