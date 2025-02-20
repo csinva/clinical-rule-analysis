@@ -2,11 +2,11 @@
 <p>
   <img src="https://img.shields.io/badge/license-mit-blue.svg">
   <img src="https://img.shields.io/badge/python-3.9--3.11-blue">
-  <img src="https://img.shields.io/badge/numpy-<2.0-blue">
+  <img src="https://img.shields.io/badge/numpy-<2.0-darkgreen">
 </p>
 
 Code for analyzing clinical decision rules and supporting the analysis underlying a systematic review on bias in CDIs (<a href="https://www.medrxiv.org/content/10.1101/2025.02.12.25320965v1">Obra et al. 2025</a>) <br/>
-<img align="center" width=40% src="https://csinva.io/clinical-rule-analysis/results/mdcalc_fig2.svg?sanitize=True&kill_cache=1"> </img>
+<img align="center" width=100% src="https://csinva.io/clinical-rule-analysis/results/mdcalc_fig2.svg?sanitize=True&kill_cache=1"> </img>
 
 
 ### Abstract
